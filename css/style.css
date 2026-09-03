@@ -195,81 +195,56 @@ section { position: relative; }
 .btn-outline:hover { background: var(--navy-800); color: var(--white); }
 .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-/* ---------- Bandeau supérieur (médaille + téléphones) ---------- */
-.topbar {
-  background: var(--navy-900);
-  color: var(--shell-100);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.topbar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-2xs) var(--space-xl);
-  padding-block: 7px;
-  font-size: 0.78rem;
-  text-align: center;
-}
-.topbar-medal {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--gold-300);
-}
-.topbar-medal svg { width: 15px; height: 15px; flex-shrink: 0; }
-.topbar-phones { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; justify-content: center; }
-.topbar-phones a {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 600;
-  color: var(--shell-100);
-  transition: color 0.25s var(--ease);
-}
-.topbar-phones a:hover { color: var(--gold-300); }
-.topbar-phones svg { width: 14px; height: 14px; }
-
 /* ---------- Header ---------- */
 .site-header {
   position: fixed;
   inset-inline: 0;
   top: 0;
   z-index: 100;
-  padding-block: var(--space-sm);
-  transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease), padding 0.35s var(--ease);
-}
-.site-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
+  transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 .site-header.is-scrolled {
   background: rgba(251, 248, 241, 0.92);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-sm);
-  padding-block: var(--space-2xs);
 }
-.brand {
+
+/* Ligne 1 : logo majestueux centré */
+.header-brand-row {
   display: flex;
   align-items: center;
-  gap: var(--space-2xs);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--white);
-  transition: color 0.35s var(--ease);
+  justify-content: center;
+  padding-block: var(--space-md) var(--space-sm);
+  transition: padding-block 0.35s var(--ease);
 }
-.site-header.is-scrolled .brand { color: var(--navy-900); }
-.brand img { height: 46px; width: auto; transition: height 0.35s var(--ease); }
-.site-header.is-scrolled .brand img { height: 38px; }
-.brand .logo-color { display: none; }
-.site-header.is-scrolled .brand .logo-white { display: none; }
-.site-header.is-scrolled .brand .logo-color { display: block; }
+.site-header.is-scrolled .header-brand-row { padding-block: var(--space-2xs); }
+.brand-center {
+  display: inline-flex;
+  align-items: center;
+}
+.brand-center img { height: 92px; width: auto; transition: height 0.35s var(--ease); }
+.site-header.is-scrolled .brand-center img { height: 56px; }
+.brand-center .logo-color { display: none; }
+.site-header.is-scrolled .brand-center .logo-white { display: none; }
+.site-header.is-scrolled .brand-center .logo-color { display: block; }
+@media (max-width: 640px) {
+  .brand-center img { height: 68px; }
+  .site-header.is-scrolled .brand-center img { height: 46px; }
+}
 
+/* Ligne 2 : navigation centrée, actions à droite */
+.header-nav-row {
+  border-top: 1px solid rgba(255,255,255,0.16);
+  padding-block: var(--space-sm);
+  transition: padding-block 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.site-header.is-scrolled .header-nav-row { border-top-color: var(--line-soft); padding-block: var(--space-2xs); }
+.nav-row-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .main-nav ul {
   display: flex;
   align-items: center;
@@ -297,7 +272,15 @@ section { position: relative; }
 .main-nav a:hover::after,
 .main-nav a:focus-visible::after { transform: scaleX(1); }
 
-.header-actions { display: flex; align-items: center; gap: var(--space-sm); }
+.header-actions {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
 .header-actions .btn-primary { padding: 0.7rem 1.4rem; font-size: 0.88rem; }
 
 .nav-toggle {

@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=10">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -23,53 +23,39 @@
 
 <!-- ============ EN-TÊTE ============ -->
 <header class="site-header" id="site-header">
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span class="topbar-medal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg>
-        Médaille d'Or — Concours Général Agricole Paris 2019
-      </span>
-      <span class="topbar-phones">
-        <a href="tel:+33661737423">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          06 61 73 74 23
-        </a>
-        <a href="tel:+33782457353">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          07 82 45 73 53
-        </a>
-      </span>
-    </div>
-  </div>
-  <div class="container">
-    <a href="index.html#accueil" class="brand">
+  <div class="container header-brand-row">
+    <a href="index.html#accueil" class="brand-center">
       <img class="logo-white" src="img/logo-blanc.png" alt="Huîtres &amp; Coquillages Le Guennec">
       <img class="logo-color" src="img/logo.png" alt="Huîtres &amp; Coquillages Le Guennec">
     </a>
+  </div>
 
-    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
-      <button class="nav-toggle nav-close" id="nav-close" aria-label="Fermer le menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <ul>
-        <li><a href="histoire.html" aria-current="page">Notre Histoire</a></li>
-        <li><a href="index.html#produits">Nos Produits</a></li>
-        <li><a href="index.html#marches">Nos Marchés</a></li>
-        <li><a href="index.html#reseaux">Réseaux</a></li>
-        <li><a href="index.html#evenements">Événements</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="header-nav-row">
+    <div class="container nav-row-inner">
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <button class="nav-toggle nav-close" id="nav-close" aria-label="Fermer le menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <ul>
+          <li><a href="histoire.html" aria-current="page">Notre Histoire</a></li>
+          <li><a href="index.html#produits">Nos Produits</a></li>
+          <li><a href="index.html#marches">Nos Marchés</a></li>
+          <li><a href="index.html#reseaux">Réseaux</a></li>
+          <li><a href="index.html#evenements">Événements</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-    <div class="header-actions">
-      <a href="tel:+33661737423" class="btn btn-primary header-cta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span>Appeler / Commander</span>
-      </a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+      <div class="header-actions">
+        <a href="tel:+33661737423" class="btn btn-primary header-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Appeler / Commander</span>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
     </div>
   </div>
 </header>
@@ -375,7 +361,7 @@
           <a href="https://www.facebook.com/p/Huitres-et-coquillages-Le-guennec-Frederic-100067875047305/" target="_blank" rel="noopener" aria-label="Notre page Facebook">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
-          <a href="https://www.instagram.com/huitres_leguennec/" target="_blank" rel="noopener" aria-label="Notre page Instagram">
+          <a href="https://www.instagram.com/huitresetcoquillagesleguennec/" target="_blank" rel="noopener" aria-label="Notre page Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
           </a>
         </div>
@@ -410,6 +396,6 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
 </button>
 
-<script src="js/main.js?v=9"></script>
+<script src="js/main.js?v=10"></script>
 </body>
 </html>

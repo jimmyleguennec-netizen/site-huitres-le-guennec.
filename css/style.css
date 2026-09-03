@@ -1049,7 +1049,8 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   gap: var(--space-xl);
 }
 @media (min-width: 980px) {
-  .marches-layout { grid-template-columns: 1fr 1.15fr; }
+  .marches-layout { grid-template-columns: 1fr 1.15fr; align-items: start; }
+  #marche-map { position: sticky; top: calc(var(--space-lg) + 90px); }
 }
 #marche-map {
   width: 100%;

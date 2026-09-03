@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link rel="stylesheet" href="css/style.css?v=8">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -423,32 +423,28 @@
       </div>
 
       <div class="marches-layout reveal">
-        <div id="marche-map" role="application" aria-label="Carte des marchés Le Guennec en Bretagne">
-          <div class="map-fallback">Chargement de la carte des marchés…</div>
-        </div>
-
         <div class="marche-schedule">
-          <div class="marche-photocard is-new" data-day="4">
+          <div class="marche-photocard is-new" data-day="4" data-market-id="cracH">
             <img src="img/marche-nuit.jpg" alt="Étal Huîtres et Coquillages Le Guennec installé de nuit, sous les lumières du marché">
             <div class="marche-photocard-content">
               <div class="day-chip">Jeu.</div>
               <div>
                 <h4>Marché de Crac'h <span class="new-flag">Nouveau — Juin 2026</span></h4>
-                <p>7h – 13h</p>
+                <p>7h – 13h — Place de l'Église</p>
               </div>
             </div>
           </div>
-          <div class="marche-photocard" data-day="5">
+          <div class="marche-photocard" data-day="5" data-market-id="ploermel">
             <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec sur la place du marché de Ploërmel, en journée">
             <div class="marche-photocard-content">
               <div class="day-chip">Ven.</div>
               <div>
                 <h4>Marché de Ploërmel</h4>
-                <p>7h – 13h</p>
+                <p>7h – 13h — Place du Tribunal</p>
               </div>
             </div>
           </div>
-          <div class="marche-photocard" data-day="6">
+          <div class="marche-photocard" data-day="6" data-market-id="rennes">
             <img src="img/marche-rennes.jpg" alt="Étal Huîtres et Coquillages Le Guennec de nuit à Rennes, près du marché des Lices">
             <div class="marche-photocard-content">
               <div class="day-chip">Sam.</div>
@@ -458,26 +454,30 @@
               </div>
             </div>
           </div>
-          <div class="marche-photocard" data-day="0">
+          <div class="marche-photocard" data-day="0" data-market-id="pluneret">
             <img src="img/marche-etal.jpg" alt="Étal Huîtres et Coquillages Le Guennec, coquillages et crustacés du jour">
             <div class="marche-photocard-content">
               <div class="day-chip">Dim.</div>
               <div>
                 <h4>Marché de Pluneret</h4>
-                <p>7h – 13h</p>
+                <p>7h – 13h — Place de l'Église</p>
               </div>
             </div>
           </div>
-          <div class="marche-photocard" data-day="0">
+          <div class="marche-photocard" data-day="0" data-market-id="saintave">
             <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec, vente directe producteur">
             <div class="marche-photocard-content">
               <div class="day-chip">Dim.</div>
               <div>
                 <h4>Marché de Saint-Avé</h4>
-                <p>7h – 13h</p>
+                <p>7h – 13h — Place de l'Église</p>
               </div>
             </div>
           </div>
+        </div>
+
+        <div id="marche-map" role="application" aria-label="Carte des marchés Le Guennec en Bretagne — cliquez une carte à gauche pour la centrer">
+          <div class="map-fallback">Chargement de la carte des marchés…</div>
         </div>
       </div>
     </div>
@@ -879,6 +879,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=7"></script>
+<script src="js/main.js?v=8"></script>
 </body>
 </html>

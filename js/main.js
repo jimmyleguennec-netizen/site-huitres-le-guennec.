@@ -69,11 +69,11 @@
 
   /* ---------- Carte des marchés (Leaflet) ---------- */
   var marches = [
-    { nom: "Marché de Crac'h", jour: "Jeudi", horaire: "7h – 13h", lat: 47.6014, lng: -2.9528, nouveau: true, note: "Nouveauté juin 2026" },
-    { nom: "Marché de Ploërmel", jour: "Vendredi", horaire: "7h – 13h", lat: 47.9333, lng: -2.4000 },
-    { nom: "Marché de Rennes — Place des Lices", jour: "Samedi", horaire: "7h – 13h", lat: 48.1119, lng: -1.6832 },
-    { nom: "Marché de Pluneret", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6497, lng: -2.9308 },
-    { nom: "Marché de Saint-Avé", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6733, lng: -2.7594 }
+    { id: "cracH", nom: "Marché de Crac'h", jour: "Jeudi", horaire: "7h – 13h", lat: 47.6181, lng: -3.0012, nouveau: true, note: "Nouveauté juin 2026 — Place de l'Église" },
+    { id: "ploermel", nom: "Marché de Ploërmel", jour: "Vendredi", horaire: "7h – 13h", lat: 47.9322, lng: -2.3975, note: "Place du Tribunal, 56800 Ploërmel" },
+    { id: "rennes", nom: "Marché de Rennes — Place des Lices", jour: "Samedi", horaire: "7h – 13h", lat: 48.1125, lng: -1.6836, note: "Place des Lices, 35000 Rennes" },
+    { id: "pluneret", nom: "Marché de Pluneret", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6742, lng: -2.9568, note: "Place de l'Église" },
+    { id: "saintave", nom: "Marché de Saint-Avé", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6883, lng: -2.7339, note: "Place de l'Église" }
   ];
 
   function pinIcon(isNew) {
@@ -91,7 +91,7 @@
 
   function initMap(elId, points, zoomLevel) {
     var el = document.getElementById(elId);
-    if (!el || typeof L === "undefined") return;
+    if (!el || typeof L === "undefined") return null;
     el.innerHTML = "";
 
     var bounds = L.latLngBounds(points.map(function (p) { return [p.lat, p.lng]; }));
@@ -105,6 +105,7 @@
       maxZoom: 19
     }).addTo(map);
 
+    var markersById = {};
     points.forEach(function (p) {
       var marker = L.marker([p.lat, p.lng], { icon: pinIcon(p.nouveau) }).addTo(map);
       marker.bindPopup(
@@ -112,17 +113,35 @@
         p.jour + " — " + p.horaire +
         (p.note ? "<br><em>" + p.note + "</em>" : "")
       );
+      if (p.id) markersById[p.id] = marker;
     });
 
     map.on("focus", function () { map.scrollWheelZoom.enable(); });
     map.on("blur", function () { map.scrollWheelZoom.disable(); });
+
+    return { map: map, markersById: markersById };
   }
 
+  var marcheMapInstance = null;
   if (document.getElementById("marche-map")) {
-    initMap("marche-map", marches);
+    marcheMapInstance = initMap("marche-map", marches);
   }
   if (document.getElementById("contact-map")) {
-    initMap("contact-map", [{ nom: "Chantier Le Guennec", jour: "", horaire: "64 Hameau de Kersolard, Crac'h", lat: 47.6014, lng: -2.9528 }]);
+    initMap("contact-map", [{ nom: "Chantier Le Guennec", jour: "", horaire: "64 Hameau de Kersolard, 56950 Crac'h", lat: 47.6067, lng: -2.9818 }]);
+  }
+
+  /* ---------- Cartes marché ↔ carte Leaflet (flyTo) ---------- */
+  if (marcheMapInstance) {
+    document.querySelectorAll(".marche-photocard[data-market-id]").forEach(function (card) {
+      card.addEventListener("click", function () {
+        var id = card.getAttribute("data-market-id");
+        var marker = marcheMapInstance.markersById[id];
+        if (!marker) return;
+        marcheMapInstance.map.flyTo(marker.getLatLng(), 13, { duration: 0.9 });
+        marker.openPopup();
+      });
+      card.style.cursor = "pointer";
+    });
   }
 
   /* ---------- Retour en haut ---------- */

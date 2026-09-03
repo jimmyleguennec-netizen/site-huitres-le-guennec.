@@ -734,9 +734,10 @@ section { position: relative; }
   transition: opacity 0.25s var(--ease);
 }
 .archive-card:hover::after, .archive-card:focus-visible::after { opacity: 1; }
-.archive-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
-.archive-card:hover img { transform: scale(1.06); }
-.archive-card.is-document img { object-fit: contain; background: var(--ink-900); }
+.archive-card img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); transition: transform 0.6s var(--ease); }
+.archive-card:hover img { transform: scale(1.18); }
+.archive-card.is-document img { object-fit: contain; background: var(--ink-900); transform: none; }
+.archive-card.is-document:hover img { transform: none; }
 .archive-card figcaption {
   position: absolute;
   inset: auto 0 0 0;
@@ -943,43 +944,70 @@ section { position: relative; }
 .calibre-block h3 { margin-bottom: var(--space-xs); }
 .calibre-block > p { color: var(--ink-600); margin-bottom: var(--space-lg); }
 
-.calibre-visual-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+.calibrage-title {
+  font-family: "Dancing Script", var(--font-display), cursive;
+  font-weight: 700;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  text-align: center;
+  color: var(--navy-900);
+  margin-bottom: var(--space-2xs);
 }
-.calibre-visual-card {
+
+/* ---- Schéma des calibres : anneaux concentriques (desktop) ---- */
+.calibrage-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 680 / 760;
+  margin: var(--space-xl) auto;
+  display: none;
+}
+@media (min-width: 820px) { .calibrage-diagram { display: block; } }
+.calibrage-rings { position: absolute; inset: 0; width: 100%; height: 100%; }
+.calibrage-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.7rem;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+.calibrage-label strong { display: block; font-family: var(--font-display); font-size: 0.95rem; color: var(--navy-900); }
+.calibrage-label span { display: block; font-size: 0.72rem; color: var(--ink-600); line-height: 1.3; }
+
+/* ---- Liste repliée (mobile) ---- */
+.calibrage-list-mobile {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-2xs);
-  padding: var(--space-lg) var(--space-sm);
-  background: var(--cream-100);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--line-soft);
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  gap: var(--space-sm);
+  max-width: 420px;
+  margin: var(--space-xl) auto;
 }
-.calibre-visual-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
-.calibre-visual-card strong { font-family: var(--font-display); font-size: 1.05rem; color: var(--navy-900); margin-top: var(--space-2xs); }
-.calibre-dot {
-  width: var(--dot-size, 50px);
-  height: var(--dot-size, 50px);
-  border-radius: 50%;
+@media (min-width: 820px) { .calibrage-list-mobile { display: none; } }
+.calibrage-list-mobile li {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--cream-100);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+}
+.calibrage-list-mobile strong { font-family: var(--font-display); font-size: 1rem; color: var(--navy-900); flex-shrink: 0; }
+.calibrage-list-mobile span:last-child { font-size: 0.85rem; color: var(--ink-600); }
+.calibrage-mobile-dot {
+  width: var(--dot-size, 30px);
+  height: var(--dot-size, 30px);
+  border-radius: 50%;
   background: radial-gradient(circle at 32% 28%, var(--gold-300), var(--gold-600) 72%);
-  color: var(--navy-900);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.92rem;
-  box-shadow: inset 0 -4px 8px rgba(18,48,63,0.18), var(--shadow-sm);
+  box-shadow: inset 0 -3px 6px rgba(18,48,63,0.18);
   flex-shrink: 0;
 }
-.calibre-dot.is-largest { background: radial-gradient(circle at 32% 28%, var(--gold-300), var(--navy-700) 78%); color: var(--white); }
-.calibre-tip { font-size: 0.85rem; color: var(--ink-600); line-height: 1.4; }
+.calibrage-mobile-dot.is-largest { background: radial-gradient(circle at 32% 28%, var(--gold-300), var(--navy-700) 78%); }
+
 .calibre-table-wrap { overflow-x: auto; }
 table.calibre-table {
   width: 100%;
@@ -1034,7 +1062,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 @media (max-width: 640px) { #marche-map { height: 340px; } }
 #marche-map .leaflet-tile-pane,
 #contact-map .leaflet-tile-pane {
-  filter: sepia(28%) saturate(115%) hue-rotate(-6deg) brightness(1.02);
+  filter: grayscale(45%) sepia(12%) saturate(108%) brightness(1.04);
 }
 #marche-map .leaflet-bar a, #contact-map .leaflet-bar a { color: var(--navy-800); }
 
@@ -1057,11 +1085,14 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   border-radius: var(--radius-md);
   overflow: hidden;
   min-height: 132px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
   isolation: isolate;
 }
-.marche-photocard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.marche-photocard:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 38px rgba(0,0,0,0.22);
+}
 .marche-photocard img {
   position: absolute;
   inset: 0;
@@ -1151,15 +1182,15 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .map-pin {
   width: 34px; height: 34px;
   display: flex; align-items: center; justify-content: center;
-  background: var(--navy-900);
+  background: var(--gold-600);
   border: 2px solid var(--white);
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
   box-shadow: var(--shadow-sm);
 }
-.map-pin.is-new { background: var(--gold-600); }
-.map-pin svg { width: 16px; height: 16px; color: var(--white); transform: rotate(45deg); }
-.map-pin.is-new svg { color: var(--navy-900); }
+.map-pin.is-new { background: var(--navy-900); }
+.map-pin svg { width: 16px; height: 16px; color: var(--navy-900); transform: rotate(45deg); }
+.map-pin.is-new svg { color: var(--gold-400, var(--gold-300)); }
 
 /* ---------- Réseaux sociaux (grille reels) ---------- */
 .reels-grid {

@@ -69,7 +69,6 @@
 
   /* ---------- Carte des marchés (Leaflet) ---------- */
   var marches = [
-    { nom: "Chantier de Crac'h", jour: "Lundi – Jeudi", horaire: "8h30 – 18h", lat: 47.6014, lng: -2.9528, note: "64 Hameau de Kersolard" },
     { nom: "Marché de Crac'h", jour: "Jeudi", horaire: "7h – 13h", lat: 47.6014, lng: -2.9528, nouveau: true, note: "Nouveauté juin 2026" },
     { nom: "Marché de Ploërmel", jour: "Vendredi", horaire: "7h – 13h", lat: 47.9333, lng: -2.4000 },
     { nom: "Marché de Rennes — Place des Lices", jour: "Samedi", horaire: "7h – 13h", lat: 48.1119, lng: -1.6832 },
@@ -101,9 +100,9 @@
       zoomControl: true
     }).fitBounds(bounds, { padding: [36, 36] });
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      maxZoom: 18
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19
     }).addTo(map);
 
     points.forEach(function (p) {

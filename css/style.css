@@ -1801,3 +1801,107 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ============================================================
+   Refonte mobile (<=768px) : header épuré, menu, hero
+   ============================================================ */
+.hero-mobile-logo { display: none; }
+.nav-call-item { display: none; }
+
+@media (max-width: 768px) {
+
+  /* ---- 1. Header mobile : fond clair fixe, logo à gauche, burger à droite ---- */
+  .site-header {
+    display: flex;
+    align-items: center;
+    background: var(--cream-050);
+    border-bottom: 1px solid var(--line-soft);
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  .site-header.is-scrolled {
+    background: var(--cream-050);
+    box-shadow: var(--shadow-sm);
+  }
+  .site-header .header-brand-row {
+    width: auto;
+    max-width: none;
+    flex: 0 0 auto;
+    margin-inline: 0;
+    padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
+    justify-content: flex-start;
+  }
+  .site-header .header-nav-row {
+    width: auto;
+    max-width: none;
+    flex: 1 1 auto;
+    margin-inline: 0;
+    padding-block: 0;
+    border-top: none;
+  }
+  .site-header.is-scrolled .header-nav-row { border-top: none; padding-block: 0; }
+  .nav-row-inner { width: 100%; max-width: none; margin-inline: 0; justify-content: flex-end; }
+  .brand-center img,
+  .site-header.is-scrolled .brand-center img { height: 42px !important; }
+  .brand-center .logo-white { display: none; }
+  .brand-center .logo-color { display: block; }
+  .header-actions { position: static; transform: none; }
+  .header-actions .header-cta { display: none; }
+  .site-header .nav-toggle svg { color: var(--navy-900); }
+
+  /* ---- 2. Menu déplié : fond blanc épuré, liens alignés à gauche ---- */
+  .main-nav {
+    background: var(--cream-050);
+    align-items: flex-start;
+    padding: calc(var(--space-2xl) + 20px) var(--space-xl) var(--space-xl);
+  }
+  .main-nav ul { align-items: flex-start; text-align: left; width: 100%; }
+  .main-nav a {
+    color: var(--navy-900);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .nav-close {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+  }
+  .nav-close svg { color: var(--navy-900); }
+  .nav-call-item {
+    display: block;
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--line-soft);
+    width: 100%;
+  }
+  .nav-call-item a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    background: var(--gold-500);
+    color: var(--navy-900) !important;
+    font-weight: 700;
+    padding: 0.8rem 1.4rem;
+    border-radius: var(--radius-full, 999px);
+  }
+  .nav-call-item a::after { display: none; }
+
+  /* ---- 3. Hero mobile : grand logo centré + typo manuscrite ---- */
+  .hero-text-block { text-align: center; margin-inline: auto; max-width: 420px; }
+  .hero-mobile-logo {
+    display: block;
+    width: 58vw;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto var(--space-md);
+  }
+  .hero .eyebrow { display: none; }
+  .hero h1 {
+    font-family: "Dancing Script", var(--font-display), cursive;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    line-height: 1.25;
+  }
+  .hero-ctas { justify-content: center; }
+  .hero-ctas .btn { flex: 1 1 auto; max-width: 300px; justify-content: center; }
+}

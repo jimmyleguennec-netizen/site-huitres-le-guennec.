@@ -702,25 +702,26 @@ section { position: relative; }
   gap: var(--space-md);
   margin-top: var(--space-lg);
 }
-.press-logo {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.02rem;
-  letter-spacing: 0.03em;
-  color: var(--shell-100);
-  opacity: 0.68;
+.press-logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2xs) var(--space-sm);
+  height: 52px;
+  box-shadow: var(--shadow-sm);
+}
+.press-logo-chip img {
+  height: 100%;
+  max-height: 32px;
+  width: auto;
+  display: block;
   filter: grayscale(100%);
-  transition: opacity 0.25s var(--ease);
-  white-space: nowrap;
+  opacity: 0.75;
+  transition: filter 0.3s var(--ease), opacity 0.3s var(--ease);
 }
-.press-logo em { font-style: italic; opacity: 0.75; font-family: var(--font-body); font-size: 0.85em; }
-.press-logo:hover { opacity: 1; }
-.press-logo-sep {
-  width: 4px; height: 4px;
-  border-radius: 50%;
-  background: var(--shell-100);
-  opacity: 0.4;
-}
+.press-logo-chip:hover img { filter: grayscale(0%); opacity: 1; }
 
 /* ---------- Page "Presse & Média" : articles style gazette ---------- */
 .gazette-section { padding-block: var(--space-2xl); }

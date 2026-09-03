@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=11">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -40,7 +40,8 @@
         <ul>
           <li><a href="histoire.html">Notre Histoire</a></li>
           <li><a href="#produits">Nos Produits</a></li>
-          <li><a href="#marches">Nos Marchés</a></li>
+          <li><a href="points-de-vente.html">Points de Vente</a></li>
+          <li><a href="presse.html">Presse</a></li>
           <li><a href="#reseaux">Réseaux</a></li>
           <li><a href="#evenements">Événements</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -74,7 +75,7 @@
         <h1 class="reveal">Huîtres de Bretagne Sud, vendues en direct depuis 1930</h1>
         <p class="tagline reveal">La qualité plutôt que la quantité, depuis quatre générations — un lien direct avec nos clients, sur les marchés.</p>
         <div class="hero-ctas reveal">
-          <a href="#marches" class="btn btn-primary">
+          <a href="points-de-vente.html" class="btn btn-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Trouver nos marchés
           </a>
@@ -402,69 +403,50 @@
   <!-- ============ NOS MARCHÉS ============ -->
   <section id="marches" class="section-pad bg-white">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Vente directe</p>
+      <div class="section-head center reveal" style="margin-inline:auto;">
+        <p class="eyebrow" style="justify-content:center;">Vente directe</p>
         <h2>Nos marchés en Bretagne Sud</h2>
-        <p>Présents toute l'année, tous nos marchés se tiennent le matin de 7h à 13h. Retrouvez-nous en direct, sans intermédiaire — ou au chantier de Crac'h en semaine.</p>
+        <p>Présents toute l'année, tous nos marchés se tiennent le matin de 7h à 13h. Retrouvez-nous en direct, sans intermédiaire.</p>
       </div>
 
-      <div class="marches-layout reveal">
-        <div class="marche-schedule">
-          <div class="marche-photocard is-new" data-day="4" data-market-id="cracH">
-            <img src="img/marche-nuit.jpg" alt="Étal Huîtres et Coquillages Le Guennec installé de nuit, sous les lumières du marché">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Jeu.</div>
-              <div>
-                <h4>Marché de Crac'h <span class="new-flag">Nouveau — Juin 2026</span></h4>
-                <p>7h – 13h — Place de l'Église</p>
-              </div>
-            </div>
-          </div>
-          <div class="marche-photocard" data-day="5" data-market-id="ploermel">
-            <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec sur la place du marché de Ploërmel, en journée">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Ven.</div>
-              <div>
-                <h4>Marché de Ploërmel</h4>
-                <p>7h – 13h — Place du Tribunal</p>
-              </div>
-            </div>
-          </div>
-          <div class="marche-photocard" data-day="6" data-market-id="rennes">
-            <img src="img/marche-rennes.jpg" alt="Étal Huîtres et Coquillages Le Guennec de nuit à Rennes, près du marché des Lices">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Sam.</div>
-              <div>
-                <h4>Marché de Rennes — Place des Lices</h4>
-                <p>7h – 13h</p>
-              </div>
-            </div>
-          </div>
-          <div class="marche-photocard" data-day="0" data-market-id="pluneret">
-            <img src="img/marche-etal.jpg" alt="Étal Huîtres et Coquillages Le Guennec, coquillages et crustacés du jour">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Dim.</div>
-              <div>
-                <h4>Marché de Pluneret</h4>
-                <p>7h – 13h — Place de l'Église</p>
-              </div>
-            </div>
-          </div>
-          <div class="marche-photocard" data-day="0" data-market-id="saintave">
-            <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec, vente directe producteur">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Dim.</div>
-              <div>
-                <h4>Marché de Saint-Avé</h4>
-                <p>7h – 13h — Place de l'Église</p>
-              </div>
+      <div class="marche-teaser-row reveal">
+        <div class="marche-photocard is-new" data-day="4">
+          <img src="img/marche-nuit.jpg" alt="Étal Huîtres et Coquillages Le Guennec installé de nuit, sous les lumières du marché">
+          <div class="marche-photocard-content">
+            <div class="day-chip">Jeu.</div>
+            <div>
+              <h4>Crac'h <span class="new-flag">Nouveau</span></h4>
+              <p>7h – 13h</p>
             </div>
           </div>
         </div>
+        <div class="marche-photocard" data-day="5">
+          <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec sur la place du marché de Ploërmel, en journée">
+          <div class="marche-photocard-content">
+            <div class="day-chip">Ven.</div>
+            <div>
+              <h4>Ploërmel</h4>
+              <p>7h – 13h</p>
+            </div>
+          </div>
+        </div>
+        <div class="marche-photocard" data-day="6">
+          <img src="img/marche-rennes.jpg" alt="Étal Huîtres et Coquillages Le Guennec de nuit à Rennes, près du marché des Lices">
+          <div class="marche-photocard-content">
+            <div class="day-chip">Sam.</div>
+            <div>
+              <h4>Rennes</h4>
+              <p>7h – 13h</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <div id="marche-map" role="application" aria-label="Carte des marchés Le Guennec en Bretagne — cliquez une carte à gauche pour la centrer">
-          <div class="map-fallback">Chargement de la carte des marchés…</div>
-        </div>
+      <div class="section-cta reveal">
+        <a href="points-de-vente.html" class="btn btn-outline">
+          Voir tous nos points de vente &amp; la carte interactive
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -839,8 +821,8 @@
           <li><strong>Chantier de Crac'h</strong></li>
           <li>Lun. – Jeu. : 08h30 – 18h00</li>
           <li>Ven. – Dim. : 07h00 – 13h00</li>
-          <li style="margin-top:var(--space-xs);"><a href="#marches">Crac'h (jeu.) · Ploërmel (ven.)</a></li>
-          <li><a href="#marches">Rennes (sam.) · Pluneret &amp; Saint-Avé (dim.)</a></li>
+          <li style="margin-top:var(--space-xs);"><a href="points-de-vente.html">Crac'h (jeu.) · Ploërmel (ven.)</a></li>
+          <li><a href="points-de-vente.html">Rennes (sam.) · Pluneret &amp; Saint-Avé (dim.)</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -866,6 +848,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=10"></script>
+<script src="js/main.js?v=11"></script>
 </body>
 </html>

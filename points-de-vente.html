@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nos Points de Vente — Huîtres &amp; Coquillages Le Guennec</title>
+<meta name="description" content="Retrouvez Huîtres &amp; Coquillages Le Guennec sur les marchés de Crac'h, Ploërmel, Rennes, Pluneret et Saint-Avé, ou directement à notre chantier de Crac'h. Carte interactive et horaires.">
+<meta property="og:title" content="Nos Points de Vente — Huîtres &amp; Coquillages Le Guennec">
+<meta property="og:description" content="Vente directe producteur sur les marchés de Bretagne Sud et à notre chantier de Crac'h.">
+<meta property="og:image" content="https://huitresleguennec.netlify.app/img/marche-jour.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://huitresleguennec.netlify.app/points-de-vente.html">
+<link rel="canonical" href="https://huitresleguennec.netlify.app/points-de-vente.html">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="css/style.css?v=11">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<!-- ============ EN-TÊTE ============ -->
+<header class="site-header" id="site-header">
+  <div class="container header-brand-row">
+    <a href="index.html#accueil" class="brand-center">
+      <img class="logo-white" src="img/logo-blanc.png" alt="Huîtres &amp; Coquillages Le Guennec">
+      <img class="logo-color" src="img/logo.png" alt="Huîtres &amp; Coquillages Le Guennec">
+    </a>
+  </div>
+
+  <div class="header-nav-row">
+    <div class="container nav-row-inner">
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <button class="nav-toggle nav-close" id="nav-close" aria-label="Fermer le menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <ul>
+          <li><a href="histoire.html">Notre Histoire</a></li>
+          <li><a href="index.html#produits">Nos Produits</a></li>
+          <li><a href="points-de-vente.html" aria-current="page">Points de Vente</a></li>
+          <li><a href="presse.html">Presse</a></li>
+          <li><a href="index.html#reseaux">Réseaux</a></li>
+          <li><a href="index.html#evenements">Événements</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+33661737423" class="btn btn-primary header-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Appeler / Commander</span>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO STAND DE MARCHÉ ============ -->
+  <section class="pdv-hero">
+    <div class="container pdv-hero-text">
+      <p class="eyebrow" style="justify-content:center;">Vente directe producteur</p>
+      <h1>Nos points de vente</h1>
+      <p>Retrouvez-nous sur les marchés de Bretagne Sud, ou directement à notre chantier de Crac&apos;h.</p>
+    </div>
+    <div class="pdv-hero-stand">
+      <img src="img/marche-jour.jpg" alt="Étal Huîtres &amp; Coquillages Le Guennec sur un marché de Bretagne Sud">
+    </div>
+  </section>
+
+  <!-- ============ CARTE + LISTE ============ -->
+  <section class="section-pad bg-cream pdv-main">
+    <div class="container">
+      <h2 class="calibrage-title" style="text-align:center;">Nos points de vente d&apos;huîtres direct producteur</h2>
+      <p style="text-align:center; color:var(--ink-600); max-width:60ch; margin:0 auto var(--space-2xl);">Cliquez sur un point de vente dans la liste pour le retrouver sur la carte.</p>
+
+      <div class="pdv-layout reveal">
+        <div id="marche-map" role="application" aria-label="Carte des points de vente Le Guennec en Bretagne Sud">
+          <div class="map-fallback">Chargement de la carte…</div>
+        </div>
+
+        <div class="marche-schedule">
+          <div class="marche-photocard" data-market-id="chantier">
+            <img src="img/bassin-purification.jpg" alt="Chantier ostréicole Le Guennec à Crac'h, tri et stockage">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Lun.–Jeu.</div>
+              <div>
+                <h4>Chantier de Crac&apos;h</h4>
+                <p>8h30 – 18h00 — 64 Hameau de Kersolard</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard is-new" data-day="4" data-market-id="cracH">
+            <img src="img/marche-nuit.jpg" alt="Étal Huîtres et Coquillages Le Guennec installé de nuit, sous les lumières du marché">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Jeu.</div>
+              <div>
+                <h4>Marché de Crac&apos;h <span class="new-flag">Nouveau — Juin 2026</span></h4>
+                <p>7h – 13h — Place de l&apos;Église</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard" data-day="5" data-market-id="ploermel">
+            <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec sur la place du marché de Ploërmel, en journée">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Ven.</div>
+              <div>
+                <h4>Marché de Ploërmel</h4>
+                <p>7h – 13h — Place du Tribunal</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard" data-day="6" data-market-id="rennes">
+            <img src="img/marche-rennes.jpg" alt="Étal Huîtres et Coquillages Le Guennec de nuit à Rennes, près du marché des Lices">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Sam.</div>
+              <div>
+                <h4>Marché de Rennes — Place des Lices</h4>
+                <p>7h – 13h</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard" data-day="0" data-market-id="pluneret">
+            <img src="img/marche-etal.jpg" alt="Étal Huîtres et Coquillages Le Guennec, coquillages et crustacés du jour">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Dim.</div>
+              <div>
+                <h4>Marché de Pluneret</h4>
+                <p>7h – 13h — Place de l&apos;Église</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard" data-day="0" data-market-id="saintave">
+            <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec, vente directe producteur">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Dim.</div>
+              <div>
+                <h4>Marché de Saint-Avé</h4>
+                <p>7h – 13h — Place de l&apos;Église</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hours-box reveal" style="margin-top:var(--space-2xl);">
+        <div class="hours-box-info">
+          <p class="eyebrow" style="margin-bottom:var(--space-2xs);">Vente au chantier</p>
+          <h4>64 Hameau de Kersolard, 56950 Crac&apos;h</h4>
+          <ul class="hours-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span><strong>Lundi au Jeudi</strong> — 08h30 à 18h00</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span><strong>Vendredi au Dimanche</strong> — 07h00 à 13h00, sur nos marchés</span>
+            </li>
+          </ul>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=64+Hameau+de+Kersolard%2C+56950+Crac%27h" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Itinéraire GPS (Google Maps)
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PIED DE PAGE ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="img/logo-blanc.png" alt="Huîtres &amp; Coquillages Le Guennec">
+        <p>Ostréiculteurs à Crac'h, Bretagne Sud, depuis quatre générations. Vente directe producteur, sur les marchés.</p>
+        <p class="footer-rating">
+          <span aria-hidden="true">⭐</span> Note Google Business : <strong>4.5 / 5</strong>
+        </p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/p/Huitres-et-coquillages-Le-guennec-Frederic-100067875047305/" target="_blank" rel="noopener" aria-label="Notre page Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/huitresetcoquillagesleguennec/" target="_blank" rel="noopener" aria-label="Notre page Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Horaires &amp; marchés</h5>
+        <ul>
+          <li><strong>Chantier de Crac'h</strong></li>
+          <li>Lun. – Jeu. : 08h30 – 18h00</li>
+          <li>Ven. – Dim. : 07h00 – 13h00</li>
+          <li style="margin-top:var(--space-xs);"><a href="points-de-vente.html">Voir tous nos points de vente</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact direct</h5>
+        <ul>
+          <li>64 Hameau de Kersolard, 56950 Crac'h</li>
+          <li><a href="tel:+33661737423">📞 Frédéric — 06 61 73 74 23</a></li>
+          <li><a href="tel:+33782457353">📞 Jimmy — 07 82 45 73 53</a></li>
+          <li style="margin-top:var(--space-xs);"><a href="index.html#contact">Nous trouver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Huîtres &amp; Coquillages Le Guennec — SARL, Crac'h</span>
+      <span>Vente directe producteur — sans vente en ligne</span>
+    </div>
+  </div>
+</footer>
+
+<button type="button" id="back-to-top" class="back-to-top" aria-label="Retour en haut de la page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/main.js?v=11"></script>
+</body>
+</html>

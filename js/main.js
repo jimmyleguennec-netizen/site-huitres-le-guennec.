@@ -69,6 +69,7 @@
 
   /* ---------- Carte des marchés (Leaflet) ---------- */
   var marches = [
+    { id: "chantier", nom: "Chantier de Crac'h", jour: "Lundi – Jeudi", horaire: "8h30 – 18h00", lat: 47.6067, lng: -2.9818, note: "64 Hameau de Kersolard, 56950 Crac'h", isChantier: true },
     { id: "cracH", nom: "Marché de Crac'h", jour: "Jeudi", horaire: "7h – 13h", lat: 47.6181, lng: -3.0012, nouveau: true, note: "Nouveauté juin 2026 — Place de l'Église" },
     { id: "ploermel", nom: "Marché de Ploërmel", jour: "Vendredi", horaire: "7h – 13h", lat: 47.9322, lng: -2.3975, note: "Place du Tribunal, 56800 Ploërmel" },
     { id: "rennes", nom: "Marché de Rennes — Place des Lices", jour: "Samedi", horaire: "7h – 13h", lat: 48.1125, lng: -1.6836, note: "Place des Lices, 35000 Rennes" },
@@ -76,13 +77,14 @@
     { id: "saintave", nom: "Marché de Saint-Avé", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6883, lng: -2.7339, note: "Place de l'Église" }
   ];
 
-  function pinIcon(isNew) {
+  function pinIcon(isNew, isChantier) {
+    var iconSvg = isChantier
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>';
+    var cls = (isNew ? " is-new" : "") + (isChantier ? " is-chantier" : "");
     return L.divIcon({
       className: "",
-      html:
-        '<span class="map-pin' + (isNew ? " is-new" : "") + '">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>' +
-        "</span>",
+      html: '<span class="map-pin' + cls + '">' + iconSvg + "</span>",
       iconSize: [34, 34],
       iconAnchor: [17, 32],
       popupAnchor: [0, -30]
@@ -107,7 +109,7 @@
 
     var markersById = {};
     points.forEach(function (p) {
-      var marker = L.marker([p.lat, p.lng], { icon: pinIcon(p.nouveau) }).addTo(map);
+      var marker = L.marker([p.lat, p.lng], { icon: pinIcon(p.nouveau, p.isChantier) }).addTo(map);
       marker.bindPopup(
         "<strong>" + p.nom + "</strong><br>" +
         p.jour + " — " + p.horaire +

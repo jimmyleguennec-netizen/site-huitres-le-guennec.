@@ -177,6 +177,33 @@
     });
   }
 
+  /* ---------- Marché du jour / à venir ---------- */
+  var dayCards = document.querySelectorAll(".marche-photocard[data-day]");
+  if (dayCards.length) {
+    var today = new Date().getDay();
+    var distances = Array.prototype.map.call(dayCards, function (card) {
+      var d = parseInt(card.getAttribute("data-day"), 10);
+      return (d - today + 7) % 7;
+    });
+    var minDistance = Math.min.apply(null, distances);
+    dayCards.forEach(function (card, i) {
+      var h4 = card.querySelector("h4");
+      if (distances[i] === 0) {
+        card.classList.add("is-today");
+        var todayFlag = document.createElement("span");
+        todayFlag.className = "today-flag";
+        todayFlag.textContent = "Aujourd'hui";
+        h4.appendChild(todayFlag);
+      } else if (minDistance > 0 && distances[i] === minDistance) {
+        var nextFlag = document.createElement("span");
+        nextFlag.className = "today-flag";
+        nextFlag.style.animation = "none";
+        nextFlag.textContent = "Prochain marché";
+        h4.appendChild(nextFlag);
+      }
+    });
+  }
+
   /* ---------- FAQ : un seul panneau ouvert à la fois ---------- */
   var faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach(function (item) {

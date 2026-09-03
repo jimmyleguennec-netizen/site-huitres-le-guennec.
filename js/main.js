@@ -69,7 +69,7 @@
 
   /* ---------- Carte des marchés (Leaflet) ---------- */
   var marches = [
-    { id: "chantier", nom: "Chantier de Crac'h", jour: "Lundi – Jeudi", horaire: "8h30 – 18h00", lat: 47.6067, lng: -2.9818, note: "64 Hameau de Kersolard, 56950 Crac'h", isChantier: true },
+    { id: "chantier", nom: "Chantier de Crac'h", jour: "Lundi – Jeudi", horaire: "8h30 – 18h00", lat: 47.600882594086414, lng: -3.0213585232685882, note: "64 Hameau de Kersolard, 56950 Crac'h", isChantier: true },
     { id: "cracH", nom: "Marché de Crac'h", jour: "Jeudi", horaire: "7h – 13h", lat: 47.6181, lng: -3.0012, nouveau: true, note: "Nouveauté juin 2026 — Place de l'Église" },
     { id: "ploermel", nom: "Marché de Ploërmel", jour: "Vendredi", horaire: "7h – 13h", lat: 47.9322, lng: -2.3975, note: "Place du Tribunal, 56800 Ploërmel" },
     { id: "rennes", nom: "Marché de Rennes — Place des Lices", jour: "Samedi", horaire: "7h – 13h", lat: 48.1125, lng: -1.6836, note: "Place des Lices, 35000 Rennes" },
@@ -129,7 +129,7 @@
     marcheMapInstance = initMap("marche-map", marches);
   }
   if (document.getElementById("contact-map")) {
-    initMap("contact-map", [{ nom: "Chantier Le Guennec", jour: "", horaire: "64 Hameau de Kersolard, 56950 Crac'h", lat: 47.6067, lng: -2.9818 }]);
+    initMap("contact-map", [{ nom: "Chantier Le Guennec", jour: "", horaire: "64 Hameau de Kersolard, 56950 Crac'h", lat: 47.600882594086414, lng: -3.0213585232685882, isChantier: true }]);
   }
 
   /* ---------- Cartes marché ↔ carte Leaflet (flyTo) ---------- */

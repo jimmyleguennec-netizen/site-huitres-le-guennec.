@@ -222,14 +222,14 @@ section { position: relative; }
   display: inline-flex;
   align-items: center;
 }
-.brand-center img { height: 92px; width: auto; transition: height 0.35s var(--ease); }
-.site-header.is-scrolled .brand-center img { height: 56px; }
+.brand-center img { height: 112px; width: auto; transition: height 0.35s var(--ease); }
+.site-header.is-scrolled .brand-center img { height: 62px; }
 .brand-center .logo-color { display: none; }
 .site-header.is-scrolled .brand-center .logo-white { display: none; }
 .site-header.is-scrolled .brand-center .logo-color { display: block; }
 @media (max-width: 640px) {
-  .brand-center img { height: 68px; }
-  .site-header.is-scrolled .brand-center img { height: 46px; }
+  .brand-center img { height: 82px; }
+  .site-header.is-scrolled .brand-center img { height: 50px; }
 }
 
 /* Ligne 2 : navigation centrée, actions à droite */
@@ -360,7 +360,7 @@ section { position: relative; }
 .hero-inner {
   position: relative;
   z-index: 1;
-  padding-block: calc(var(--space-3xl) + 5rem) var(--space-2xl);
+  padding-block: calc(var(--space-3xl) + 6.5rem) var(--space-2xl);
   width: 100%;
 }
 .hero-text-block {
@@ -642,7 +642,7 @@ section { position: relative; }
 /* ---------- Page "Nos Points de Vente" ---------- */
 .pdv-hero {
   position: relative;
-  padding-top: calc(var(--space-3xl) + 6rem);
+  padding-top: calc(var(--space-3xl) + 7.5rem);
   padding-bottom: 120px;
   text-align: center;
   overflow: hidden;
@@ -777,7 +777,7 @@ section { position: relative; }
 
 /* ---------- Page "Notre Histoire" : en-tête ---------- */
 .page-hero {
-  padding-block: calc(var(--space-3xl) + 4rem) var(--space-xl);
+  padding-block: calc(var(--space-3xl) + 5.5rem) var(--space-xl);
   background: var(--navy-900);
   color: var(--shell-100);
   text-align: center;

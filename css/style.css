@@ -1738,7 +1738,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .site-footer {
   position: relative;
   background-image:
-    linear-gradient(rgba(13, 24, 38, 0.88), rgba(13, 24, 38, 0.94)),
+    linear-gradient(rgba(19, 36, 55, 0.45), rgba(19, 36, 55, 0.65)),
     url('../img/footer-banner-parcs.jpg');
   background-size: cover;
   background-position: center 40%;

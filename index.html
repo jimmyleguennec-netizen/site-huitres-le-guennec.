@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huîtres &amp; Coquillages Le Guennec — Ostréiculteurs à Crac'h, Bretagne Sud</title>
+<meta name="description" content="Producteur d'huîtres et coquillages depuis 4 générations à Crac'h, Bretagne Sud. Médaille d'Or 2019, casier australien, vente directe sur les marchés de Ploërmel, Rennes, Pluneret, Saint-Avé et Crac'h.">
+<meta property="og:title" content="Huîtres &amp; Coquillages Le Guennec">
+<meta property="og:description" content="Ostréiculteurs à Crac'h, Bretagne Sud — depuis 4 générations. Médaille d'Or 2019. Vente directe producteur sur les marchés.">
+<meta property="og:image" content="https://huitresleguennec.netlify.app/img/hero.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://huitresleguennec.netlify.app/">
+<link rel="canonical" href="https://huitresleguennec.netlify.app/">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="css/style.css?v=3">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<!-- ============ EN-TÊTE ============ -->
+<header class="site-header" id="site-header">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span class="topbar-medal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg>
+        Médaille d'Or — Concours Général Agricole Paris 2019
+      </span>
+      <span class="topbar-phones">
+        <a href="tel:+33661737423">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          06 61 73 74 23
+        </a>
+        <a href="tel:+33782457353">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          07 82 45 73 53
+        </a>
+      </span>
+    </div>
+  </div>
+  <div class="container">
+    <a href="#accueil" class="brand">
+      <img class="logo-white" src="img/logo-blanc.png" alt="Huîtres &amp; Coquillages Le Guennec">
+      <img class="logo-color" src="img/logo.png" alt="Huîtres &amp; Coquillages Le Guennec">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <button class="nav-toggle nav-close" id="nav-close" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <ul>
+        <li><a href="histoire.html">Notre Histoire</a></li>
+        <li><a href="#produits">Nos Produits</a></li>
+        <li><a href="#marches">Nos Marchés</a></li>
+        <li><a href="#reseaux">Réseaux</a></li>
+        <li><a href="#evenements">Événements</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="tel:+33661737423" class="btn btn-primary header-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Appeler / Commander</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="accueil">
+    <div class="hero-media">
+      <img src="img/hero.jpg" alt="Coucher de soleil depuis le chaland ostréicole Le Guennec, au large de la Bretagne Sud" fetchpriority="high">
+    </div>
+    <div class="hero-inner container">
+      <div class="hero-badge-row reveal">
+        <span class="hero-badge"><span aria-hidden="true">🌊</span> 100% Produit Breton</span>
+        <span class="hero-badge"><span aria-hidden="true">🥇</span> Médaille d'Or 2019</span>
+        <span class="hero-badge"><span aria-hidden="true">🚜</span> Vente Directe Producteur</span>
+      </div>
+      <h1 class="reveal">Huîtres &amp; Coquillages<br>Le Guennec</h1>
+      <p class="tagline reveal">Ostréiculteurs à Crac'h, en Bretagne Sud, depuis quatre générations. La qualité plutôt que la quantité, et un lien direct avec nos clients sur les marchés.</p>
+      <div class="hero-ctas reveal">
+        <a href="#marches" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Trouver nos marchés
+        </a>
+        <a href="tel:+33661737423" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Nous contacter / Appeler
+        </a>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Découvrir</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- ============ BANDEAU ATOUTS ============ -->
+  <div class="highlights-strip">
+    <div class="container">
+      <ul>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3-2 6-2 9 0s6 2 9 0"/><path d="M12 3v11"/><path d="M8 7l4-4 4 4"/></svg>
+          4 générations, depuis 1930
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg>
+          Médaille d'Or — Salon de l'Agriculture 2019
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Huître spéciale en casier australien
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+          7 hectares de parcs ostréicoles
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ NOTRE HISTOIRE ============ -->
+  <section id="histoire" class="section-pad bg-cream">
+    <div class="container">
+      <div class="histoire-grid">
+        <div class="histoire-media reveal">
+          <img src="img/savoir-faire.jpg" alt="Comparaison entre une huître plate et une huître creuse Le Guennec, fraîchement sorties de l'eau">
+          <div class="badge-medaille">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg>
+            <span>Médaille d'Or 2019</span>
+          </div>
+        </div>
+        <div class="histoire-text histoire-teaser">
+          <p class="eyebrow">Notre histoire</p>
+          <h2>Une entreprise familiale, quatre générations d'ostréiculteurs</h2>
+          <p>SARL Huîtres &amp; Coquillages Le Guennec est une entreprise familiale basée à Crac'h, en Bretagne Sud. Depuis quatre générations et 1930, nous perpétuons la tradition ostréicole avec passion, dans le respect du cycle naturel des coquillages et de la mer.</p>
+          <blockquote class="pull-quote">
+            « Je suis passionné par mes produits, je ne cultive pas de grosses quantités, mais je privilégie la qualité. »
+            <cite>— Frédéric Le Guennec</cite>
+          </blockquote>
+          <a href="histoire.html" class="btn btn-outline">
+            Découvrir notre histoire complète
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SITES DE PRODUCTION ============ -->
+  <section id="production" class="section-pad bg-white">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Notre savoir-faire</p>
+        <h2>Nos sites de production</h2>
+        <p>Nos huîtres creuses sont élevées en pleine mer, sur deux sites ostréicoles de Bretagne Sud, puis triées et affinées dans notre chantier de Crac'h.</p>
+      </div>
+
+      <div class="production-banner reveal">
+        <img src="img/sites-production.jpg" alt="Parcs à huîtres au large, reflets du ciel sur l'eau calme en Bretagne Sud">
+        <div class="production-banner-text">
+          <h3>7 hectares de parcs ostréicoles</h3>
+          <p>Saint-Philibert et Arradon — au cœur de la Baie de Quiberon et du Golfe du Morbihan.</p>
+        </div>
+      </div>
+
+      <div class="site-cards reveal">
+        <div class="site-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 12a7 7 0 0 1 14 0"/><path d="M12 12v9"/><path d="M8 21h8"/></svg>
+          <h4>Baie de Quiberon</h4>
+          <p>Site d'élevage à Saint-Philibert, exposé aux courants du large.</p>
+        </div>
+        <div class="site-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M12 22v-6"/><circle cx="12" cy="12" r="4"/><path d="M4.9 4.9l4.2 4.2"/><path d="M14.9 14.9l4.2 4.2"/><path d="M19.1 4.9l-4.2 4.2"/><path d="M9.1 14.9l-4.2 4.2"/></svg>
+          <h4>Golfe du Morbihan</h4>
+          <p>Second site d'élevage à Arradon, aux eaux abritées et riches.</p>
+        </div>
+        <div class="site-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+          <h4>Chantier de Crac'h</h4>
+          <p>64 Hameau de Kersolard — tri, stockage et préparation des commandes.</p>
+        </div>
+      </div>
+
+      <div class="hours-box reveal">
+        <div class="hours-box-info">
+          <p class="eyebrow" style="margin-bottom:var(--space-2xs);">Vente au chantier</p>
+          <h4>64 Hameau de Kersolard, 56950 Crac'h</h4>
+          <ul class="hours-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span><strong>Lundi au Jeudi</strong> — 08h30 à 18h00</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span><strong>Vendredi au Dimanche</strong> — 07h00 à 13h00, sur nos marchés</span>
+            </li>
+          </ul>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=64+Hameau+de+Kersolard%2C+56950+Crac%27h" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Itinéraire GPS (Google Maps)
+        </a>
+      </div>
+
+      <div class="calibre-block reveal" style="margin-bottom: var(--space-xl);">
+        <h3>Nos méthodes de travail</h3>
+        <ul class="method-list" style="margin-top: var(--space-md);">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21c0-4-6-4-6-9a6 6 0 0 1 12 0"/><path d="M4 21c0-4 6-4 6-9"/></svg> Élevage en mer, sur nos parcs ostréicoles</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Tri, stockage et affinage à Crac'h</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Production spéciale en casier australien pour une huître charnue et régulière</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 19.1l1.4-1.4"/><path d="M17.7 6.3l1.4-1.4"/></svg> Respect des saisons, de la fraîcheur et de la qualité des eaux</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M2 7l10-4 10 4-10 4z"/></svg> Préparation soignée des commandes, pour les marchés ou à la demande</li>
+        </ul>
+      </div>
+
+      <div class="tools-row reveal">
+        <img src="img/hero-bateau.jpg" alt="Chaland de Frédéric Le Guennec chargé d'huîtres, au coucher du soleil">
+        <div>
+          <p class="eyebrow" style="margin-bottom: var(--space-2xs);">Nos outils de travail</p>
+          <h4>Un chaland et un chantier taillés pour l'artisanat</h4>
+          <ul>
+            <li>1 chaland aluminium de 11 mètres, pour la récolte sur nos parcs</li>
+            <li>1 chantier de production à Crac'h : chaîne de tri, calibrage et bassins de purification</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NOS PRODUITS ============ -->
+  <section id="produits" class="section-pad bg-cream">
+    <div class="container">
+      <div class="section-head center reveal" style="margin-inline:auto;">
+        <p class="eyebrow" style="justify-content:center;">Nos produits</p>
+        <h2>Coquillages et crustacés de Bretagne Sud</h2>
+        <p>Tous nos produits sont vendus exclusivement sur les marchés — de la vente directe du producteur au consommateur, sans intermédiaire.</p>
+      </div>
+
+      <div class="produits-intro reveal">
+        <img src="img/degustation.jpg" alt="Assiette de dégustation d'huîtres Le Guennec avec citron, posée sur un étal d'huîtres">
+        <div>
+          <h3>Le goût de la mer, sans détour</h3>
+          <p style="color:var(--ink-600); margin-top:var(--space-sm);">Autres produits disponibles sur commande, selon les marées, les arrivages et vos demandes particulières. Pour toute question sur la disponibilité du jour, contactez-nous directement.</p>
+          <span class="no-price-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Pas de vente en ligne — tarifs communiqués sur nos marchés
+          </span>
+        </div>
+      </div>
+
+      <div class="produits-grid reveal">
+        <div class="produit-card">
+          <img src="img/produit-creuses.jpg" alt="Huîtres creuses fines Le Guennec, fraîchement triées">
+          <div class="produit-card-overlay">
+            <span class="tag">Notre production</span>
+            <h4>Huîtres creuses fines</h4>
+          </div>
+        </div>
+        <div class="produit-card">
+          <img src="img/produit-plate.jpg" alt="Huître creuse spéciale Le Guennec, élevée en casier australien">
+          <span class="produit-medal">
+            <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg>
+            Or 2019
+          </span>
+          <div class="produit-card-overlay">
+            <span class="tag">Casier australien</span>
+            <h4>Huîtres creuses spéciales</h4>
+            <p style="color:var(--shell-100); font-size:0.8rem; margin-top:4px;">Disponible sur nos marchés &amp; au chantier sur commande</p>
+          </div>
+        </div>
+        <div class="produit-card no-photo">
+          <div class="produit-card-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13c0-5 4-9 8-9s8 4 8 9-4 6-8 6-8-1-8-6z"/><path d="M8 12c1 2 3 3 4 3"/></svg>
+            <h4>Huîtres plates</h4>
+          </div>
+        </div>
+        <div class="produit-card">
+          <img src="img/produit-moules.jpg" alt="Moules ouvertes Le Guennec, chair dorée">
+          <div class="produit-card-overlay">
+            <span class="tag">Selon saison</span>
+            <h4>Moules</h4>
+          </div>
+        </div>
+        <div class="produit-card">
+          <img src="img/produit-coques.jpg" alt="Coques et palourdes récoltées à la main sur l'estran">
+          <div class="produit-card-overlay">
+            <span class="tag">Récolte à la main</span>
+            <h4>Palourdes &amp; coques</h4>
+          </div>
+        </div>
+        <div class="produit-card no-photo">
+          <div class="produit-card-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 3-2 5 0 7 2-2 2-4 0-7z"/><path d="M12 10v11"/><path d="M7 21c0-4 2-6 5-6s5 2 5 6"/></svg>
+            <h4>Bigorneaux &amp; praires</h4>
+          </div>
+        </div>
+        <div class="produit-card">
+          <img src="img/produit-crustaces.jpg" alt="Étrilles et araignées de mer sur l'étal du marché Le Guennec">
+          <div class="produit-card-overlay">
+            <span class="tag">Selon arrivage</span>
+            <h4>Crustacés</h4>
+          </div>
+        </div>
+        <div class="produit-card no-photo">
+          <div class="produit-card-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <h4>Autres produits</h4>
+            <p style="color:var(--shell-100); font-size:0.85rem; margin-top:4px;">Sur commande, selon arrivage</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="calibre-block reveal">
+        <p class="eyebrow">Calibres</p>
+        <h3>Trouvez votre calibre</h3>
+        <p>Du N°5, la plus fine, au N°0, la plus généreuse — un calibre pour chaque envie.</p>
+
+        <div class="calibre-visual-grid">
+          <div class="calibre-visual-card">
+            <span class="calibre-dot" style="--dot-size:38px;">N°5</span>
+            <strong>30 g à 45 g</strong>
+            <p class="calibre-tip">Le calibre le plus fin — parfait pour les becs fins et les enfants.</p>
+          </div>
+          <div class="calibre-visual-card">
+            <span class="calibre-dot" style="--dot-size:48px;">N°4</span>
+            <strong>46 g à 65 g</strong>
+            <p class="calibre-tip">Idéale pour découvrir nos huîtres, tout en délicatesse.</p>
+          </div>
+          <div class="calibre-visual-card">
+            <span class="calibre-dot" style="--dot-size:58px;">N°3</span>
+            <strong>66 g à 85 g</strong>
+            <p class="calibre-tip">Le calibre préféré à l'apéritif — équilibré et facile à déguster.</p>
+          </div>
+          <div class="calibre-visual-card">
+            <span class="calibre-dot" style="--dot-size:68px;">N°2</span>
+            <strong>86 g à 110 g</strong>
+            <p class="calibre-tip">Pour les amateurs de chair généreuse, en toutes occasions.</p>
+          </div>
+          <div class="calibre-visual-card">
+            <span class="calibre-dot" style="--dot-size:78px;">N°1</span>
+            <strong>111 g à 150 g</strong>
+            <p class="calibre-tip">Très grande — pour les grandes occasions et les repas de fête.</p>
+          </div>
+          <div class="calibre-visual-card">
+            <span class="calibre-dot is-largest" style="--dot-size:88px;">N°0</span>
+            <strong>Plus de 150 g</strong>
+            <p class="calibre-tip">Notre calibre le plus généreux — réservé aux grandes tablées.</p>
+          </div>
+        </div>
+
+        <div class="conservation-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <span>Conservation : vos huîtres sont consommables en moyenne 8 à 10 jours après leur sortie de l'eau.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NOS MARCHÉS ============ -->
+  <section id="marches" class="section-pad bg-white">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Vente directe</p>
+        <h2>Nos marchés en Bretagne Sud</h2>
+        <p>Présents toute l'année, tous nos marchés se tiennent le matin de 7h à 13h. Retrouvez-nous en direct, sans intermédiaire — ou au chantier de Crac'h en semaine.</p>
+      </div>
+
+      <div class="marches-layout reveal">
+        <div id="marche-map" role="application" aria-label="Carte des marchés Le Guennec en Bretagne">
+          <div class="map-fallback">Chargement de la carte des marchés…</div>
+        </div>
+
+        <div class="marche-schedule">
+          <div class="marche-photocard is-chantier">
+            <img src="img/bassin-purification.jpg" alt="Chantier ostréicole Le Guennec à Crac'h, tri et stockage">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Lun.–Jeu.</div>
+              <div>
+                <h4>Chantier de Crac'h</h4>
+                <p>64 Hameau de Kersolard — 8h30 à 18h</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard is-new">
+            <img src="img/marche-nuit.jpg" alt="Étal Huîtres et Coquillages Le Guennec installé de nuit, sous les lumières du marché">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Jeu.</div>
+              <div>
+                <h4>Marché de Crac'h <span class="new-flag">Nouveau — Juin 2026</span></h4>
+                <p>7h – 13h</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard">
+            <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec sur la place du marché de Ploërmel, en journée">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Ven.</div>
+              <div>
+                <h4>Marché de Ploërmel</h4>
+                <p>7h – 13h</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard">
+            <img src="img/marche-rennes.jpg" alt="Étal Huîtres et Coquillages Le Guennec de nuit à Rennes, près du marché des Lices">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Sam.</div>
+              <div>
+                <h4>Marché de Rennes — Place des Lices</h4>
+                <p>7h – 13h</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard">
+            <img src="img/marche-etal.jpg" alt="Étal Huîtres et Coquillages Le Guennec, coquillages et crustacés du jour">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Dim.</div>
+              <div>
+                <h4>Marché de Pluneret</h4>
+                <p>7h – 13h</p>
+              </div>
+            </div>
+          </div>
+          <div class="marche-photocard">
+            <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec, vente directe producteur">
+            <div class="marche-photocard-content">
+              <div class="day-chip">Dim.</div>
+              <div>
+                <h4>Marché de Saint-Avé</h4>
+                <p>7h – 13h</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RÉSEAUX SOCIAUX ============ -->
+  <section id="reseaux" class="section-pad bg-cream">
+    <div class="container">
+      <div class="section-head center reveal" style="margin-inline:auto;">
+        <p class="eyebrow" style="justify-content:center;">Le quotidien de nos parcs</p>
+        <h2>Suivez notre quotidien sur les réseaux</h2>
+        <p>Marées, arrivages et coulisses du métier — au jour le jour, sur Facebook et Instagram.</p>
+        <div class="social-row" style="justify-content:center; margin-top:var(--space-md);">
+          <a href="https://www.facebook.com/p/Huitres-et-coquillages-Le-guennec-Frederic-100067875047305/" target="_blank" rel="noopener" aria-label="Notre page Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/huitresetcoquillages_leguennec/" target="_blank" rel="noopener" aria-label="Notre page Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="reels-grid reveal">
+        <a class="reel-card" href="https://www.instagram.com/huitresetcoquillages_leguennec/" target="_blank" rel="noopener">
+          <img src="img/marche-nuit.jpg" alt="Notre étal de nuit — à retrouver sur Instagram" loading="lazy">
+          <span class="reel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span>
+          <span class="reel-caption">Notre étal, à la nuit tombée</span>
+        </a>
+        <a class="reel-card" href="https://www.facebook.com/p/Huitres-et-coquillages-Le-guennec-Frederic-100067875047305/" target="_blank" rel="noopener">
+          <img src="img/produit-creuses.jpg" alt="Nos huîtres du jour — à retrouver sur Facebook" loading="lazy">
+          <span class="reel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+          <span class="reel-caption">Nos huîtres du jour</span>
+        </a>
+        <a class="reel-card" href="https://www.instagram.com/huitresetcoquillages_leguennec/" target="_blank" rel="noopener">
+          <img src="img/hero-bateau.jpg" alt="Le chaland en mer — à retrouver sur Instagram" loading="lazy">
+          <span class="reel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span>
+          <span class="reel-caption">Le chaland, au large</span>
+        </a>
+        <a class="reel-card" href="https://www.facebook.com/p/Huitres-et-coquillages-Le-guennec-Frederic-100067875047305/" target="_blank" rel="noopener">
+          <img src="img/degustation.jpg" alt="Dégustation d'huîtres — à retrouver sur Facebook" loading="lazy">
+          <span class="reel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+          <span class="reel-caption">L'heure de la dégustation</span>
+        </a>
+        <a class="reel-card" href="https://www.instagram.com/huitresetcoquillages_leguennec/" target="_blank" rel="noopener">
+          <img src="img/marche-rennes.jpg" alt="Marché de Rennes — à retrouver sur Instagram" loading="lazy">
+          <span class="reel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span>
+          <span class="reel-caption">Un samedi à Rennes</span>
+        </a>
+        <a class="reel-card" href="https://www.facebook.com/p/Huitres-et-coquillages-Le-guennec-Frederic-100067875047305/" target="_blank" rel="noopener">
+          <img src="img/sites-production.jpg" alt="Nos parcs ostréicoles — à retrouver sur Facebook" loading="lazy">
+          <span class="reel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+          <span class="reel-caption">Nos parcs, à marée basse</span>
+        </a>
+      </div>
+      <p style="margin-top:var(--space-lg); font-size:0.85rem; color:var(--ink-400); text-align:center;">Aperçu de notre univers — cliquez sur une carte pour voir nos dernières publications sur Facebook et Instagram.</p>
+    </div>
+  </section>
+
+  <!-- ============ ÉVÉNEMENTS ============ -->
+  <section id="evenements" class="section-pad evenements-section">
+    <div class="container">
+      <div class="evenements-grid">
+        <div>
+          <div class="section-head reveal" style="margin-bottom:var(--space-md);">
+            <p class="eyebrow">Commandes spéciales</p>
+            <h2>Vos événements, sur mesure</h2>
+            <p>Nous préparons des commandes adaptées à toutes vos occasions.</p>
+          </div>
+          <ul class="event-list reveal">
+            <li class="event-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2 3-2 5 0 7 2-2 2-4 0-7z"/><path d="M12 10v4"/><path d="M6 21c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M2 21h20"/></svg>
+              Mariages
+            </li>
+            <li class="event-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Anniversaires
+            </li>
+            <li class="event-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Fêtes de famille
+            </li>
+            <li class="event-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+              Comités d'entreprise
+            </li>
+            <li class="event-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+              Événements pro. &amp; associatifs
+            </li>
+          </ul>
+        </div>
+
+        <div class="evenements-cta reveal">
+          <h3 style="color:var(--white); margin-bottom:var(--space-sm);">Une commande spéciale ?</h3>
+          <p>Pour toute demande, le plus simple reste de nous appeler directement. Livraison possible sur demande, selon disponibilité et trajet.</p>
+          <div class="call-cards">
+            <a href="tel:+33661737423" class="call-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span><strong>Frédéric Le Guennec</strong><br><span>06 61 73 74 23</span></span>
+            </a>
+            <a href="tel:+33782457353" class="call-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span><strong>Jimmy Le Guennec</strong><br><span>07 82 45 73 53</span></span>
+            </a>
+          </div>
+          <a href="tel:+33661737423" class="btn btn-primary" style="width:100%; justify-content:center;">Appeler pour organiser ma commande</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="section-pad bg-white">
+    <div class="container">
+      <div class="section-head center reveal" style="margin-inline:auto;">
+        <p class="eyebrow" style="justify-content:center;">Questions fréquentes</p>
+        <h2>Vous vous posez des questions ?</h2>
+        <p>Tout ce qu'il faut savoir avant de venir nous voir sur les marchés ou au chantier.</p>
+      </div>
+
+      <div class="faq-list reveal">
+        <details class="faq-item" open>
+          <summary>
+            <span>Où et quand puis-je acheter vos huîtres et coquillages ?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Vous pouvez nous retrouver sur les marchés de Crac'h (jeudi), Ploërmel (vendredi), Rennes – Place des Lices (samedi), Pluneret et Saint-Avé (dimanche), de 7h à 13h. Notre chantier à Crac'h est aussi ouvert du lundi au jeudi, de 8h30 à 18h.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Quels types d'huîtres proposez-vous ?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Nous élevons des huîtres creuses fines ainsi que des huîtres creuses spéciales, élevées en casier australien. Ces dernières ont d'ailleurs remporté la Médaille d'Or au Salon de l'Agriculture 2019 !</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Proposez-vous des commandes pour les événements et réceptions ?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Oui, tout à fait ! Nous préparons vos commandes sur demande pour tous vos événements, fêtes de famille et réceptions. N'hésitez pas à nous contacter à l'avance pour planifier vos plateaux.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Comment puis-je vous contacter pour passer une commande ?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Vous pouvez nous joindre par téléphone au <a href="tel:+33661737423">06 61 73 74 23</a> ou au <a href="tel:+33782457353">07 82 45 73 53</a>. Nous sommes également réactifs sur nos pages Facebook et Instagram.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>D'où viennent vos huîtres ?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Nos huîtres sont élevées avec passion dans le Morbihan, en Baie de Quiberon ainsi que dans le Golfe du Morbihan grâce à notre parc situé à Arradon. Forts de 4 générations de savoir-faire à Crac'h, nous privilégions la qualité en vente directe.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Vos huîtres sont-elles médaillées ou reconnues ?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Absolument ! Nos huîtres creuses spéciales, élevées selon la méthode en casier australien, ont été récompensées par la Médaille d'Or au Salon de l'Agriculture en 2019.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Quels sont les horaires d'ouverture de votre chantier à Crac'h ?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Notre site situé au 64 Hameau de Kersolard à Crac'h est ouvert du lundi au jeudi, de 8h30 à 18h. Du vendredi au dimanche matin, retrouvez-nous sur nos marchés locaux.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Livrez-vous ou vendez-vous en dehors des marchés ?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Nous privilégions la vente directe sur les marchés et à notre chantier de Crac'h. Pour toute commande spéciale ou événement dans le secteur, contactez-nous au <a href="tel:+33661737423">06 61 73 74 23</a> ou au <a href="tel:+33782457353">07 82 45 73 53</a>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="faq-closing reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <p>Toute l'équipe Huîtres et Coquillages Le Guennec vous remercie de votre confiance et de votre fidélité ! Que ce soit sur les marchés ou au chantier, nous sommes toujours heureux de partager avec vous la passion de notre métier et le goût authentique de nos parcs de Quiberon et d'Arradon. À très bientôt, autour d'une douzaine d'huîtres !</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section-pad bg-cream">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Venez à notre rencontre</h2>
+        <p>Sur les marchés, ou directement à notre chantier de Crac'h.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-cards">
+          <div class="contact-card">
+            <span class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <h4>Adresse</h4>
+              <p>64 Hameau de Kersolard, 56950 Crac'h<br>Bretagne Sud, France</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <div>
+              <h4>Téléphone</h4>
+              <p><a href="tel:+33661737423">Frédéric — 06 61 73 74 23</a><br><a href="tel:+33782457353">Jimmy — 07 82 45 73 53</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </span>
+            <div>
+              <h4>Réseaux sociaux</h4>
+              <p>Huîtres &amp; Coquillages Le Guennec — Facebook &amp; Instagram</p>
+              <div class="social-row">
+                <a href="https://www.facebook.com/p/Huitres-et-coquillages-Le-guennec-Frederic-100067875047305/" target="_blank" rel="noopener" aria-label="Notre page Facebook">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/huitresetcoquillages_leguennec/" target="_blank" rel="noopener" aria-label="Notre page Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-proof-card">
+            <div class="stars" aria-hidden="true">⭐ Avis Google Business</div>
+            <p>Retrouvez nos avis clients sur notre fiche Google Business, et suivez notre actualité sur Facebook.</p>
+            <a href="https://www.facebook.com/p/Huitres-et-coquillages-Le-guennec-Frederic-100067875047305/" target="_blank" rel="noopener" class="btn btn-outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Voir la page Facebook
+            </a>
+          </div>
+          <div class="contact-card">
+            <span class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </span>
+            <div>
+              <h4>Nos marchés</h4>
+              <p>Crac'h (jeu.), Ploërmel (ven.), Rennes (sam.), Pluneret &amp; Saint-Avé (dim.) — toujours le matin.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="contact-map"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PIED DE PAGE ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="img/logo-blanc.png" alt="Huîtres &amp; Coquillages Le Guennec">
+        <p>Ostréiculteurs à Crac'h, Bretagne Sud, depuis quatre générations. Vente directe producteur, sur les marchés.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/p/Huitres-et-coquillages-Le-guennec-Frederic-100067875047305/" target="_blank" rel="noopener" aria-label="Notre page Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/huitresetcoquillages_leguennec/" target="_blank" rel="noopener" aria-label="Notre page Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Horaires &amp; marchés</h5>
+        <ul>
+          <li><strong>Chantier de Crac'h</strong></li>
+          <li>Lun. – Jeu. : 08h30 – 18h00</li>
+          <li>Ven. – Dim. : 07h00 – 13h00</li>
+          <li style="margin-top:var(--space-xs);"><a href="#marches">Crac'h (jeu.) · Ploërmel (ven.)</a></li>
+          <li><a href="#marches">Rennes (sam.) · Pluneret &amp; Saint-Avé (dim.)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact direct</h5>
+        <ul>
+          <li>64 Hameau de Kersolard, 56950 Crac'h</li>
+          <li><a href="tel:+33661737423">📞 Frédéric — 06 61 73 74 23</a></li>
+          <li><a href="tel:+33782457353">📞 Jimmy — 07 82 45 73 53</a></li>
+          <li style="margin-top:var(--space-xs);"><a href="histoire.html">Notre Histoire</a></li>
+          <li><a href="#contact">Nous trouver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Huîtres &amp; Coquillages Le Guennec — SARL, Crac'h</span>
+      <span>Vente directe producteur — sans vente en ligne</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/main.js?v=3"></script>
+</body>
+</html>

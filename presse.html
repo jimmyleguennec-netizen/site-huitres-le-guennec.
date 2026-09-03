@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=15">
+<link rel="stylesheet" href="css/style.css?v=16">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -70,6 +70,13 @@
       <p class="eyebrow">Presse &amp; média</p>
       <h1>Ils parlent de nous</h1>
       <p>De la presse locale aux archives familiales — ce que l'on raconte de notre métier d'ostréiculteurs.</p>
+      <div class="press-logos-row" aria-label="Ils parlent de nous dans la presse">
+        <span class="press-logo">Ouest-France</span>
+        <span class="press-logo-sep" aria-hidden="true"></span>
+        <span class="press-logo">Le Ploërmelais <em>· Actu.fr</em></span>
+        <span class="press-logo-sep" aria-hidden="true"></span>
+        <span class="press-logo">Crac'h Flash Infos</span>
+      </div>
       <a href="index.html" class="breadcrumb-back">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
         Retour à l'accueil
@@ -77,79 +84,76 @@
     </div>
   </section>
 
-  <!-- ============ ARTICLES ============ -->
-  <section class="section-pad bg-cream">
+  <!-- ============ ARTICLES : STYLE GAZETTE ============ -->
+  <section class="section-pad bg-cream gazette-section">
     <div class="container">
-      <div class="presse-articles-grid reveal">
 
-        <article class="presse-article-card">
-          <div class="presse-article-media">
-            <img src="img/presse-ploermel.jpg" alt="Frédéric Le Guennec présentant un bac d'huîtres sur son étal au marché de Ploërmel" loading="lazy">
-            <span class="presse-article-badge">Actu.fr — Le Ploërmelais</span>
-          </div>
-          <div class="presse-article-body">
-            <h2>Du côté du marché : Frédéric Le Guennec, l'encyclopédie des fruits de mer</h2>
-            <p class="presse-article-source">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
-              Le Ploërmelais (Actu.fr) — Lise Froger, 2 mai 2019
-            </p>
-            <blockquote>« S'il y a une valeur sûre sur le marché de Ploërmel pour les amateurs de fruits de mer, c'est l'étal de Frédéric Le Guennec. Présent depuis des années, ce passionné partage sa passion du métier et la fraîcheur de ses arrivages. »</blockquote>
-            <a href="https://actu.fr/bretagne/ploermel_56165/du-cote-marche-frederic-guennec-lencyclopedie-fruits-mer_23494667.html" target="_blank" rel="noopener" class="btn btn-outline">
-              Lire l'article complet sur Actu.fr
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-            </a>
-          </div>
-        </article>
+      <!-- Article 1 : Crac'h Flash Infos -->
+      <article class="gazette-article reveal">
+        <div class="gazette-body">
+          <p class="gazette-kicker">Crac'h Flash Infos — Octobre 2021</p>
+          <h2 class="gazette-headline">SARL Huîtres et Coquillages Le Guennec<span>Frédéric Le Guennec — 64 Kersolard, Crac'h</span></h2>
 
-        <article class="presse-article-card">
-          <button type="button" class="presse-article-media presse-article-media-btn" data-lightbox-src="img/archives/archive-0-article-chaland.jpg" data-lightbox-caption="Ouest-France — Lancement du 153e chaland aux chantiers Thesson, présentant le chaland « Twist » de 14 mètres.">
-            <img src="img/archives/archive-0-article-chaland.jpg" alt="Coupure de presse : lancement du chaland Twist aux chantiers Thesson" loading="lazy">
-            <span class="presse-article-badge">Archive historique</span>
-            <span class="zoom-hint">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
-              Agrandir
-            </span>
+          <h3>Installation</h3>
+          <p class="gazette-dropcap">Frédéric s'est installé en 2003 en reprenant l'affaire familiale : il est la 4<sup>e</sup> génération à la tête du chantier.</p>
+
+          <h3>Type d'ostréiculture</h3>
+          <p>Huîtres creuses, coques et palourdes. Le chantier est situé sur la rivière de Crac'h ; l'exploitation possède 7 hectares de parc sur Locmariaquer, Saint-Philibert et Arradon.</p>
+
+          <h3>Ses outils</h3>
+          <p>Un chaland alu de 11 mètres, et un bâtiment de production équipé d'une chaîne de tri, de calibrage et de bassins de purification. Frédéric vend sa production sur les marchés et livre également ses produits aux restaurateurs.</p>
+
+          <h3>Évolution du métier</h3>
+          <p>« J'évolue sur un rythme de croisière qui me va bien. J'assure la production qui convient à ma clientèle et je n'ai pas le souhait de me développer plus », affirme Frédéric.</p>
+
+          <blockquote class="gazette-pullquote">« Je suis passionné par mes produits, je ne cultive pas de grosses quantités, mais je privilégie la qualité. »</blockquote>
+        </div>
+        <div class="gazette-media">
+          <img src="img/presse-frederic-chantier.jpg" alt="Frédéric Le Guennec, bras croisés, au chantier ostréicole au bord de l'eau">
+          <span class="presse-article-badge">Crac'h Flash Infos</span>
+        </div>
+      </article>
+
+      <!-- Article 2 : Le Ploërmelais (Actu.fr) -->
+      <article class="gazette-article reveal">
+        <div class="gazette-media">
+          <img src="img/presse-ploermel.jpg" alt="Frédéric Le Guennec présentant un bac d'huîtres sur son étal au marché de Ploërmel">
+          <span class="presse-article-badge">Actu.fr — Le Ploërmelais</span>
+        </div>
+        <div class="gazette-body">
+          <p class="gazette-kicker">Le Ploërmelais (Actu.fr) — Lise Froger, 2 mai 2019</p>
+          <h2 class="gazette-headline">Du côté du marché<span>Frédéric Le Guennec, l'encyclopédie des fruits de mer</span></h2>
+          <blockquote class="gazette-pullquote gazette-dropcap">« S'il y a une valeur sûre sur le marché de Ploërmel pour les amateurs de fruits de mer, c'est l'étal de Frédéric Le Guennec. Présent depuis des années, ce passionné partage sa passion du métier et la fraîcheur de ses arrivages. »</blockquote>
+          <a href="https://actu.fr/bretagne/ploermel_56165/du-cote-marche-frederic-guennec-lencyclopedie-fruits-mer_23494667.html" target="_blank" rel="noopener" class="btn btn-outline gazette-source-btn">
+            Lire la source sur Actu.fr
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 3 : Archive historique — chaland Twist -->
+      <article class="gazette-article reveal">
+        <div class="gazette-body">
+          <p class="gazette-kicker">Coupure de presse historique — archives familiales</p>
+          <h2 class="gazette-headline">Lancement du chaland « Twist »<span>Aux chantiers Thesson, Belz</span></h2>
+          <p class="gazette-dropcap">Datée de Belz, cette coupure de presse revient sur le lancement du chaland ostréicole « Twist » aux chantiers Thesson : 14 mètres, moteur de 120 CV monté par M. Boursicot, système hydraulique par M. Quéré. Le bateau arborait le drapeau breton et la fleur de lys.</p>
+          <p>Il fut co-armé par MM. Lemouroux et Guennec — un moment marquant pour la famille et la profession, conservé précieusement dans nos archives.</p>
+          <button type="button" class="btn btn-outline gazette-source-btn" data-lightbox-src="img/archives/archive-0-article-chaland.jpg" data-lightbox-caption="Ouest-France — Lancement du 153e chaland aux chantiers Thesson, présentant le chaland « Twist » de 14 mètres.">
+            Voir la coupure de presse
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
           </button>
-          <div class="presse-article-body">
-            <h2>Lancement du chaland « Twist » aux chantiers Thesson</h2>
-            <p class="presse-article-source">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-              Coupure de presse historique — archives familiales
-            </p>
-            <p>Datée de Belz, cette coupure de presse revient sur le lancement du chaland ostréicole « Twist » aux chantiers Thesson : 14 mètres, moteur de 120 CV monté par M. Boursicot, système hydraulique par M. Quéré. Le bateau arborait le drapeau breton et la fleur de lys. Il fut co-armé par MM. Lemouroux et Guennec — un moment marquant pour la famille et la profession, conservé précieusement dans nos archives.</p>
-            <button type="button" class="btn btn-outline" data-lightbox-src="img/archives/archive-0-article-chaland.jpg" data-lightbox-caption="Ouest-France — Lancement du 153e chaland aux chantiers Thesson, présentant le chaland « Twist » de 14 mètres.">
-              Voir la coupure de presse
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
-            </button>
-          </div>
-        </article>
+        </div>
+        <button type="button" class="gazette-media gazette-media-btn" data-lightbox-src="img/archives/archive-0-article-chaland.jpg" data-lightbox-caption="Ouest-France — Lancement du 153e chaland aux chantiers Thesson, présentant le chaland « Twist » de 14 mètres.">
+          <img src="img/archives/archive-0-article-chaland.jpg" alt="Coupure de presse : lancement du chaland Twist aux chantiers Thesson" loading="lazy">
+          <span class="presse-article-badge">Ouest-France</span>
+          <span class="zoom-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+            Agrandir
+          </span>
+        </button>
+      </article>
 
-        <article class="presse-article-card">
-          <button type="button" class="presse-article-media presse-article-media-btn" data-lightbox-src="img/presse-crach-flash-infos.jpg" data-lightbox-caption="Crac'h Flash Infos — portrait de Frédéric Le Guennec, octobre 2021.">
-            <img src="img/presse-crach-flash-infos.jpg" alt="Portrait de Frédéric Le Guennec dans le bulletin municipal Crac'h Flash Infos" loading="lazy">
-            <span class="presse-article-badge">Crac'h Flash Infos</span>
-            <span class="zoom-hint">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
-              Agrandir
-            </span>
-          </button>
-          <div class="presse-article-body">
-            <h2>Portrait de Frédéric Le Guennec, ostréiculteur à Crac'h</h2>
-            <p class="presse-article-source">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
-              Crac'h Flash Infos — bulletin municipal, octobre 2021
-            </p>
-            <p>Ce portrait publié par la mairie de Crac'h retrace l'installation de Frédéric en 2003, à la reprise de l'affaire familiale (4<sup>e</sup> génération), et présente le chantier ostréicole du Hameau de Kersolard. Il y confie : « Je suis passionné par mes produits, je ne cultive pas de grosses quantités, mais je privilégie la qualité. »</p>
-            <button type="button" class="btn btn-outline" data-lightbox-src="img/presse-crach-flash-infos.jpg" data-lightbox-caption="Crac'h Flash Infos — portrait de Frédéric Le Guennec, octobre 2021.">
-              Lire le portrait complet
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
-            </button>
-          </div>
-        </article>
-
-      </div>
-
-      <p style="margin-top:var(--space-2xl); font-size:0.85rem; color:var(--ink-400); text-align:center;">D'autres articles ou mentions presse ? Écrivez-nous, nous serions ravis de les ajouter ici.</p>
+      <p class="gazette-footnote">D'autres articles ou mentions presse ? Écrivez-nous, nous serions ravis de les ajouter ici.</p>
     </div>
   </section>
 
@@ -220,6 +224,6 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
 </button>
 
-<script src="js/main.js?v=15"></script>
+<script src="js/main.js?v=16"></script>
 </body>
 </html>

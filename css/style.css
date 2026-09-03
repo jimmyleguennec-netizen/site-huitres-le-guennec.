@@ -693,40 +693,66 @@ section { position: relative; }
   .pdv-layout #marche-map { position: sticky; top: calc(var(--space-lg) + 90px); }
 }
 
-/* ---------- Page "Presse & Média" ---------- */
-.presse-articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: var(--space-xl);
-  max-width: 1080px;
-  margin-inline: auto;
-}
-.presse-article-card {
+/* ---------- Page "Presse & Média" : bandeau logos presse ---------- */
+.press-logos-row {
   display: flex;
-  flex-direction: column;
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
 }
-.presse-article-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-.presse-article-media {
+.press-logo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.02rem;
+  letter-spacing: 0.03em;
+  color: var(--shell-100);
+  opacity: 0.68;
+  filter: grayscale(100%);
+  transition: opacity 0.25s var(--ease);
+  white-space: nowrap;
+}
+.press-logo em { font-style: italic; opacity: 0.75; font-family: var(--font-body); font-size: 0.85em; }
+.press-logo:hover { opacity: 1; }
+.press-logo-sep {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--shell-100);
+  opacity: 0.4;
+}
+
+/* ---------- Page "Presse & Média" : articles style gazette ---------- */
+.gazette-section { padding-block: var(--space-2xl); }
+.gazette-article {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  padding-block: var(--space-2xl);
+}
+.gazette-article + .gazette-article { border-top: 1px solid var(--line-soft); }
+.gazette-media {
   position: relative;
-  aspect-ratio: 16/10;
-  overflow: hidden;
+  align-self: start;
 }
-.presse-article-media img { width: 100%; height: 100%; object-fit: cover; }
-.presse-article-media-btn {
-  display: block;
+.gazette-media img {
   width: 100%;
-  padding: 0;
-  border: none;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
   background: var(--ink-900);
-  cursor: zoom-in;
 }
-.presse-article-media-btn img { object-fit: contain; }
-.presse-article-badge {
+.gazette-media-btn {
+  border: none;
+  padding: 0;
+  background: none;
+  width: 100%;
+  cursor: zoom-in;
+  display: block;
+}
+.gazette-media .presse-article-badge {
   position: absolute;
   top: var(--space-sm);
   left: var(--space-sm);
@@ -739,7 +765,7 @@ section { position: relative; }
   padding: 0.35rem 0.7rem;
   border-radius: var(--radius-pill);
 }
-.presse-article-media-btn .zoom-hint {
+.gazette-media .zoom-hint {
   position: absolute;
   inset: auto var(--space-sm) var(--space-sm) auto;
   display: inline-flex;
@@ -752,28 +778,88 @@ section { position: relative; }
   font-size: 0.75rem;
   font-weight: 600;
 }
-.presse-article-media-btn .zoom-hint svg { width: 14px; height: 14px; }
-.presse-article-body { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-sm); flex: 1; }
-.presse-article-body h2 { font-size: 1.2rem; color: var(--navy-900); }
-.presse-article-source {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--ink-400);
+.gazette-media .zoom-hint svg { width: 14px; height: 14px; }
+
+.gazette-body { max-width: 62ch; }
+.gazette-kicker {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin-bottom: var(--space-2xs);
 }
-.presse-article-source svg { width: 16px; height: 16px; color: var(--gold-600); flex-shrink: 0; }
-.presse-article-body blockquote {
+.gazette-headline {
+  font-family: var(--font-display);
+  color: var(--navy-900);
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  line-height: 1.2;
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border-bottom: 2px solid var(--navy-900);
+}
+.gazette-headline span {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.62em;
+  color: var(--ink-400);
+  margin-top: var(--space-2xs);
+  letter-spacing: 0.01em;
+}
+.gazette-body h3 {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--navy-800);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-2xs);
+}
+.gazette-body h3:first-of-type { margin-top: 0; }
+.gazette-body p {
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink-700, var(--ink-600));
+  font-size: 1rem;
+  line-height: 1.68;
+  margin-bottom: var(--space-sm);
+}
+.gazette-dropcap::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.2em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.82;
+  padding: 0.04em 0.08em 0 0;
+  color: var(--navy-900);
+}
+.gazette-pullquote {
   font-family: var(--font-display);
   font-style: italic;
   color: var(--navy-800);
-  font-size: 1rem;
-  line-height: 1.55;
-  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin: var(--space-md) 0;
+  padding-left: var(--space-md);
+  border-left: 3px solid var(--gold-500);
 }
-.presse-article-body p:not(.presse-article-source) { color: var(--ink-600); font-size: 0.96rem; }
-.presse-article-body .btn { margin-top: auto; align-self: flex-start; }
+.gazette-source-btn { margin-top: var(--space-sm); }
+.gazette-footnote {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.85rem;
+  color: var(--ink-400);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .gazette-article { grid-template-columns: 1fr; }
+  .gazette-article .gazette-media { order: -1; }
+  .gazette-body { max-width: none; }
+}
 
 /* ---------- Page "Notre Histoire" : en-tête ---------- */
 .page-hero {

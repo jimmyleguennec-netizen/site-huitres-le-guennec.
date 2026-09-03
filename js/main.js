@@ -125,6 +125,23 @@
     initMap("contact-map", [{ nom: "Chantier Le Guennec", jour: "", horaire: "64 Hameau de Kersolard, Crac'h", lat: 47.6014, lng: -2.9528 }]);
   }
 
+  /* ---------- Retour en haut ---------- */
+  var backToTop = document.getElementById("back-to-top");
+  if (backToTop) {
+    function toggleBackToTop() {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("is-visible");
+      } else {
+        backToTop.classList.remove("is-visible");
+      }
+    }
+    toggleBackToTop();
+    window.addEventListener("scroll", toggleBackToTop, { passive: true });
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
   /* ---------- Lightbox (galerie d'archives + coupures de presse) ---------- */
   var lightbox = document.getElementById("lightbox");
   if (lightbox) {

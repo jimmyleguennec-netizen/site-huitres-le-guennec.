@@ -2218,6 +2218,26 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 }
 
 /* ---------- Page "Nos Produits" : liste compacte ---------- */
+.produits-category-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--navy-900);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-lg);
+}
+.produits-category-title:first-child { margin-top: 0; }
+.produits-category-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  background: var(--gold-500);
+  margin: var(--space-sm) auto 0;
+}
 .produits-list { display: flex; flex-direction: column; }
 .produit-row {
   display: flex;

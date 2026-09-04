@@ -1484,7 +1484,10 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 
 /* ---------- Événements ---------- */
 .evenements-section {
-  background: linear-gradient(160deg, var(--navy-900) 0%, var(--navy-700) 100%);
+  background-image: linear-gradient(rgba(13, 24, 38, 0.85), rgba(13, 24, 38, 0.85)), url('../img/evenements-buffet.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--shell-100);
   position: relative;
   overflow: hidden;

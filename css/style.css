@@ -57,7 +57,7 @@
 
 /* ---------- Reset minimal ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -636,7 +636,7 @@ section { position: relative; }
 .presse-source svg { width: 18px; height: 18px; color: var(--gold-600); }
 .presse-quotes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: var(--space-lg);
 }
 .presse-quote {
@@ -965,7 +965,7 @@ section { position: relative; }
 /* ---------- Galerie d'archives ---------- */
 .archives-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));
   gap: var(--space-md);
 }
 .archive-card {
@@ -1040,7 +1040,7 @@ section { position: relative; }
 
 .site-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
   gap: var(--space-md);
   margin-bottom: var(--space-xl);
 }
@@ -1072,7 +1072,7 @@ section { position: relative; }
 
 .method-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: var(--space-sm) var(--space-lg);
 }
 .method-list li {
@@ -1112,7 +1112,7 @@ section { position: relative; }
 .hours-list li { display: flex; align-items: center; gap: var(--space-xs); font-size: 0.96rem; }
 .hours-list svg { width: 20px; height: 20px; color: var(--gold-400, var(--gold-500)); flex-shrink: 0; }
 .hours-box .pdv-chantier-contacts { margin-bottom: var(--space-lg); }
-.hours-box .btn-primary { flex-shrink: 0; white-space: nowrap; }
+.hours-box .btn-primary { flex-shrink: 0; }
 
 .tools-row {
   display: grid;
@@ -1161,7 +1161,7 @@ section { position: relative; }
 
 .produits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
   gap: var(--space-md);
   margin-bottom: var(--space-2xl);
 }
@@ -1373,7 +1373,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 /* ---------- Cartes éditoriales "Nos marchés" (accueil) ---------- */
 .marche-editorial-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: var(--space-lg);
   max-width: 1080px;
   margin: var(--space-xl) auto 0;
@@ -1485,7 +1485,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .resto-section .calibrage-title { color: var(--gold-300); }
 .resto-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
   gap: var(--space-xl);
 }
 .resto-card {
@@ -1556,7 +1556,8 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 }
 .resto-partner-text h3 { color: var(--white); font-size: 1.15rem; margin-bottom: 4px; }
 .resto-partner-text p { color: var(--shell-100); opacity: 0.9; font-size: 0.92rem; }
-.resto-partner-banner .btn-primary { flex-shrink: 0; white-space: nowrap; }
+.resto-partner-banner .btn-primary { flex-shrink: 0; }
+@media (max-width: 480px) { .resto-partner-banner .btn-primary { width: 100%; } }
 .today-flag {
   display: inline-flex;
   align-items: center;
@@ -1613,7 +1614,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 /* ---------- Réseaux sociaux : liens officiels ---------- */
 .social-official-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: var(--space-lg);
   max-width: 900px;
   margin-inline: auto;
@@ -1694,7 +1695,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .evenements-section .section-head p { color: var(--shell-100); }
 .event-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
   gap: var(--space-sm);
   margin-top: var(--space-lg);
 }
@@ -1708,6 +1709,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   border-radius: var(--radius-md);
   font-weight: 600;
   font-size: 0.94rem;
+  min-width: 0;
 }
 .event-chip svg { width: 20px; height: 20px; color: var(--gold-400, var(--gold-500)); flex-shrink: 0; }
 .evenements-cta {
@@ -2213,7 +2215,18 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   gap: var(--space-sm);
 }
 .see-also-logo-big { height: 72px; width: auto; margin-inline: var(--space-md); }
-@media (max-width: 640px) { .see-also-logo-big { height: 56px; margin-inline: var(--space-xs); } }
+@media (max-width: 640px) {
+  .see-also-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-sm); }
+  .see-also-logo-big {
+    grid-column: 1 / -1;
+    order: -1;
+    height: 56px;
+    width: auto;
+    margin: 0 auto var(--space-sm);
+    justify-self: center;
+  }
+  .see-also-pill { width: 100%; justify-content: center; text-align: center; }
+}
 .see-also-pill {
   display: inline-flex;
   align-items: center;
@@ -2302,11 +2315,12 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 }
 .medal-slot svg { width: 16px; height: 16px; }
 .medal-slot-label { font-size: 0.78rem; color: var(--ink-500, var(--ink-600)); font-style: italic; }
-@media (max-width: 480px) {
-  .produit-row { gap: var(--space-sm); }
-  .produit-row-media { flex-basis: 76px; width: 76px; height: 76px; }
-  .produit-row-media.is-icon svg { width: 26px; height: 26px; }
-  .produit-row-body h3 { font-size: 0.95rem; }
+@media (max-width: 560px) {
+  .produit-row { flex-direction: column; align-items: stretch; gap: var(--space-sm); }
+  .produit-row-media { flex-basis: auto; width: 100%; height: 200px; }
+  .produit-row-media.is-icon svg { width: 40px; height: 40px; }
+  .produit-row-body { padding-inline: var(--space-2xs); }
+  .produit-row-body h3 { font-size: 1rem; }
 }
 .produits-note {
   margin-top: var(--space-2xl);
@@ -2421,4 +2435,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   }
   .hero-ctas { justify-content: center; }
   .hero-ctas .btn { flex: 1 1 auto; max-width: 300px; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .btn { white-space: normal; text-align: center; }
 }

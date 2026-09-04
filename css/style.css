@@ -736,7 +736,7 @@ section { position: relative; }
 }
 @media (min-width: 980px) {
   .pdv-layout { grid-template-columns: 1.5fr 1fr; align-items: start; }
-  .pdv-layout #marche-map { position: sticky; top: calc(var(--space-lg) + 90px); }
+  .pdv-layout #marche-map { position: sticky; top: calc(var(--space-lg) + 90px); height: calc(100vh - 160px); min-height: 800px; }
 }
 
 /* ---------- Page "Presse & Média" : hero immersif ---------- */
@@ -1429,6 +1429,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 }
 .marche-day-group { margin-bottom: var(--space-xl); }
 .marche-day-group:last-child { margin-bottom: 0; }
+.marche-day-group .marche-photocard + .marche-photocard { margin-top: var(--space-md); }
 .marche-photocard {
   display: flex;
   flex-wrap: wrap;
@@ -1478,20 +1479,31 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .resto-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--space-lg);
+  gap: var(--space-xl);
 }
 .resto-card {
-  display: block;
-  background: var(--white);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   text-decoration: none;
   color: inherit;
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
-.resto-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.resto-card-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--navy-900); }
+.resto-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+.resto-card-media {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--navy-900);
+  box-shadow: 0 8px 22px rgba(20, 42, 54, 0.18);
+  border: 3px solid var(--white);
+  outline: 1px solid rgba(198, 165, 87, 0.3);
+}
 .resto-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .resto-card-fallback {
   position: absolute;
@@ -1503,12 +1515,13 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   color: var(--gold-300);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   letter-spacing: 0.04em;
 }
-.resto-card-body { padding: var(--space-md) var(--space-lg); }
-.resto-card-body h4 { font-size: 1.05rem; color: var(--navy-900); }
-.resto-card-body p { font-size: 0.86rem; color: var(--ink-600); margin-top: 2px; }
+.resto-card-body { margin-top: var(--space-md); }
+.resto-card-body h4 { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--navy-900); }
+.resto-card-body p { font-size: 0.86rem; color: var(--ink-600); margin-top: 3px; line-height: 1.5; }
+.resto-card-body .resto-type { color: var(--gold-700, var(--gold-600)); font-weight: 600; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.06em; margin-top: 6px; }
 
 .resto-partner-banner {
   display: flex;

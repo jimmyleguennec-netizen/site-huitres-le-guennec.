@@ -7,6 +7,24 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---------- Carte "Où nous trouver aujourd'hui ?" (Hero) ---------- */
+  var heroMarketText = document.getElementById("hero-market-text");
+  if (heroMarketText) {
+    var heroMarketDot = document.getElementById("hero-market-dot");
+    var heroMarketMessages = {
+      0: { text: "Aujourd'hui : Marchés de Pluneret & Saint-Avé (7h–13h)", live: true },
+      1: { text: "Prochain marché : Jeudi à Crac'h (7h–13h)", live: false },
+      2: { text: "Prochain marché : Jeudi à Crac'h (7h–13h)", live: false },
+      3: { text: "Prochain marché : Jeudi à Crac'h (7h–13h)", live: false },
+      4: { text: "Aujourd'hui : Marché de Crac'h (7h–13h)", live: true },
+      5: { text: "Aujourd'hui : Marché de Ploërmel (7h–13h)", live: true },
+      6: { text: "Aujourd'hui : Marché de Rennes — Place des Lices (7h–13h)", live: true }
+    };
+    var todayInfo = heroMarketMessages[new Date().getDay()];
+    heroMarketText.textContent = todayInfo.text;
+    if (heroMarketDot) heroMarketDot.classList.toggle("is-live", todayInfo.live);
+  }
+
   /* ---------- En-tête : fond au scroll ---------- */
   var header = document.getElementById("site-header");
   function onScroll() {

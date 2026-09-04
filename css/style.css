@@ -415,6 +415,76 @@ section { position: relative; }
   .scroll-cue { display: none; }
 }
 
+/* ---------- Carte flottante "Où nous trouver aujourd'hui ?" (Hero) ---------- */
+.hero-market-card {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: var(--space-2xl);
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 300px;
+  background: rgba(13, 24, 38, 0.85);
+  border: 1px solid var(--gold-500);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  color: var(--white);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-lg);
+}
+@media (min-width: 1024px) {
+  .hero-market-card { display: block; }
+}
+.hero-market-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+  margin-bottom: var(--space-sm);
+}
+.hero-market-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold-400, var(--gold-500));
+  box-shadow: 0 0 0 3px rgba(198,165,87,0.28);
+  animation: heroMarketPulse 2.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.hero-market-dot.is-live {
+  background: #5FAE7A;
+  box-shadow: 0 0 0 3px rgba(95,174,122,0.3);
+}
+@keyframes heroMarketPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.hero-market-pin { font-size: 0.95rem; line-height: 1; }
+.hero-market-text {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.4;
+  color: var(--white);
+  margin-bottom: var(--space-md);
+}
+.btn-hero-market {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold-500);
+  color: var(--navy-900) !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-pill, 999px);
+  transition: background 0.25s var(--ease), transform 0.2s var(--ease);
+}
+.btn-hero-market:hover { background: var(--gold-600); transform: translateY(-1px); }
+
 /* ---------- Bande de réassurance (sous le hero) ---------- */
 .reassurance-band {
   background: var(--navy-900);

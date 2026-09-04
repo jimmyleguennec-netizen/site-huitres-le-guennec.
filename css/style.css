@@ -545,10 +545,19 @@ section { position: relative; }
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-xl);
-  align-items: center;
+  align-items: start;
 }
 @media (min-width: 900px) {
-  .histoire-grid { grid-template-columns: 0.95fr 1.05fr; gap: var(--space-2xl); }
+  .histoire-grid {
+    grid-template-columns: 0.95fr 1.05fr;
+    grid-template-areas: "media heading" "media body";
+    row-gap: 0;
+    column-gap: var(--space-2xl);
+    align-items: start;
+  }
+  .histoire-media { grid-area: media; }
+  .histoire-heading { grid-area: heading; }
+  .histoire-text-body { grid-area: body; }
 }
 .histoire-media { position: relative; }
 .histoire-media img {
@@ -558,7 +567,7 @@ section { position: relative; }
   object-fit: cover;
   width: 100%;
 }
-.histoire-text p { color: var(--ink-600); margin-bottom: var(--space-sm); font-size: 1.05rem; }
+.histoire-text-body p { color: var(--ink-600); margin-bottom: var(--space-sm); font-size: 1.05rem; }
 .pull-quote {
   font-family: var(--font-display);
   font-style: italic;
@@ -2337,10 +2346,11 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 
 @media (max-width: 768px) {
 
-  /* ---- 1. Header mobile : fond clair fixe, logo à gauche, burger à droite ---- */
+  /* ---- 1. Header mobile : fond clair fixe, logo centré, burger à droite ---- */
   .site-header {
     display: flex;
     align-items: center;
+    min-height: 116px;
     background: var(--cream-050);
     border-bottom: 1px solid var(--line-soft);
     box-shadow: none;
@@ -2351,15 +2361,18 @@ table.calibre-table tr:last-child td { border-bottom: none; }
     box-shadow: var(--shadow-sm);
   }
   .site-header .header-brand-row {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: auto;
     max-width: none;
-    flex: 0 0 auto;
-    margin-inline: 0;
-    padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
-    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
   }
   .site-header .header-nav-row {
-    width: auto;
+    width: 100%;
     max-width: none;
     flex: 1 1 auto;
     margin-inline: 0;
@@ -2369,12 +2382,15 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   .site-header.is-scrolled .header-nav-row { border-top: none; padding-block: 0; }
   .nav-row-inner { width: 100%; max-width: none; margin-inline: 0; justify-content: flex-end; }
   .brand-center img,
-  .site-header.is-scrolled .brand-center img { height: 80px !important; }
+  .site-header.is-scrolled .brand-center img { height: 100px !important; }
   .brand-center .logo-white { display: none; }
   .brand-center .logo-color { display: block; }
   .header-actions { position: static; transform: none; }
   .header-actions .header-cta { display: none; }
   .site-header .nav-toggle svg { color: var(--navy-900); }
+
+  /* ---- 1bis. Hero de page (pages intérieures) : padding réduit ---- */
+  .page-hero { padding-block: calc(116px + var(--space-md)) var(--space-lg); }
 
   /* ---- 2. Menu déplié : fond blanc épuré, liens alignés à gauche ---- */
   .main-nav {

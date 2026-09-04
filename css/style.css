@@ -2142,6 +2142,13 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   overflow: hidden;
   background: var(--navy-900);
 }
+.step-video-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--navy-900);
+}
+.step-video { width: 100%; height: 100%; max-width: 100%; object-fit: cover; display: block; }
 .step-carousel-track {
   display: flex;
   width: 100%;

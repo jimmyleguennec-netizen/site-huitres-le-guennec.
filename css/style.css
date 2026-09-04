@@ -2093,8 +2093,14 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 
 .steps-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-lg);
+}
+@media (min-width: 640px) {
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 980px) {
+  .steps-grid { grid-template-columns: repeat(3, 1fr); }
 }
 .step-card {
   display: flex;
@@ -2162,18 +2168,23 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   transition: background 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .step-carousel-dot.is-active { background: var(--btn-gold); transform: scale(1.2); }
-.step-card-body { padding: var(--space-lg); }
-.step-number {
-  display: block;
+.step-title {
+  padding: var(--space-md) var(--space-lg) var(--space-sm);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 0.94rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   color: var(--gold-300);
-  letter-spacing: 0.02em;
-  margin-bottom: var(--space-2xs);
+  line-height: 1.4;
 }
-.step-card-body h3 { font-size: 1.08rem; color: var(--white); margin-bottom: var(--space-2xs); }
-.step-card-body p { font-size: 0.9rem; color: var(--shell-100); opacity: 0.85; line-height: 1.5; }
+.step-desc {
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  font-size: 0.9rem;
+  color: var(--shell-100);
+  opacity: 0.85;
+  line-height: 1.55;
+}
 
 /* ---------- "Voir aussi :" — navigation en pilules ---------- */
 .see-also-section { text-align: center; }

@@ -1101,11 +1101,11 @@ section { position: relative; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: linear-gradient(rgba(13, 24, 38, 0.78), rgba(13, 24, 38, 0.78)), url('../img/chantier-bg.jpg');
+  background-image: linear-gradient(rgba(13, 24, 38, 0.45), rgba(13, 24, 38, 0.45)), url('../img/chantier-bg.jpg');
   background-size: cover;
   background-position: center;
 }
-.hours-box-content { max-width: 560px; width: 100%; }
+.hours-box-content { max-width: 560px; width: 100%; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); }
 .hours-box .eyebrow { color: var(--gold-300); }
 .hours-box h4 { color: var(--white); font-size: 1.3rem; margin-bottom: var(--space-md); }
 .hours-list { display: flex; flex-direction: column; gap: var(--space-xs); margin-bottom: var(--space-md); }
@@ -1478,6 +1478,11 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 }
 
 /* ---------- Où déguster nos huîtres : adresses partenaires ---------- */
+.resto-section {
+  background: #0d1826;
+  color: var(--shell-100);
+}
+.resto-section .calibrage-title { color: var(--gold-300); }
 .resto-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -1502,9 +1507,9 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   border-radius: 50%;
   overflow: hidden;
   background: var(--navy-900);
-  box-shadow: 0 8px 22px rgba(20, 42, 54, 0.18);
-  border: 3px solid var(--white);
-  outline: 1px solid rgba(198, 165, 87, 0.3);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  outline: 1px solid rgba(198, 165, 87, 0.4);
 }
 .resto-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .resto-card-fallback {
@@ -1521,9 +1526,9 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   letter-spacing: 0.04em;
 }
 .resto-card-body { margin-top: var(--space-md); }
-.resto-card-body h4 { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--navy-900); }
-.resto-card-body p { font-size: 0.86rem; color: var(--ink-600); margin-top: 3px; line-height: 1.5; }
-.resto-card-body .resto-type { color: var(--gold-700, var(--gold-600)); font-weight: 600; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.06em; margin-top: 6px; }
+.resto-card-body h4 { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--gold-300); }
+.resto-card-body p { font-size: 0.86rem; color: var(--shell-100); opacity: 0.85; margin-top: 3px; line-height: 1.5; }
+.resto-card-body .resto-type { color: var(--gold-400, var(--gold-500)); font-weight: 600; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.06em; margin-top: 6px; opacity: 1; }
 
 .resto-partner-banner {
   display: flex;
@@ -1533,7 +1538,8 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   gap: var(--space-lg);
   margin-top: var(--space-2xl);
   padding: var(--space-lg) var(--space-xl);
-  background: #0d1826;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(198, 165, 87, 0.25);
   border-radius: var(--radius-md);
   color: var(--shell-100);
 }

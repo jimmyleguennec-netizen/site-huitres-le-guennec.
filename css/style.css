@@ -1101,7 +1101,7 @@ section { position: relative; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: linear-gradient(rgba(13, 24, 38, 0.78), rgba(13, 24, 38, 0.78)), url('../img/bassin-purification.jpg');
+  background-image: linear-gradient(rgba(13, 24, 38, 0.78), rgba(13, 24, 38, 0.78)), url('../img/chantier-bg.jpg');
   background-size: cover;
   background-position: center;
 }

@@ -2085,6 +2085,96 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   .js .reveal { opacity: 1; transform: none; }
 }
 
+/* ---------- Étapes du savoir-faire (carrousel par étape) ---------- */
+.savoir-faire-steps { background: #0d1826; color: var(--shell-100); }
+.savoir-faire-steps .section-head .eyebrow { color: var(--gold-300); }
+.savoir-faire-steps .section-head h2 { color: var(--white); }
+.savoir-faire-steps .section-head p { color: var(--shell-100); opacity: 0.85; }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--space-lg);
+}
+.step-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(198, 165, 87, 0.2);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.step-carousel {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--navy-900);
+}
+.step-carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s var(--ease);
+}
+.step-carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+.step-carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.step-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(13, 24, 38, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s var(--ease);
+}
+.step-carousel-arrow:hover { background: var(--btn-gold); border-color: var(--btn-gold); color: var(--navy-900); }
+.step-carousel-arrow svg { width: 16px; height: 16px; }
+.step-carousel-arrow.prev { left: 8px; }
+.step-carousel-arrow.next { right: 8px; }
+.step-carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.step-carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.step-carousel-dot.is-active { background: var(--btn-gold); transform: scale(1.2); }
+.step-card-body { padding: var(--space-lg); }
+.step-number {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--gold-300);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-2xs);
+}
+.step-card-body h3 { font-size: 1.08rem; color: var(--white); margin-bottom: var(--space-2xs); }
+.step-card-body p { font-size: 0.9rem; color: var(--shell-100); opacity: 0.85; line-height: 1.5; }
+
 /* ============================================================
    Refonte mobile (<=768px) : header épuré, menu, hero
    ============================================================ */

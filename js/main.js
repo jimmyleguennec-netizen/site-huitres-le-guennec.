@@ -261,6 +261,38 @@
     });
   }
 
+  /* ---------- Mini-carrousels des étapes du savoir-faire ---------- */
+  document.querySelectorAll(".step-carousel").forEach(function (carousel) {
+    var track = carousel.querySelector(".step-carousel-track");
+    var slides = carousel.querySelectorAll(".step-carousel-slide");
+    var prevBtn = carousel.querySelector(".step-carousel-arrow.prev");
+    var nextBtn = carousel.querySelector(".step-carousel-arrow.next");
+    var dots = carousel.querySelectorAll(".step-carousel-dot");
+    var dotsWrap = carousel.querySelector(".step-carousel-dots");
+    var index = 0;
+
+    if (slides.length <= 1) {
+      if (prevBtn) prevBtn.hidden = true;
+      if (nextBtn) nextBtn.hidden = true;
+      if (dotsWrap) dotsWrap.hidden = true;
+      return;
+    }
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + index * 100 + "%)";
+      dots.forEach(function (dot, di) { dot.classList.toggle("is-active", di === index); });
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", function () { goTo(index - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { goTo(index + 1); });
+    dots.forEach(function (dot, di) {
+      dot.addEventListener("click", function () { goTo(di); });
+    });
+
+    goTo(0);
+  });
+
   /* ---------- FAQ : un seul panneau ouvert à la fois ---------- */
   var faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach(function (item) {

@@ -12,16 +12,16 @@
   if (heroMarketText) {
     var heroMarketDot = document.getElementById("hero-market-dot");
     var heroMarketMessages = {
-      0: { text: "Aujourd'hui : Marchés de Pluneret & Saint-Avé (7h–13h)", live: true },
-      1: { text: "Prochain marché : Jeudi à Crac'h (7h–13h)", live: false },
-      2: { text: "Prochain marché : Jeudi à Crac'h (7h–13h)", live: false },
-      3: { text: "Prochain marché : Jeudi à Crac'h (7h–13h)", live: false },
-      4: { text: "Aujourd'hui : Marché de Crac'h (7h–13h)", live: true },
-      5: { text: "Aujourd'hui : Marché de Ploërmel (7h–13h)", live: true },
-      6: { text: "Aujourd'hui : Marché de Rennes — Place des Lices (7h–13h)", live: true }
+      0: { text: "Marchés de Pluneret & Saint-Avé (7h – 13h)", live: true },
+      1: { text: "Chantier ouvert (08h30 – 18h00)", live: true },
+      2: { text: "Chantier ouvert (08h30 – 18h00)", live: true },
+      3: { text: "Chantier ouvert (08h30 – 18h00)", live: true },
+      4: { text: "Marché de Crac'h (7h – 13h)", live: true },
+      5: { text: "Marché de Ploërmel (7h – 13h)", live: true },
+      6: { text: "Marché de Rennes — Place des Lices (7h – 13h)", live: true }
     };
     var todayInfo = heroMarketMessages[new Date().getDay()];
-    heroMarketText.textContent = todayInfo.text;
+    heroMarketText.textContent = "Aujourd'hui : " + todayInfo.text;
     if (heroMarketDot) heroMarketDot.classList.toggle("is-live", todayInfo.live);
   }
 

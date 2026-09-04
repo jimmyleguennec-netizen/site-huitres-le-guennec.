@@ -2291,6 +2291,16 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   .produit-row-media.is-icon svg { width: 26px; height: 26px; }
   .produit-row-body h3 { font-size: 0.95rem; }
 }
+.produits-note {
+  margin-top: var(--space-2xl);
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--white);
+  border: 1px solid rgba(198, 165, 87, 0.35);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+.produits-note p { color: var(--navy-800); font-size: 0.95rem; line-height: 1.6; }
+.produits-note p + p { margin-top: var(--space-sm); font-weight: 600; }
 
 /* ============================================================
    Refonte mobile (<=768px) : header épuré, menu, hero

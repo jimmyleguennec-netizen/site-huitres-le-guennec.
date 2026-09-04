@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=31">
+<link rel="stylesheet" href="css/style.css?v=33">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -65,40 +65,62 @@
 
 <main id="main">
 
-  <!-- ============ HERO STAND DE MARCHÉ ============ -->
-  <section class="pdv-hero">
-    <div class="container pdv-hero-text">
-      <p class="eyebrow" style="justify-content:center;">Vente directe producteur</p>
+  <!-- ============ EN-TÊTE DE PAGE ============ -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Vente directe producteur</p>
       <h1>Nos points de vente</h1>
       <p>Retrouvez-nous sur les marchés de Bretagne Sud, ou directement à notre chantier de Crac&apos;h.</p>
-    </div>
-    <div class="pdv-hero-stand">
-      <img src="img/marche-jour.jpg" alt="Étal Huîtres &amp; Coquillages Le Guennec sur un marché de Bretagne Sud">
+      <a href="index.html" class="breadcrumb-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        Retour à l'accueil
+      </a>
     </div>
   </section>
 
-  <!-- ============ CARTE + LISTE ============ -->
+  <!-- ============ SECTION 1 : VENTE AU CHANTIER ============ -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="hours-box pdv-chantier-block reveal">
+        <div class="hours-box-info">
+          <p class="eyebrow" style="margin-bottom:var(--space-2xs);">Vente au chantier</p>
+          <h4>64 Hameau de Kersolard, 56950 Crac&apos;h</h4>
+          <ul class="hours-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span><strong>Lundi – Mercredi</strong> : 08h30 – 18h00</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span><strong>Jeudi</strong> : 08h30 – 12h00</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span><strong>Vendredi – Dimanche</strong> : Fermé au chantier (retrouvez-nous sur les marchés)</span>
+            </li>
+          </ul>
+          <p class="access-note">Ouvert sur rendez-vous ou appel préalable.</p>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=64+Hameau+de+Kersolard%2C+56950+Crac%27h" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          📍 Itinéraire Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2 : NOS MARCHÉS ============ -->
   <section class="section-pad bg-cream pdv-main">
     <div class="container">
-      <h2 class="calibrage-title" style="text-align:center;">Nos points de vente d&apos;huîtres direct producteur</h2>
+      <h2 class="calibrage-title" style="text-align:center;">Nos marchés en Bretagne Sud</h2>
       <p style="text-align:center; color:var(--ink-600); max-width:60ch; margin:0 auto var(--space-2xl);">Cliquez sur un point de vente dans la liste pour le retrouver sur la carte.</p>
 
       <div class="pdv-layout reveal">
-        <div id="marche-map" role="application" aria-label="Carte des points de vente Le Guennec en Bretagne Sud">
+        <div id="marche-map" role="application" aria-label="Carte des marchés Le Guennec en Bretagne Sud">
           <div class="map-fallback">Chargement de la carte…</div>
         </div>
 
         <div class="marche-schedule">
-          <div class="marche-photocard" data-market-id="chantier">
-            <img src="img/bassin-purification.jpg" alt="Chantier ostréicole Le Guennec à Crac'h, tri et stockage">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Lun.–Jeu.</div>
-              <div>
-                <h4>Chantier de Crac&apos;h</h4>
-                <p>8h30 – 18h00 — 64 Hameau de Kersolard</p>
-              </div>
-            </div>
-          </div>
           <div class="marche-photocard is-new" data-day="4" data-market-id="cracH">
             <img src="img/marche-nuit.jpg" alt="Étal Huîtres et Coquillages Le Guennec installé de nuit, sous les lumières du marché">
             <div class="marche-photocard-content">
@@ -134,43 +156,12 @@
             <div class="marche-photocard-content">
               <div class="day-chip">Dim.</div>
               <div>
-                <h4>Marché de Pluneret</h4>
-                <p>7h – 13h — Place de l&apos;Église</p>
-              </div>
-            </div>
-          </div>
-          <div class="marche-photocard" data-day="0" data-market-id="saintave">
-            <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec, vente directe producteur">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Dim.</div>
-              <div>
-                <h4>Marché de Saint-Avé</h4>
+                <h4>Pluneret / Saint-Avé</h4>
                 <p>7h – 13h — Place de l&apos;Église</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="hours-box reveal" style="margin-top:var(--space-2xl);">
-        <div class="hours-box-info">
-          <p class="eyebrow" style="margin-bottom:var(--space-2xs);">Vente au chantier</p>
-          <h4>64 Hameau de Kersolard, 56950 Crac&apos;h</h4>
-          <ul class="hours-list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              <span><strong>Lundi au Jeudi</strong> — 08h30 à 18h00</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              <span><strong>Vendredi au Dimanche</strong> — 07h00 à 13h00, sur nos marchés</span>
-            </li>
-          </ul>
-        </div>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=64+Hameau+de+Kersolard%2C+56950+Crac%27h" target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Itinéraire GPS (Google Maps)
-        </a>
       </div>
     </div>
   </section>
@@ -226,6 +217,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=31"></script>
+<script src="js/main.js?v=33"></script>
 </body>
 </html>

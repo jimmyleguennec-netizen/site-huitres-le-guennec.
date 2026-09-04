@@ -341,7 +341,7 @@ section { position: relative; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 65% 45%;
+  object-position: 76% 40%;
 }
 .hero-media::before {
   content: "";
@@ -487,7 +487,7 @@ section { position: relative; }
 
 /* ---------- Bande de réassurance (sous le hero) ---------- */
 .reassurance-band {
-  background: var(--navy-900);
+  background: #0d1826;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .reassurance-band ul {
@@ -710,48 +710,8 @@ section { position: relative; }
 .timeline-item.is-placeholder p { font-style: italic; color: var(--ink-400); }
 
 /* ---------- Page "Nos Points de Vente" ---------- */
-.pdv-hero {
-  position: relative;
-  padding-top: calc(var(--space-3xl) + 7.5rem);
-  padding-bottom: 120px;
-  text-align: center;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(198,165,87,0.16), transparent 42%),
-    radial-gradient(circle at 88% 82%, rgba(34,81,115,0.14), transparent 46%),
-    var(--cream-100);
-}
-.pdv-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.5;
-  background-image: radial-gradient(rgba(34,81,115,0.14) 1.4px, transparent 1.4px);
-  background-size: 22px 22px;
-  pointer-events: none;
-}
-.pdv-hero-text { position: relative; z-index: 1; }
-.pdv-hero-text h1 {
-  font-size: clamp(2.1rem, 4vw, 3rem);
-  margin-block: var(--space-sm);
-}
-.pdv-hero-text p { color: var(--ink-600); max-width: 52ch; margin-inline: auto; font-size: 1.08rem; }
-.pdv-hero-stand {
-  position: relative;
-  z-index: 2;
-  max-width: 560px;
-  margin: var(--space-2xl) auto calc(-1 * var(--space-3xl));
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 30px 60px -12px rgba(18,48,63,0.4), 0 0 0 8px var(--white);
-}
-.pdv-hero-stand img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
-.pdv-main { padding-top: calc(var(--space-3xl) + var(--space-md)); }
-@media (max-width: 640px) {
-  .pdv-hero { padding-bottom: 90px; }
-  .pdv-hero-stand { margin-bottom: calc(-1 * var(--space-2xl)); }
-  .pdv-main { padding-top: calc(var(--space-2xl) + var(--space-md)); }
-}
+.hours-box.pdv-chantier-block { background: #0d1826; }
+.pdv-chantier-block .access-note { margin-top: var(--space-sm); font-size: 0.88rem; font-style: italic; color: var(--shell-100); opacity: 0.85; }
 
 .pdv-layout {
   display: grid;
@@ -1078,12 +1038,26 @@ section { position: relative; }
 .site-card {
   background: var(--white);
   border-radius: var(--radius-md);
-  padding: var(--space-lg);
+  overflow: hidden;
   border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .site-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.site-card svg { width: 30px; height: 30px; color: var(--gold-600); margin-bottom: var(--space-sm); }
+.site-card-media { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+.site-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease); }
+.site-card:hover .site-card-media img { transform: scale(1.06); }
+.site-card-media svg {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: var(--space-sm);
+  width: 34px; height: 34px;
+  padding: 6px;
+  color: var(--navy-900);
+  background: var(--gold-500);
+  border-radius: 50%;
+}
+.site-card-body { padding: var(--space-md) var(--space-lg) var(--space-lg); }
 .site-card h4 { font-size: 1.1rem; color: var(--navy-900); margin-bottom: var(--space-3xs); }
 .site-card p { font-size: 0.92rem; color: var(--ink-600); }
 
@@ -1372,6 +1346,9 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 }
 
 .marche-schedule { display: flex; flex-direction: column; gap: var(--space-sm); }
+@media (min-width: 620px) {
+  .marche-schedule { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+}
 
 .section-cta { text-align: center; margin-top: var(--space-xl); }
 
@@ -1766,10 +1743,17 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 #contact-map { border-radius: var(--radius-lg); overflow: hidden; height: 100%; min-height: 320px; box-shadow: var(--shadow-md); border: 6px solid var(--white); }
 
 .social-proof-card {
+  grid-column: 1 / -1;
   background: var(--shell-100);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   text-align: center;
+}
+@media (min-width: 780px) {
+  .social-proof-card { display: flex; align-items: center; gap: var(--space-xl); text-align: left; }
+  .social-proof-card .rating-badge { flex-shrink: 0; margin-bottom: 0; }
+  .social-proof-card .mini-testimonial { flex: 1; margin: 0; }
+  .social-proof-card .social-proof-actions { flex-shrink: 0; justify-content: flex-end; }
 }
 .rating-badge {
   display: flex;

@@ -745,14 +745,6 @@ section { position: relative; }
   box-shadow: var(--shadow-md);
   background: var(--ink-900);
 }
-.gazette-media-btn {
-  border: none;
-  padding: 0;
-  background: none;
-  width: 100%;
-  cursor: zoom-in;
-  display: block;
-}
 .gazette-media .presse-article-badge {
   position: absolute;
   top: var(--space-sm);
@@ -766,20 +758,6 @@ section { position: relative; }
   padding: 0.35rem 0.7rem;
   border-radius: var(--radius-pill);
 }
-.gazette-media .zoom-hint {
-  position: absolute;
-  inset: auto var(--space-sm) var(--space-sm) auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0.4rem 0.8rem;
-  background: rgba(255,255,255,0.92);
-  color: var(--navy-900);
-  border-radius: var(--radius-pill);
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-.gazette-media .zoom-hint svg { width: 14px; height: 14px; }
 
 .gazette-body { max-width: 62ch; }
 .gazette-kicker {

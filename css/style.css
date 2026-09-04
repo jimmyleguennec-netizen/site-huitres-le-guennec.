@@ -715,8 +715,19 @@ section { position: relative; }
 .timeline-item.is-placeholder p { font-style: italic; color: var(--ink-400); }
 
 /* ---------- Page "Nos Points de Vente" ---------- */
-.hours-box.pdv-chantier-block { background: #0d1826; }
+.hours-box.pdv-chantier-block { background: #0d1826; align-items: stretch; }
+.pdv-chantier-media {
+  flex: 0 0 260px;
+  align-self: stretch;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 200px;
+}
+.pdv-chantier-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .pdv-chantier-block .access-note { margin-top: var(--space-sm); font-size: 0.88rem; font-style: italic; color: var(--shell-100); opacity: 0.85; }
+.pdv-chantier-contacts { display: flex; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-md); }
+.pdv-chantier-contacts a { font-weight: 700; color: var(--gold-300); font-size: 0.92rem; }
+.pdv-chantier-contacts a:hover { color: var(--white); }
 
 .pdv-layout {
   display: grid;
@@ -1467,6 +1478,14 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   line-height: 1.1;
 }
 .marche-photocard.is-new .day-chip { background: var(--gold-600); border-color: var(--gold-600); color: var(--navy-900); }
+.marche-kicker {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-400, var(--gold-500));
+  margin-bottom: 2px;
+}
 .marche-photocard h4 { font-size: 1.12rem; color: var(--white); }
 .marche-photocard p { font-size: 0.86rem; color: var(--shell-100); margin-top: 2px; opacity: 0.9; }
 .btn-marche-go-list {

@@ -1970,6 +1970,23 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   font-size: 0.82rem;
   color: rgba(255,255,255,0.45);
 }
+.footer-legal-links a { color: rgba(255,255,255,0.55); text-decoration: underline; text-underline-offset: 2px; }
+.footer-legal-links a:hover { color: var(--white); }
+
+/* ---------- Page "Mentions légales" ---------- */
+.legal-content { max-width: 70ch; margin-inline: auto; }
+.legal-block { margin-bottom: var(--space-xl); }
+.legal-block:last-child { margin-bottom: 0; }
+.legal-block h2 {
+  font-size: 1.15rem;
+  color: var(--navy-900);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-2xs);
+  border-bottom: 1px solid rgba(198, 165, 87, 0.3);
+}
+.legal-block p { color: var(--ink-600); font-size: 0.96rem; line-height: 1.7; }
+.legal-block p + p { margin-top: var(--space-sm); }
+.legal-block a { color: var(--navy-800); font-weight: 600; }
 
 /* ---------- Coupure de presse cliquable ---------- */
 .presse-clipping-body {

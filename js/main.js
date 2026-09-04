@@ -26,11 +26,13 @@
   }
 
   /* ---------- En-tête : fond au scroll ---------- */
+  // Hysteresis (seuils différents pour activer/désactiver) pour éviter
+  // que le header ne clignote quand le scroll oscille autour d'un seuil unique.
   var header = document.getElementById("site-header");
   function onScroll() {
-    if (window.scrollY > 24) {
+    if (!header.classList.contains("is-scrolled") && window.scrollY > 32) {
       header.classList.add("is-scrolled");
-    } else {
+    } else if (header.classList.contains("is-scrolled") && window.scrollY < 12) {
       header.classList.remove("is-scrolled");
     }
   }
@@ -88,7 +90,7 @@
   /* ---------- Carte des marchés (Leaflet) ---------- */
   var marches = [
     { id: "cracH", nom: "Marché de Crac'h", jour: "Jeudi", horaire: "7h – 13h", lat: 47.6181, lng: -3.0012, nouveau: true, note: "Nouveauté juin 2026 — Place de l'Église" },
-    { id: "ploermel", nom: "Marché de Ploërmel", jour: "Vendredi", horaire: "7h – 13h", lat: 47.9322, lng: -2.3975, note: "Place du Tribunal, 56800 Ploërmel" },
+    { id: "ploermel", nom: "Marché de Ploërmel", jour: "Vendredi", horaire: "7h – 13h", lat: 47.9322, lng: -2.3975, note: "Place du Marché, 56800 Ploërmel" },
     { id: "rennes", nom: "Marché de Rennes — Place des Lices", jour: "Samedi", horaire: "7h – 13h", lat: 48.1125, lng: -1.6836, note: "Place des Lices, 35000 Rennes" },
     { id: "pluneret", nom: "Marché de Pluneret", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6742, lng: -2.9568, note: "Place de l'Église" },
     { id: "saintave", nom: "Marché de Saint-Avé", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6883, lng: -2.7339, note: "Place de l'Église" }
@@ -152,7 +154,8 @@
   /* ---------- Cartes marché ↔ carte Leaflet (flyTo) ---------- */
   if (marcheMapInstance) {
     document.querySelectorAll(".marche-photocard[data-market-id]").forEach(function (card) {
-      card.addEventListener("click", function () {
+      card.addEventListener("click", function (e) {
+        if (e.target.closest(".btn-marche-go-list")) return;
         var id = card.getAttribute("data-market-id");
         var marker = marcheMapInstance.markersById[id];
         if (!marker) return;

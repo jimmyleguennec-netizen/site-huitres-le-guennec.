@@ -15,6 +15,8 @@
   --gold-600: #AC8B3F; /* accent principal, dérivé du liseré citron du logo */
   --gold-500: #C6A557;
   --gold-300: #E4CE95;
+  --btn-gold: #c9974f; /* fond doré unifié pour tous les boutons d'action */
+  --btn-gold-hover: #d9ab6a;
   --shell-100: #F8ECD2; /* nacre intérieure de coquille, du logo */
   --cream-100: #FBF8F1; /* fond général */
   --cream-050: #FFFDF9;
@@ -173,11 +175,11 @@ section { position: relative; }
 }
 .btn:hover { transform: translateY(-2px); }
 .btn-primary {
-  background: var(--gold-600);
+  background: var(--btn-gold);
   color: var(--navy-900);
   box-shadow: var(--shadow-sm);
 }
-.btn-primary:hover { background: var(--gold-500); box-shadow: var(--shadow-md); }
+.btn-primary:hover { background: var(--btn-gold-hover); box-shadow: var(--shadow-md); }
 .btn-ghost {
   background: rgba(255,255,255,0.14);
   color: var(--white);
@@ -423,13 +425,13 @@ section { position: relative; }
   right: var(--space-2xl);
   transform: translateY(-50%);
   z-index: 2;
-  width: 300px;
-  background: rgba(13, 24, 38, 0.85);
-  border: 1px solid var(--gold-500);
+  width: 296px;
+  background: rgba(13, 24, 38, 0.88);
+  border: 1px solid rgba(198,165,87,0.45);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
   color: var(--white);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   box-shadow: var(--shadow-lg);
 }
 @media (min-width: 1024px) {
@@ -463,27 +465,30 @@ section { position: relative; }
   0%, 100% { opacity: 1; }
   50% { opacity: 0.45; }
 }
-.hero-market-pin { font-size: 0.95rem; line-height: 1; }
 .hero-market-text {
   font-family: var(--font-display);
   font-size: 1.08rem;
   line-height: 1.4;
   color: var(--white);
+  padding-bottom: var(--space-md);
   margin-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 .btn-hero-market {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  background: var(--gold-500);
+  width: 100%;
+  background: var(--btn-gold);
   color: var(--navy-900) !important;
   font-weight: 700;
   font-size: 0.85rem;
-  padding: 0.55rem 1rem;
+  padding: 0.65rem 1rem;
   border-radius: var(--radius-pill, 999px);
-  transition: background 0.25s var(--ease), transform 0.2s var(--ease);
+  transition: background 0.25s var(--ease), transform 0.2s var(--ease), box-shadow 0.25s var(--ease);
 }
-.btn-hero-market:hover { background: var(--gold-600); transform: translateY(-1px); }
+.btn-hero-market:hover { background: var(--btn-gold-hover); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
 
 /* ---------- Bande de réassurance (sous le hero) ---------- */
 .reassurance-band {
@@ -745,7 +750,7 @@ section { position: relative; }
   z-index: 1;
   width: 100%;
   text-align: center;
-  padding-block: var(--space-2xl) var(--space-2xl);
+  padding-block: calc(var(--space-3xl) + 5.5rem) var(--space-2xl);
 }
 .presse-hero .eyebrow { justify-content: center; color: var(--gold-400, var(--gold-500)); }
 .presse-hero h1 { color: var(--white); font-size: clamp(2.1rem, 4.4vw, 3.3rem); text-shadow: 0 4px 24px rgba(0,0,0,0.35); }
@@ -1376,18 +1381,32 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   position: absolute;
   top: var(--space-sm);
   left: var(--space-sm);
-  background: var(--gold-500);
+  background: var(--btn-gold);
   color: var(--navy-900);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.32rem 0.75rem;
+  padding: 0.32rem 0.8rem;
   border-radius: var(--radius-pill, 999px);
 }
 .marche-editorial-body { padding: var(--space-md) var(--space-lg) var(--space-lg); text-align: center; }
 .marche-editorial-body h3 { font-family: var(--font-display); font-size: 1.35rem; color: var(--navy-900); margin-bottom: 4px; }
-.marche-editorial-body p { font-size: 0.86rem; color: var(--ink-600); font-weight: 600; }
+.marche-editorial-body p { font-size: 0.86rem; color: var(--ink-600); font-weight: 600; margin-bottom: var(--space-sm); }
+.btn-marche-go {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--btn-gold);
+  color: var(--navy-900);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-pill, 999px);
+  transition: background 0.25s var(--ease), transform 0.2s var(--ease);
+}
+.btn-marche-go:hover { background: var(--btn-gold-hover); transform: translateY(-1px); }
 
 /* Cartes "photo fondu" — image du stand + dégradé, inspirées de quentinetemmeline.fr */
 .marche-photocard {
@@ -1450,6 +1469,19 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .marche-photocard.is-new .day-chip { background: var(--gold-600); border-color: var(--gold-600); color: var(--navy-900); }
 .marche-photocard h4 { font-size: 1.12rem; color: var(--white); }
 .marche-photocard p { font-size: 0.86rem; color: var(--shell-100); margin-top: 2px; opacity: 0.9; }
+.btn-marche-go-list {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--space-2xs);
+  background: var(--btn-gold);
+  color: var(--navy-900);
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill, 999px);
+  transition: background 0.25s var(--ease);
+}
+.btn-marche-go-list:hover { background: var(--btn-gold-hover); }
 .marche-photocard.is-today { box-shadow: 0 0 0 3px var(--gold-500), var(--shadow-md); }
 .today-flag {
   display: inline-flex;
@@ -1731,7 +1763,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   align-items: center;
   gap: 4px;
   margin-top: 2px;
-  background: var(--gold-500);
+  background: var(--btn-gold);
   color: var(--navy-900) !important;
   font-weight: 700;
   font-size: 0.82rem;
@@ -1739,7 +1771,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   border-radius: var(--radius-pill, 999px);
   transition: background 0.25s var(--ease), transform 0.2s var(--ease);
 }
-.btn-marches:hover { background: var(--gold-600); transform: translateY(-1px); }
+.btn-marches:hover { background: var(--btn-gold-hover); transform: translateY(-1px); }
 #contact-map { border-radius: var(--radius-lg); overflow: hidden; height: 100%; min-height: 320px; box-shadow: var(--shadow-md); border: 6px solid var(--white); }
 
 .social-proof-card {
@@ -1762,7 +1794,8 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   gap: 2px;
   margin-bottom: var(--space-md);
 }
-.rating-badge .stars { color: var(--gold-600); font-size: 1.15rem; letter-spacing: 0.1em; }
+.rating-badge .stars { display: inline-flex; align-items: center; gap: 3px; color: var(--gold-600); }
+.rating-badge .stars svg { width: 15px; height: 15px; }
 .rating-badge strong { font-family: var(--font-display); font-size: 1.3rem; color: var(--navy-900); }
 .rating-badge span { font-size: 0.78rem; color: var(--ink-400); font-weight: 600; letter-spacing: 0.02em; }
 .mini-testimonial {
@@ -1847,11 +1880,11 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .footer-col a { font-size: 0.92rem; transition: color 0.25s var(--ease); }
 .footer-col a:hover { color: var(--gold-400, var(--gold-500)); }
 .btn-footer-marches {
-  color: var(--gold-400, var(--gold-500));
+  color: var(--btn-gold);
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(198,165,87,0.5);
+  text-decoration-color: rgba(201,151,79,0.5);
   transition: color 0.25s var(--ease), text-decoration-color 0.25s var(--ease);
 }
 .btn-footer-marches:hover { color: var(--white); text-decoration-color: var(--white); }

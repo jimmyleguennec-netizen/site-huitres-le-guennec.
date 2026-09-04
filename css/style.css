@@ -715,16 +715,6 @@ section { position: relative; }
 .timeline-item.is-placeholder p { font-style: italic; color: var(--ink-400); }
 
 /* ---------- Page "Nos Points de Vente" ---------- */
-.hours-box.pdv-chantier-block { background: #0d1826; align-items: stretch; }
-.pdv-chantier-media {
-  flex: 0 0 260px;
-  align-self: stretch;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  min-height: 200px;
-}
-.pdv-chantier-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.pdv-chantier-block .access-note { margin-top: var(--space-sm); font-size: 0.88rem; font-style: italic; color: var(--shell-100); opacity: 0.85; }
 .pdv-chantier-contacts { display: flex; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-md); }
 .pdv-chantier-contacts a { font-weight: 700; color: var(--gold-300); font-size: 0.92rem; }
 .pdv-chantier-contacts a:hover { color: var(--white); }
@@ -1095,21 +1085,33 @@ section { position: relative; }
 .method-list svg { width: 20px; height: 20px; color: var(--gold-600); flex-shrink: 0; margin-top: 3px; }
 
 .hours-box {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-lg);
-  background: var(--navy-900);
+  min-height: 420px;
   color: var(--shell-100);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   margin-bottom: var(--space-xl);
 }
-.hours-box h4 { color: var(--white); font-size: 1.25rem; margin-bottom: var(--space-sm); }
-.hours-list { display: flex; flex-direction: column; gap: var(--space-xs); }
+.hours-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgba(13, 24, 38, 0.78), rgba(13, 24, 38, 0.78)), url('../img/bassin-purification.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.hours-box-content { max-width: 560px; width: 100%; }
+.hours-box .eyebrow { color: var(--gold-300); }
+.hours-box h4 { color: var(--white); font-size: 1.3rem; margin-bottom: var(--space-md); }
+.hours-list { display: flex; flex-direction: column; gap: var(--space-xs); margin-bottom: var(--space-md); }
 .hours-list li { display: flex; align-items: center; gap: var(--space-xs); font-size: 0.96rem; }
 .hours-list svg { width: 20px; height: 20px; color: var(--gold-400, var(--gold-500)); flex-shrink: 0; }
+.hours-box .pdv-chantier-contacts { margin-bottom: var(--space-lg); }
 .hours-box .btn-primary { flex-shrink: 0; white-space: nowrap; }
 
 .tools-row {

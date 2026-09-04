@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=35">
+<link rel="stylesheet" href="css/style.css?v=36">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -123,59 +123,70 @@
       <p style="text-align:center; color:var(--ink-600); max-width:60ch; margin:0 auto var(--space-2xl);">Cliquez sur un point de vente dans la liste pour le retrouver sur la carte.</p>
 
       <div class="pdv-layout reveal">
-        <div id="marche-map" role="application" aria-label="Carte des marchés Le Guennec en Bretagne Sud">
-          <div class="map-fallback">Chargement de la carte…</div>
-        </div>
-
         <div class="marche-schedule">
-          <div class="marche-photocard is-new" data-day="4" data-market-id="cracH">
-            <img src="img/marche-nuit.jpg" alt="Étal Huîtres et Coquillages Le Guennec installé de nuit, sous les lumières du marché">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Jeu.</div>
-              <div>
-                <p class="marche-kicker">Le Jeudi en Morbihan</p>
+          <div class="marche-day-group">
+            <h3 class="marche-day-heading">Le Jeudi en Morbihan</h3>
+            <div class="marche-photocard is-new" data-day="4" data-market-id="cracH">
+              <div class="marche-photocard-media">
+                <img src="img/marche-nuit.jpg" alt="Étal Huîtres et Coquillages Le Guennec installé de nuit, sous les lumières du marché">
+              </div>
+              <div class="marche-photocard-content">
                 <h4>Marché de Crac&apos;h <span class="new-flag">Nouveau — Juin 2026</span></h4>
-                <p>Place de l&apos;Église — 7h à 13h</p>
+                <p class="marche-schedule-line">Tous les jeudis de 7h à 13h — Place de l&apos;Église</p>
+                <p class="marche-contact-line">Frédéric — <a href="tel:+33661737423">06 61 73 74 23</a></p>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=47.6181,-3.0012" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
               </div>
             </div>
           </div>
-          <div class="marche-photocard" data-day="5" data-market-id="ploermel">
-            <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec sur la place du marché de Ploërmel, en journée">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Ven.</div>
-              <div>
-                <p class="marche-kicker">Le Vendredi en Morbihan</p>
+
+          <div class="marche-day-group">
+            <h3 class="marche-day-heading">Le Vendredi en Morbihan</h3>
+            <div class="marche-photocard" data-day="5" data-market-id="ploermel">
+              <div class="marche-photocard-media">
+                <img src="img/marche-jour.jpg" alt="Étal Huîtres et Coquillages Le Guennec sur la place du marché de Ploërmel, en journée">
+              </div>
+              <div class="marche-photocard-content">
                 <h4>Marché de Ploërmel</h4>
-                <p>Place du Marché — 7h à 13h</p>
+                <p class="marche-schedule-line">Tous les vendredis de 7h à 13h — Place du Marché</p>
+                <p class="marche-contact-line">Frédéric — <a href="tel:+33661737423">06 61 73 74 23</a></p>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=47.9322,-2.3975" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
               </div>
             </div>
           </div>
-          <div class="marche-photocard" data-day="6" data-market-id="rennes">
-            <img src="img/marche-rennes.jpg" alt="Étal Huîtres et Coquillages Le Guennec de nuit à Rennes, près du marché des Lices">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Sam.</div>
-              <div>
-                <p class="marche-kicker">Le Samedi en Ille-et-Vilaine</p>
-                <h4>Marché de Rennes</h4>
-                <p>Place des Lices — 7h à 13h</p>
+
+          <div class="marche-day-group">
+            <h3 class="marche-day-heading">Le Samedi en Ille-et-Vilaine</h3>
+            <div class="marche-photocard" data-day="6" data-market-id="rennes">
+              <div class="marche-photocard-media">
+                <img src="img/marche-rennes.jpg" alt="Étal Huîtres et Coquillages Le Guennec de nuit à Rennes, près du marché des Lices">
+              </div>
+              <div class="marche-photocard-content">
+                <h4>Marché de Rennes — Place des Lices</h4>
+                <p class="marche-schedule-line">Tous les samedis de 7h à 13h — Place des Lices</p>
+                <p class="marche-contact-line">Jimmy — <a href="tel:+33782457353">07 82 45 73 53</a></p>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=48.1125,-1.6836" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
               </div>
             </div>
           </div>
-          <div class="marche-photocard" data-day="0" data-market-id="pluneret">
-            <img src="img/marche-etal.jpg" alt="Étal Huîtres et Coquillages Le Guennec, coquillages et crustacés du jour">
-            <div class="marche-photocard-content">
-              <div class="day-chip">Dim.</div>
-              <div>
-                <p class="marche-kicker">Le Dimanche en Morbihan</p>
+
+          <div class="marche-day-group">
+            <h3 class="marche-day-heading">Le Dimanche en Morbihan</h3>
+            <div class="marche-photocard" data-day="0" data-market-id="pluneret">
+              <div class="marche-photocard-media">
+                <img src="img/marche-etal.jpg" alt="Étal Huîtres et Coquillages Le Guennec, coquillages et crustacés du jour">
+              </div>
+              <div class="marche-photocard-content">
                 <h4>Pluneret &amp; Saint-Avé</h4>
-                <p>Place de l&apos;Église — 7h à 13h</p>
+                <p class="marche-schedule-line">Tous les dimanches de 7h à 13h — Place de l&apos;Église</p>
+                <p class="marche-contact-line">Frédéric — <a href="tel:+33661737423">06 61 73 74 23</a></p>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=47.6742,-2.9568" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
               </div>
             </div>
           </div>
+        </div>
+
+        <div id="marche-map" role="application" aria-label="Carte des marchés Le Guennec en Bretagne Sud">
+          <div class="map-fallback">Chargement de la carte…</div>
         </div>
       </div>
     </div>
@@ -232,6 +243,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=35"></script>
+<script src="js/main.js?v=36"></script>
 </body>
 </html>

@@ -2217,6 +2217,61 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   transform: translateY(-2px);
 }
 
+/* ---------- Page "Nos Produits" : liste compacte ---------- */
+.produits-list { display: flex; flex-direction: column; }
+.produit-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding-block: var(--space-md);
+  border-bottom: 1px solid rgba(20, 42, 54, 0.1);
+}
+.produit-row:first-child { padding-top: 0; }
+.produit-row:last-child { border-bottom: none; }
+.produit-row-media {
+  flex: 0 0 110px;
+  width: 110px;
+  height: 110px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--shell-100);
+}
+.produit-row-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.produit-row-media.is-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-600);
+  border: 1px dashed rgba(198, 165, 87, 0.4);
+}
+.produit-row-media.is-icon svg { width: 36px; height: 36px; }
+.produit-row-body { flex: 1; min-width: 0; }
+.produit-row-body h3 { font-size: 1.05rem; color: var(--navy-900); }
+.produit-row-variant { font-style: italic; font-weight: 500; color: var(--gold-700, var(--gold-600)); }
+.produit-row-desc { font-size: 0.9rem; color: var(--ink-600); margin-top: 3px; line-height: 1.5; }
+.produit-row-calibre { font-size: 0.82rem; color: var(--navy-800); font-weight: 600; margin-top: 5px; }
+.produit-row-season { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--gold-700, var(--gold-600)); margin-top: 5px; }
+.produit-row-medals { display: flex; align-items: center; gap: var(--space-xs); margin-top: 6px; }
+.medal-slot {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-600);
+  border: 1px dashed rgba(198, 165, 87, 0.5);
+}
+.medal-slot svg { width: 16px; height: 16px; }
+.medal-slot-label { font-size: 0.78rem; color: var(--ink-500, var(--ink-600)); font-style: italic; }
+@media (max-width: 480px) {
+  .produit-row { gap: var(--space-sm); }
+  .produit-row-media { flex-basis: 76px; width: 76px; height: 76px; }
+  .produit-row-media.is-icon svg { width: 26px; height: 26px; }
+  .produit-row-body h3 { font-size: 0.95rem; }
+}
+
 /* ============================================================
    Refonte mobile (<=768px) : header épuré, menu, hero
    ============================================================ */

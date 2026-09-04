@@ -2201,12 +2201,6 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   justify-content: center;
   gap: var(--space-sm);
 }
-.see-also-logo {
-  height: 38px;
-  width: auto;
-  margin-inline: var(--space-xs);
-  align-self: center;
-}
 .see-also-pill {
   display: inline-flex;
   align-items: center;
@@ -2226,6 +2220,15 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   color: var(--navy-900);
   transform: translateY(-2px);
 }
+
+/* ---------- Logo de marque, au-dessus du footer ---------- */
+.brand-mark-section {
+  background: #0d1826;
+  padding-block: var(--space-xl);
+  text-align: center;
+}
+.brand-mark-logo { height: 90px; width: auto; }
+@media (max-width: 640px) { .brand-mark-logo { height: 70px; } }
 
 /* ============================================================
    Refonte mobile (<=768px) : header épuré, menu, hero

@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=36">
+<link rel="stylesheet" href="css/style.css?v=37">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -192,6 +192,79 @@
     </div>
   </section>
 
+  <!-- ============ SECTION 3 : OÙ DÉGUSTER NOS HUÎTRES ============ -->
+  <section class="section-pad resto-section">
+    <div class="container">
+      <h2 class="calibrage-title" style="text-align:center;">Quelques bonnes adresses</h2>
+      <p style="text-align:center; color:var(--ink-600); max-width:60ch; margin:0 auto var(--space-2xl);">Retrouvez nos huîtres à la carte des plus belles tables et bistrots de la région :</p>
+
+      <div class="resto-grid reveal">
+        <article class="resto-card">
+          <div class="resto-card-media">
+            <img src="img/resto-blasenn.jpg" alt="Devanture du Blasenn, bistrot et cave à vin à Crac&apos;h" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="resto-card-fallback">LB</div>
+          </div>
+          <div class="resto-card-body">
+            <h4>Le Blasenn</h4>
+            <p>Bistrot &amp; Cave à vin — Crac&apos;h</p>
+          </div>
+        </article>
+
+        <article class="resto-card">
+          <div class="resto-card-media">
+            <img src="img/resto-les-routiers.jpg" alt="Devanture du restaurant Les Routiers à Ploërmel" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="resto-card-fallback">LR</div>
+          </div>
+          <div class="resto-card-body">
+            <h4>Les Routiers</h4>
+            <p>Bar Restaurant — Ploërmel</p>
+          </div>
+        </article>
+
+        <article class="resto-card">
+          <div class="resto-card-media">
+            <img src="img/resto-pont-dacigne.jpg" alt="Devanture de l&apos;Auberge du Pont d&apos;Acigné, près de Rennes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="resto-card-fallback">PA</div>
+          </div>
+          <div class="resto-card-body">
+            <h4>L&apos;Auberge du Pont d&apos;Acigné</h4>
+            <p>Noyal-sur-Vilaine — Rennes</p>
+          </div>
+        </article>
+
+        <a class="resto-card" href="https://maisonkervarrec.com/fr/" target="_blank" rel="noopener noreferrer">
+          <div class="resto-card-media">
+            <img src="img/resto-kervarrec.jpg" alt="Devanture de la Maison Kervarrec à Rennes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="resto-card-fallback">MK</div>
+          </div>
+          <div class="resto-card-body">
+            <h4>Maison Kervarrec</h4>
+            <p>Rennes</p>
+          </div>
+        </a>
+
+        <article class="resto-card">
+          <div class="resto-card-media">
+            <img src="img/resto-yoco.jpg" alt="Devanture du restaurant Yoco à Rennes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="resto-card-fallback">Y</div>
+          </div>
+          <div class="resto-card-body">
+            <h4>Yoco</h4>
+            <p>Rennes</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="resto-partner-banner reveal">
+        <div class="resto-partner-text">
+          <h3>Vous êtes restaurateur ou commerçant ?</h3>
+          <p>Proposez des huîtres de tradition élevées en Bretagne Sud à votre clientèle.</p>
+        </div>
+        <a href="tel:+33661737423" class="btn btn-primary">Vous voulez vous joindre à nous ?</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- ============ PIED DE PAGE ============ -->
@@ -243,6 +316,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=36"></script>
+<script src="js/main.js?v=37"></script>
 </body>
 </html>

@@ -1473,6 +1473,58 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 @media (max-width: 560px) {
   .marche-photocard-media { flex-basis: auto; width: 100%; height: 170px; }
 }
+
+/* ---------- Où déguster nos huîtres : adresses partenaires ---------- */
+.resto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-lg);
+}
+.resto-card {
+  display: block;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.resto-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.resto-card-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--navy-900); }
+.resto-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.resto-card-fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy-800, #17364a), var(--navy-900));
+  color: var(--gold-300);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+}
+.resto-card-body { padding: var(--space-md) var(--space-lg); }
+.resto-card-body h4 { font-size: 1.05rem; color: var(--navy-900); }
+.resto-card-body p { font-size: 0.86rem; color: var(--ink-600); margin-top: 2px; }
+
+.resto-partner-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+  padding: var(--space-lg) var(--space-xl);
+  background: #0d1826;
+  border-radius: var(--radius-md);
+  color: var(--shell-100);
+}
+.resto-partner-text h3 { color: var(--white); font-size: 1.15rem; margin-bottom: 4px; }
+.resto-partner-text p { color: var(--shell-100); opacity: 0.9; font-size: 0.92rem; }
+.resto-partner-banner .btn-primary { flex-shrink: 0; white-space: nowrap; }
 .today-flag {
   display: inline-flex;
   align-items: center;

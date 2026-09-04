@@ -225,7 +225,7 @@ section { position: relative; }
   align-items: center;
 }
 .brand-center img { height: 112px; width: auto; transition: height 0.35s var(--ease); }
-.site-header.is-scrolled .brand-center img { height: 62px; }
+.site-header.is-scrolled .brand-center img { height: 85px; }
 .brand-center .logo-color { display: none; }
 .site-header.is-scrolled .brand-center .logo-white { display: none; }
 .site-header.is-scrolled .brand-center .logo-color { display: block; }
@@ -742,11 +742,17 @@ section { position: relative; }
 }
 .presse-hero-media { position: absolute; inset: 0; z-index: 0; }
 .presse-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+.presse-hero-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
 .presse-hero-media::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(18,48,63,0.5) 0%, rgba(18,48,63,0.3) 42%, rgba(18,48,63,0.8) 100%);
+  background: linear-gradient(180deg, rgba(18,48,63,0.55) 0%, rgba(18,48,63,0.25) 32%, rgba(18,48,63,0.55) 78%, rgba(18,48,63,0.92) 100%);
 }
 .presse-hero-inner {
   position: relative;
@@ -784,11 +790,7 @@ section { position: relative; }
   max-height: 32px;
   width: auto;
   display: block;
-  filter: grayscale(100%);
-  opacity: 0.75;
-  transition: filter 0.3s var(--ease), opacity 0.3s var(--ease);
 }
-.press-logo-chip:hover img { filter: grayscale(0%); opacity: 1; }
 
 /* ---------- Page "Presse & Média" : articles style gazette ---------- */
 .gazette-section { padding-block: var(--space-2xl); }
@@ -918,7 +920,10 @@ section { position: relative; }
 /* ---------- Page "Notre Histoire" : en-tête ---------- */
 .page-hero {
   padding-block: calc(var(--space-3xl) + 5.5rem) var(--space-xl);
-  background-image: linear-gradient(rgba(13, 24, 38, 0.75), rgba(13, 24, 38, 0.75)), url('../img/hero.jpg');
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    linear-gradient(180deg, rgba(18, 48, 63, 0.55) 0%, rgba(18, 48, 63, 0.25) 32%, rgba(18, 48, 63, 0.55) 78%, rgba(18, 48, 63, 0.92) 100%),
+    url('../img/hero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2375,7 +2380,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   .site-header.is-scrolled .header-nav-row { border-top: none; padding-block: 0; }
   .nav-row-inner { width: 100%; max-width: none; margin-inline: 0; justify-content: flex-end; }
   .brand-center img,
-  .site-header.is-scrolled .brand-center img { height: 42px !important; }
+  .site-header.is-scrolled .brand-center img { height: 58px !important; }
   .brand-center .logo-white { display: none; }
   .brand-center .logo-color { display: block; }
   .header-actions { position: static; transform: none; }

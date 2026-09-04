@@ -327,7 +327,7 @@ section { position: relative; }
 
 /* ---------- Hero ---------- */
 .hero {
-  min-height: 86svh;
+  min-height: 74svh;
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -362,7 +362,7 @@ section { position: relative; }
 .hero-inner {
   position: relative;
   z-index: 1;
-  padding-block: calc(var(--space-3xl) + 6.5rem) var(--space-2xl);
+  padding-block: calc(var(--space-3xl) + 6.5rem) var(--space-xl);
   width: 100%;
 }
 .hero-text-block {

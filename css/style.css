@@ -422,9 +422,10 @@ section { position: relative; }
 .hero-market-card {
   display: none;
   position: absolute;
-  top: 50%;
+  top: 300px;
+  bottom: var(--space-xl);
   right: var(--space-2xl);
-  transform: translateY(-50%);
+  margin-block: auto;
   z-index: 2;
   width: 340px;
   background: rgba(13, 24, 38, 0.88);

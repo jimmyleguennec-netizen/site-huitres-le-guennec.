@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=80">
+<link rel="stylesheet" href="css/style.css?v=81">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -214,13 +214,34 @@
       </div>
 
       <div class="tools-row reveal">
-        <img src="img/hero-bateau.jpg" alt="Chaland de Frédéric Le Guennec chargé d'huîtres, au coucher du soleil">
+        <div class="step-carousel tools-carousel" data-carousel>
+          <div class="step-carousel-track">
+            <div class="step-carousel-slide"><img src="img/hero-bateau.jpg" alt="Chaland de Frédéric Le Guennec chargé d'huîtres, au coucher du soleil"></div>
+            <div class="step-carousel-slide"><img src="img/outils-manitou.jpg" alt="Manitou du chantier Le Guennec, au bord de l'eau"></div>
+            <div class="step-carousel-slide"><img src="img/outils-chaine-tri.jpg" alt="Chaîne de tri des huîtres au chantier de Crac'h"></div>
+            <div class="step-carousel-slide"><img src="img/outils-bassin-interieur.jpg" alt="Bassins de purification intérieurs du chantier"></div>
+            <div class="step-carousel-slide"><img src="img/outils-bassin-exterieur.jpg" alt="Bassins de purification extérieurs, couverts, face à la mer"></div>
+          </div>
+          <button type="button" class="step-carousel-arrow prev" aria-label="Photo précédente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="step-carousel-arrow next" aria-label="Photo suivante">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <div class="step-carousel-dots">
+            <button type="button" class="step-carousel-dot" aria-label="Photo 1"></button>
+            <button type="button" class="step-carousel-dot" aria-label="Photo 2"></button>
+            <button type="button" class="step-carousel-dot" aria-label="Photo 3"></button>
+            <button type="button" class="step-carousel-dot" aria-label="Photo 4"></button>
+            <button type="button" class="step-carousel-dot" aria-label="Photo 5"></button>
+          </div>
+        </div>
         <div>
           <p class="eyebrow" style="margin-bottom: var(--space-2xs);">Nos outils de travail</p>
           <h4>Un chaland et un chantier taillés pour l'artisanat</h4>
           <ul>
-            <li>1 chaland aluminium de 11 mètres, pour la récolte sur nos parcs</li>
-            <li>1 chantier de production à Crac'h : chaîne de tri, calibrage et bassins de purification</li>
+            <li>1 chaland aluminium de 11 mètres et un manitou, pour le travail et la récolte sur nos parcs</li>
+            <li>1 chantier de production à Crac'h : chaîne de tri, calibrage et bassins de purification intérieurs et extérieurs</li>
           </ul>
         </div>
       </div>
@@ -517,6 +538,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=80"></script>
+<script src="js/main.js?v=81"></script>
 </body>
 </html>

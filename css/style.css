@@ -2195,6 +2195,12 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   justify-content: center;
   gap: 6px;
 }
+/* Un seul slide (ou moins) : le JS pose l'attribut [hidden], mais
+   .step-carousel-arrow/.step-carousel-dots forcent display:flex avec
+   la meme specificite que la regle UA [hidden] { display:none } —
+   sans cette regle, les flèches/points restent visibles à tort. */
+.step-carousel-arrow[hidden],
+.step-carousel-dots[hidden] { display: none; }
 .step-carousel-dot {
   width: 7px;
   height: 7px;

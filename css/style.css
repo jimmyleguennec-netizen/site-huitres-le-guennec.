@@ -610,15 +610,6 @@ section { position: relative; }
   color: var(--ink-400);
   letter-spacing: 0.02em;
 }
-.signature-row {
-  display: flex;
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
-  flex-wrap: wrap;
-}
-.signature-row div strong { display: block; font-family: var(--font-display); font-size: 1.05rem; color: var(--navy-900); }
-.signature-row div span { font-size: 0.85rem; color: var(--ink-400); }
-
 /* ---------- Presse ---------- */
 .presse-block {
   margin-top: var(--space-2xl);

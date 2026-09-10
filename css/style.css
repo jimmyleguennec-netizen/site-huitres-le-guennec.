@@ -2473,3 +2473,41 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 @media (max-width: 480px) {
   .btn { white-space: normal; text-align: center; }
 }
+
+/* ---------- Loupe au survol (produits, marchés, doyenne) ---------- */
+/* Reprend le motif visuel de .archive-card (icône loupe) + un léger
+   assombrissement ; ouvre la lightbox déjà présente sur le site
+   (#lightbox, voir main.js et le bloc ".archive-card"). */
+.zoomable { position: relative; overflow: hidden; cursor: zoom-in; }
+.zoomable::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 48, 63, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+  pointer-events: none;
+}
+.zoomable::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2312303F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 19px;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.75);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+  pointer-events: none;
+}
+.zoomable:hover::before, .zoomable:focus-visible::before,
+.zoomable:hover::after, .zoomable:focus-visible::after { opacity: 1; }
+.zoomable:hover::after, .zoomable:focus-visible::after { transform: translate(-50%, -50%) scale(1); }
+.zoomable:focus-visible { outline: 3px solid var(--gold-600); outline-offset: 2px; }

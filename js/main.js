@@ -225,6 +225,24 @@
       });
     });
 
+    /* Loupe au survol (produits, marchés, doyenne) : réutilise la même lightbox */
+    document.querySelectorAll(".produit-row-media:not(.is-icon), .marche-photocard-media, .doyenne-carousel .step-carousel-slide").forEach(function (el) {
+      var img = el.querySelector("img");
+      if (!img) return;
+      el.classList.add("zoomable");
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("role", "button");
+      el.setAttribute("aria-label", "Agrandir la photo");
+      function trigger(e) {
+        e.stopPropagation();
+        openLightbox(img.src, img.alt, img.alt);
+      }
+      el.addEventListener("click", trigger);
+      el.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); trigger(e); }
+      });
+    });
+
     lightboxClose.addEventListener("click", closeLightbox);
     lightbox.addEventListener("click", function (e) {
       if (e.target === lightbox) closeLightbox();
@@ -304,4 +322,5 @@
       }
     });
   });
+
 })();

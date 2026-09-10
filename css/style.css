@@ -2350,16 +2350,14 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   .produit-row-body { padding-inline: var(--space-2xs); }
   .produit-row-body h3 { font-size: 1rem; }
 }
-.produits-note {
-  margin-top: var(--space-2xl);
-  padding: var(--space-lg) var(--space-xl);
-  background: var(--white);
-  border: 1px solid rgba(198, 165, 87, 0.35);
-  border-radius: var(--radius-md);
+.produits-freetext {
+  max-width: 640px;
+  margin: var(--space-md) auto 0;
   text-align: center;
+  color: var(--ink-600);
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
-.produits-note p { color: var(--navy-800); font-size: 0.95rem; line-height: 1.6; }
-.produits-note p + p { margin-top: var(--space-sm); font-weight: 600; }
 
 /* ============================================================
    Refonte mobile (<=768px) : header épuré, menu, hero

@@ -568,6 +568,28 @@ section { position: relative; }
   width: 100%;
 }
 .histoire-text-body p { color: var(--ink-600); margin-bottom: var(--space-sm); font-size: 1.05rem; }
+
+/* ---------- La Doyenne ---------- */
+.doyenne-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .doyenne-grid { grid-template-columns: 0.85fr 1.15fr; gap: var(--space-2xl); align-items: center; }
+}
+.doyenne-media { max-width: 360px; margin-inline: auto; }
+@media (min-width: 900px) {
+  .doyenne-media { max-width: none; margin-inline: 0; }
+}
+.step-carousel.doyenne-carousel {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.doyenne-text h2 { font-size: clamp(1.9rem, 3.4vw, 2.75rem); margin-top: var(--space-2xs); margin-bottom: var(--space-sm); }
+.doyenne-text p { color: var(--ink-600); font-size: 1.05rem; }
 .pull-quote {
   font-family: var(--font-display);
   font-style: italic;

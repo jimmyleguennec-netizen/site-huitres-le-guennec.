@@ -1082,19 +1082,25 @@ section { position: relative; }
 .site-card h4 { font-size: 1.1rem; color: var(--navy-900); margin-bottom: var(--space-3xs); }
 .site-card p { font-size: 0.92rem; color: var(--ink-600); }
 
-.method-list {
+.method-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
-  gap: var(--space-sm) var(--space-lg);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
 }
-.method-list li {
-  display: flex;
-  gap: var(--space-sm);
-  align-items: flex-start;
-  font-size: 0.98rem;
-  color: var(--ink-600);
+@media (max-width: 900px) {
+  .method-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.method-list svg { width: 20px; height: 20px; color: var(--gold-600); flex-shrink: 0; margin-top: 3px; }
+@media (max-width: 560px) {
+  .method-grid { grid-template-columns: 1fr; }
+}
+.method-card {
+  background: #f9f8f6;
+  border-radius: 12px;
+  padding: var(--space-lg);
+}
+.method-card svg { width: 32px; height: 32px; color: var(--gold-600); margin-bottom: var(--space-sm); }
+.method-card h4 { font-weight: 700; color: var(--navy-900); font-size: 1.02rem; margin-bottom: var(--space-3xs); }
+.method-card p { color: var(--ink-600); font-size: 0.92rem; line-height: 1.5; }
 
 .hours-box {
   position: relative;

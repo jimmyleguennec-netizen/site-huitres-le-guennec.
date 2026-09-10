@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=64">
+<link rel="stylesheet" href="css/style.css?v=65">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -201,15 +201,27 @@
       <p style="text-align:center; color:var(--shell-100); opacity:0.85; max-width:60ch; margin:0 auto var(--space-2xl);">Retrouvez nos huîtres à la carte des plus belles tables et bistrots de la région :</p>
 
       <div class="resto-grid reveal">
-        <article class="resto-card">
+        <a class="resto-card" href="https://maisonkervarrec.com/fr/" target="_blank" rel="noopener noreferrer">
           <div class="resto-card-media">
-            <img src="img/resto-blasenn.jpg" alt="Devanture du Blasenn, bistrot et cave à vin à Crac&apos;h" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="resto-card-fallback">LB</div>
+            <img src="img/resto-kervarrec.jpg" alt="Devanture de la Maison Kervarrec, près de Rennes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="resto-card-fallback">MK</div>
           </div>
           <div class="resto-card-body">
-            <h4>Le Blasenn</h4>
-            <p class="resto-type">Bistrot &amp; Cave à vin</p>
-            <p>Crac&apos;h — 3 Place de l&apos;Église, 56950 Crac&apos;h</p>
+            <h4>Maison Kervarrec</h4>
+            <p class="resto-type">Restaurant gastronomique</p>
+            <p>Saint-Grégoire — Rennes — 1 impasse du Vieux Bourg, 35760 Saint-Grégoire</p>
+          </div>
+        </a>
+
+        <article class="resto-card">
+          <div class="resto-card-media">
+            <img src="img/resto-pont-dacigne.jpg" alt="Devanture de l&apos;Auberge du Pont d&apos;Acigné, près de Rennes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="resto-card-fallback">PA</div>
+          </div>
+          <div class="resto-card-body">
+            <h4>L&apos;Auberge du Pont d&apos;Acigné</h4>
+            <p class="resto-type">Restaurant gastronomique</p>
+            <p>Noyal-sur-Vilaine — 8 Le Pont d&apos;Acigné, 35530 Noyal-sur-Vilaine</p>
           </div>
         </article>
 
@@ -227,27 +239,15 @@
 
         <article class="resto-card">
           <div class="resto-card-media">
-            <img src="img/resto-pont-dacigne.jpg" alt="Devanture de l&apos;Auberge du Pont d&apos;Acigné, près de Rennes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="resto-card-fallback">PA</div>
+            <img src="img/resto-blasenn.jpg" alt="Devanture du Blasenn, bistrot et cave à vin à Crac&apos;h" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="resto-card-fallback">LB</div>
           </div>
           <div class="resto-card-body">
-            <h4>L&apos;Auberge du Pont d&apos;Acigné</h4>
-            <p class="resto-type">Restaurant gastronomique</p>
-            <p>Noyal-sur-Vilaine — 8 Le Pont d&apos;Acigné, 35530 Noyal-sur-Vilaine</p>
+            <h4>Le Blasenn</h4>
+            <p class="resto-type">Bistrot &amp; Cave à vin</p>
+            <p>Crac&apos;h — 3 Place de l&apos;Église, 56950 Crac&apos;h</p>
           </div>
         </article>
-
-        <a class="resto-card" href="https://maisonkervarrec.com/fr/" target="_blank" rel="noopener noreferrer">
-          <div class="resto-card-media">
-            <img src="img/resto-kervarrec.jpg" alt="Devanture de la Maison Kervarrec, près de Rennes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="resto-card-fallback">MK</div>
-          </div>
-          <div class="resto-card-body">
-            <h4>Maison Kervarrec</h4>
-            <p class="resto-type">Restaurant gastronomique</p>
-            <p>Saint-Grégoire — Rennes — 1 impasse du Vieux Bourg, 35760 Saint-Grégoire</p>
-          </div>
-        </a>
       </div>
 
       <div class="resto-partner-banner reveal">
@@ -286,7 +286,7 @@
         <ul>
           <li>Lundi – Mercredi : 08h30 – 18h00</li>
           <li>Jeudi : 08h30 – 12h00</li>
-          <li>Vendredi – Dimanche : <a href="points-de-vente.html" class="btn-footer-marches">Retrouvez-nous sur les marchés</a></li>
+          <li>Du Vendredi Au Dimanche : <a href="points-de-vente.html" class="btn-footer-marches">Retrouvez-nous sur les marchés.</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -312,6 +312,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=64"></script>
+<script src="js/main.js?v=65"></script>
 </body>
 </html>

@@ -2483,7 +2483,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 
 @media (max-width: 768px) {
 
-  /* ---- 1. Header mobile : fond clair fixe, logo a gauche, actions + burger a droite ---- */
+  /* ---- 1. Header mobile : 3 zones - social a gauche, logo centre, appel+burger a droite ---- */
   .site-header {
     display: flex;
     align-items: center;
@@ -2498,22 +2498,12 @@ table.calibre-table tr:last-child td { border-bottom: none; }
     box-shadow: var(--shadow-sm);
   }
   .site-header .header-brand-row {
-    position: static;
     flex: 1 1 auto;
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 0;
-    justify-content: flex-start;
-    gap: 10px;
-  }
-  .site-header .header-brand-row .brand-center {
-    position: static;
-    transform: none;
-    order: -1;
-    display: inline-flex;
-    padding: 8px;
-    margin: -8px auto -8px -8px;
+    padding: 0 12px;
+    justify-content: space-between;
   }
   .site-header .header-nav-row {
     width: auto;
@@ -2526,7 +2516,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   .site-header.is-scrolled .header-nav-row { border-top: none; padding-block: 0; }
   .nav-row-inner { width: auto; max-width: none; margin-inline: 0; padding-inline: 0; justify-content: flex-end; }
   .brand-center img,
-  .site-header.is-scrolled .brand-center img { height: 52px !important; }
+  .site-header.is-scrolled .brand-center img { height: 60px !important; }
   .brand-center .logo-white { display: none; }
   .brand-center .logo-color { display: block; }
   .header-actions { position: static; transform: none; gap: 8px; }
@@ -2544,7 +2534,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   .site-header .header-social-link,
   .site-header.is-scrolled .header-social-link { color: var(--navy-900); width: 20px; height: 20px; }
   .site-header .header-social-link svg { width: 14px; height: 14px; }
-  .header-social { gap: 6px; }
+  .header-social { gap: 8px; }
 
   /* ---- 1bis. Hero de page (pages intérieures) : padding réduit ---- */
   .page-hero { padding-block: calc(84px + var(--space-md)) var(--space-lg); }

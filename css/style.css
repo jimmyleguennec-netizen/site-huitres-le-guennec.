@@ -57,7 +57,7 @@
 
 /* ---------- Reset minimal ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: hidden; font-size: 112.5%; }
+html { scroll-behavior: smooth; overflow-x: hidden !important; width: 100%; position: relative; font-size: 112.5%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -80,7 +80,9 @@ body {
   font-size: 1rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
 }
 
 h1, h2, h3, h4 {
@@ -1852,6 +1854,15 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 }
 .faq-closing svg { width: 26px; height: 26px; color: var(--gold-700); flex-shrink: 0; margin-top: 2px; }
 .faq-closing p { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: var(--navy-800); line-height: 1.55; }
+@media (max-width: 768px) {
+  .faq-closing {
+    width: 95%;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 20px 12px;
+  }
+  .faq-closing p { font-size: 0.95rem; line-height: 1.4; }
+}
 
 /* ---------- Contact ---------- */
 .contact-grid {

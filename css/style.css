@@ -1116,18 +1116,28 @@ section { position: relative; }
 }
 .production-banner-text {
   position: absolute;
-  inset: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-top: 2rem;
-  padding-left: 2rem;
+  align-items: center;
+  text-align: center;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1.25rem 2rem;
+  border-radius: 12px;
   color: #FFFFFF !important;
 }
-.production-banner-text * { color: #FFFFFF !important; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.8); }
+.production-banner-text * { color: #FFFFFF !important; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); }
 .production-banner-text h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
 .production-banner-text p { margin-top: var(--space-sm); font-size: 1.02rem; }
+@media (max-width: 640px) {
+  .production-banner-text { max-width: calc(100% - 2 * var(--space-md)); padding: 1.1rem 1.4rem; }
+}
 
 .site-cards {
   display: grid;

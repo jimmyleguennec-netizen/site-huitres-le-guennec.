@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=81">
+<link rel="stylesheet" href="css/style.css?v=84">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -93,7 +93,7 @@
         <span class="hero-market-dot" id="hero-market-dot" aria-hidden="true"></span>
         <span>Où nous trouver aujourd'hui ?</span>
       </div>
-      <p class="hero-market-text" id="hero-market-text">Chargement…</p>
+      <p class="hero-market-text" id="hero-market-text">Consultez nos horaires et marchés ci-dessous</p>
       <a href="points-de-vente.html" class="btn-hero-market">Voir les marchés &amp; itinéraires →</a>
     </div>
 
@@ -107,12 +107,14 @@
   <section id="histoire" class="section-pad bg-cream">
     <div class="container">
       <div class="histoire-grid">
+        <div class="histoire-heading">
+          <p class="eyebrow">Notre histoire</p>
+          <h2>Une entreprise familiale, quatre générations d'ostréiculteurs</h2>
+        </div>
         <div class="histoire-media reveal">
           <img src="img/camionnette-huitres-vintage.jpg" alt="Ancienne camionnette « Huîtres » de la famille Le Guennec, garée à Crac'h">
         </div>
-        <div class="histoire-text histoire-teaser">
-          <p class="eyebrow">Notre histoire</p>
-          <h2>Une entreprise familiale, quatre générations d'ostréiculteurs</h2>
+        <div class="histoire-teaser">
           <p>SARL Huîtres &amp; Coquillages Le Guennec est une entreprise familiale basée à Crac'h, en Bretagne Sud. Depuis quatre générations et 1930, nous perpétuons la tradition ostréicole avec passion, dans le respect du cycle naturel des coquillages et de la mer.</p>
           <blockquote class="pull-quote">
             « Je suis passionné par mes produits, je ne cultive pas de grosses quantités, mais je privilégie la qualité. »
@@ -214,6 +216,10 @@
       </div>
 
       <div class="tools-row reveal">
+        <div class="tools-heading">
+          <p class="eyebrow" style="margin-bottom: var(--space-2xs);">Nos outils de travail</p>
+          <h4>Un chaland et un chantier taillés pour l'artisanat</h4>
+        </div>
         <div class="step-carousel tools-carousel" data-carousel>
           <div class="step-carousel-track">
             <div class="step-carousel-slide"><img src="img/hero-bateau.jpg" alt="Chaland de Frédéric Le Guennec chargé d'huîtres, au coucher du soleil"></div>
@@ -236,9 +242,7 @@
             <button type="button" class="step-carousel-dot" aria-label="Photo 5"></button>
           </div>
         </div>
-        <div>
-          <p class="eyebrow" style="margin-bottom: var(--space-2xs);">Nos outils de travail</p>
-          <h4>Un chaland et un chantier taillés pour l'artisanat</h4>
+        <div class="tools-body">
           <ul>
             <li>1 chaland aluminium de 11 mètres et un manitou, pour le travail et la récolte sur nos parcs</li>
             <li>1 chantier de production à Crac'h : chaîne de tri, calibrage et bassins de purification intérieurs et extérieurs</li>
@@ -538,6 +542,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=81"></script>
+<script src="js/main.js?v=84"></script>
 </body>
 </html>

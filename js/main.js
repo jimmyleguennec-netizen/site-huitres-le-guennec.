@@ -1,6 +1,12 @@
 (function () {
   "use strict";
 
+  /* ---------- Réinitialisation du défilement en haut au chargement ---------- */
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- Année du pied de page ---------- */

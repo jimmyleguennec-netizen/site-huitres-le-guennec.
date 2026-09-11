@@ -1052,6 +1052,16 @@ section { position: relative; }
 .histoire-teaser .btn-outline { margin-top: var(--space-sm); }
 
 /* ---------- Galerie d'archives ---------- */
+.archive-era { margin-top: var(--space-xl); }
+.archive-era:first-of-type { margin-top: 0; }
+.archive-era-title {
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-weight: 700;
+  color: var(--navy-700);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gold-300);
+}
 .archives-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));

@@ -1109,25 +1109,24 @@ section { position: relative; }
   margin-bottom: var(--space-xl);
 }
 .production-banner img { width: 100%; height: clamp(280px, 46vw, 520px); object-fit: cover; }
+.production-banner::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.75) 100%);
+}
 .production-banner-text {
   position: absolute;
-  left: var(--space-xl);
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: fit-content;
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 2rem;
   color: #FFFFFF;
 }
-.production-banner-text * { color: #FFFFFF !important; }
+.production-banner-text * { color: #FFFFFF; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); }
 .production-banner-text h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
 .production-banner-text p { margin-top: var(--space-sm); font-size: 1.02rem; }
-@media (max-width: 640px) {
-  .production-banner-text { left: var(--space-md); right: var(--space-md); max-width: calc(100% - 2 * var(--space-md)); padding: 1.1rem 1.4rem; }
-}
 
 .site-cards {
   display: grid;

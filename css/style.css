@@ -1117,8 +1117,8 @@ section { position: relative; }
 .production-banner-text {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 1.5rem;
+  transform: translateX(-50%);
   max-width: fit-content;
   display: flex;
   flex-direction: column;

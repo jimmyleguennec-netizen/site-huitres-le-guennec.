@@ -1922,9 +1922,10 @@ table.calibre-table tr:last-child td { border-bottom: none; }
     width: 95%;
     max-width: 100%;
     margin-inline: auto;
-    padding: 20px 12px;
+    padding: 1.5rem 1.25rem;
   }
-  .faq-closing p { font-size: 0.95rem; line-height: 1.4; }
+  .faq-closing svg { margin-bottom: 0.75rem; }
+  .faq-closing p { font-size: 0.95rem; line-height: 1.6; }
 }
 
 /* ---------- Contact ---------- */

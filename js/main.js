@@ -48,11 +48,13 @@
   function openNav() {
     nav.classList.add("is-open");
     document.body.classList.add("nav-is-open");
+    document.documentElement.classList.add("nav-is-open");
     navToggle.setAttribute("aria-expanded", "true");
   }
   function closeNav() {
     nav.classList.remove("is-open");
     document.body.classList.remove("nav-is-open");
+    document.documentElement.classList.remove("nav-is-open");
     navToggle.setAttribute("aria-expanded", "false");
   }
   if (navToggle) navToggle.addEventListener("click", openNav);

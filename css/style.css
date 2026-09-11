@@ -2455,6 +2455,53 @@ main > section:last-of-type {
 .produit-row-desc { font-size: 0.9rem; color: var(--ink-600); margin-top: 3px; line-height: 1.5; }
 .produit-row-calibre { font-size: 0.82rem; color: var(--navy-800); font-weight: 600; margin-top: 5px; }
 .produit-row-season { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--gold-700, var(--gold-600)); margin-top: 5px; }
+/* ---------- Nos Récompenses (accueil) ---------- */
+.recompenses-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  max-width: 900px;
+  margin-inline: auto;
+}
+.recompense-category {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-lg);
+}
+.recompense-category h3 {
+  font-size: 1.15rem;
+  color: var(--navy-800);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--line-soft);
+}
+.recompense-list { display: flex; flex-direction: column; gap: var(--space-sm); list-style: none; padding: 0; margin: 0; }
+.recompense-item { display: flex; align-items: center; gap: var(--space-sm); }
+.recompense-medal {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--white);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.5), inset 0 -3px 5px rgba(0, 0, 0, 0.25), 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.recompense-medal--or { background: radial-gradient(circle at 35% 30%, #F5DE99, #C6A557 55%, #93752E); }
+.recompense-medal--argent { background: radial-gradient(circle at 35% 30%, #F4F5F6, #C6C9CC 55%, #8B8F94); }
+.recompense-medal--bronze { background: radial-gradient(circle at 35% 30%, #E6AD75, #B5722F 55%, #7C4A22); }
+.recompense-label { font-weight: 600; color: var(--ink-900); }
+@media (max-width: 768px) {
+  .recompenses-grid { grid-template-columns: 1fr; }
+  .recompense-category { padding: var(--space-md); }
+}
+
 .produit-row-medals { display: flex; gap: 15px; align-items: center; margin-top: 15px; }
 .medal-badge {
   display: flex;

@@ -213,11 +213,12 @@ section { position: relative; }
   box-shadow: var(--shadow-sm);
 }
 
-/* Ligne 1 : logo majestueux centré */
+/* Ligne 1 : reseaux sociaux / logo centre / appel, sur 3 colonnes */
 .header-brand-row {
+  position: relative;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
   padding-block: var(--space-md) var(--space-sm);
   transition: padding-block 0.35s var(--ease);
 }
@@ -225,6 +226,11 @@ section { position: relative; }
 .brand-center {
   display: inline-flex;
   align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 .brand-center img { height: 130px; width: auto; transition: height 0.35s var(--ease); }
 .site-header.is-scrolled .brand-center img { height: 100px; }
@@ -256,7 +262,7 @@ section { position: relative; }
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-md) var(--space-md);
+  gap: 25px;
 }
 .main-nav a {
   font-size: 0.95rem;
@@ -346,6 +352,7 @@ section { position: relative; }
   body.nav-is-open .header-actions .nav-toggle:not(.nav-close) { visibility: hidden; }
   html.nav-is-open,
   body.nav-is-open { overflow: hidden; height: 100%; }
+  .header-nav-row { border-top: none; padding-block: 0; }
 }
 @media (min-width: 1301px) {
   .nav-close { display: none; }
@@ -522,7 +529,7 @@ section { position: relative; }
   .hero-market-card {
     display: block;
     position: absolute;
-    top: 116px;
+    top: 84px;
     left: 0;
     right: 0;
     bottom: auto;
@@ -2469,11 +2476,11 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 
 @media (max-width: 768px) {
 
-  /* ---- 1. Header mobile : fond clair fixe, logo centré, burger à droite ---- */
+  /* ---- 1. Header mobile : fond clair fixe, logo a gauche, actions + burger a droite ---- */
   .site-header {
     display: flex;
     align-items: center;
-    min-height: 116px;
+    min-height: 84px;
     background: var(--cream-050);
     border-bottom: 1px solid var(--line-soft);
     box-shadow: none;
@@ -2484,42 +2491,48 @@ table.calibre-table tr:last-child td { border-bottom: none; }
     box-shadow: var(--shadow-sm);
   }
   .site-header .header-brand-row {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
+    position: static;
+    flex: 1 1 auto;
+    width: 100%;
     max-width: none;
     margin: 0;
     padding: 0;
-    justify-content: center;
-    z-index: 1001;
-    pointer-events: none;
+    justify-content: flex-start;
+    gap: 10px;
   }
   .site-header .header-brand-row .brand-center {
-    position: relative;
-    z-index: 1001;
+    position: static;
+    transform: none;
+    order: -1;
     display: inline-flex;
     padding: 8px;
-    margin: -8px;
-    pointer-events: auto !important;
+    margin: -8px auto -8px -8px;
   }
   .site-header .header-nav-row {
-    width: 100%;
+    width: auto;
     max-width: none;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     margin-inline: 0;
     padding-block: 0;
     border-top: none;
   }
   .site-header.is-scrolled .header-nav-row { border-top: none; padding-block: 0; }
-  .nav-row-inner { width: 100%; max-width: none; margin-inline: 0; justify-content: flex-end; }
+  .nav-row-inner { width: auto; max-width: none; margin-inline: 0; padding-inline: 0; justify-content: flex-end; }
   .brand-center img,
-  .site-header.is-scrolled .brand-center img { height: 100px !important; }
+  .site-header.is-scrolled .brand-center img { height: 52px !important; }
   .brand-center .logo-white { display: none; }
   .brand-center .logo-color { display: block; }
   .header-actions { position: static; transform: none; gap: 8px; }
-  .header-actions .header-cta { display: none; }
+  .header-actions .header-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  .header-actions .header-cta svg { width: 18px; height: 18px; }
   .site-header .nav-toggle svg { color: var(--navy-900); }
   .site-header .header-social-link,
   .site-header.is-scrolled .header-social-link { color: var(--navy-900); width: 20px; height: 20px; }
@@ -2527,7 +2540,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   .header-social { gap: 6px; }
 
   /* ---- 1bis. Hero de page (pages intérieures) : padding réduit ---- */
-  .page-hero { padding-block: calc(116px + var(--space-md)) var(--space-lg); }
+  .page-hero { padding-block: calc(84px + var(--space-md)) var(--space-lg); }
 
   /* ---- 2. Menu déplié : fond blanc épuré, liens alignés à gauche ---- */
   .main-nav {

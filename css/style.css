@@ -1112,7 +1112,9 @@ section { position: relative; }
 .production-banner::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(18,48,63,0.75) 0%, rgba(18,48,63,0.15) 55%, transparent 100%);
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    linear-gradient(90deg, rgba(18,48,63,0.75) 0%, rgba(18,48,63,0.35) 55%, rgba(18,48,63,0.1) 100%);
 }
 .production-banner-text {
   position: absolute;
@@ -1124,8 +1126,8 @@ section { position: relative; }
   max-width: 560px;
   color: var(--white);
 }
-.production-banner-text h3 { color: var(--white); font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
-.production-banner-text p { margin-top: var(--space-sm); color: var(--shell-100); font-size: 1.02rem; }
+.production-banner-text h3 { color: var(--white); font-size: clamp(1.5rem, 2.6vw, 2.1rem); text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+.production-banner-text p { margin-top: var(--space-sm); color: var(--white); font-size: 1.02rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
 
 .site-cards {
   display: grid;

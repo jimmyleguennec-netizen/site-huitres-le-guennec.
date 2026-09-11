@@ -2033,7 +2033,12 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   background-position: center 40%;
   background-repeat: no-repeat;
   color: rgba(255,255,255,0.75);
-  padding-block: calc(var(--space-3xl) + 2rem) var(--space-lg);
+  padding-block: 3rem var(--space-lg);
+}
+/* Transition compacte entre la derniere section de chaque page et le footer */
+main > section:last-of-type {
+  padding-block-end: 2rem;
+  margin-bottom: 0;
 }
 .footer-top {
   display: grid;

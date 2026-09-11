@@ -1148,7 +1148,17 @@ section { position: relative; }
 .production-banner-text h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
 .production-banner-text p { margin-top: var(--space-sm); font-size: 1.02rem; }
 @media (max-width: 640px) {
-  .production-banner-text { max-width: calc(100% - 2 * var(--space-md)); padding: 1.1rem 1.4rem; }
+  .production-banner { overflow: visible; }
+  .production-banner img { border-radius: var(--radius-lg); }
+  .production-banner::after { border-radius: var(--radius-lg); }
+  .production-banner-text {
+    max-width: calc(100% - 2 * var(--space-md));
+    height: auto;
+    max-height: none;
+    padding: 1.1rem 1.4rem;
+  }
+  .production-banner-text h3 { font-size: 1.35rem; }
+  .production-banner-text p { font-size: 0.92rem; }
 }
 
 .site-cards {
@@ -1831,6 +1841,15 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   min-width: 0;
 }
 .event-chip svg { width: 20px; height: 20px; color: var(--gold-400, var(--gold-500)); flex-shrink: 0; }
+@media (max-width: 768px) {
+  .event-list { grid-template-columns: 1fr; }
+  .event-chip {
+    justify-content: center;
+    padding: 1rem 0.75rem;
+    text-align: center;
+    word-break: break-word;
+  }
+}
 .evenements-cta {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.16);

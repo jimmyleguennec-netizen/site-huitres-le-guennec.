@@ -1517,12 +1517,13 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 }
 .marche-photocard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .marche-photocard-media {
-  flex: 0 0 220px;
+  flex: 0 1 280px;
+  width: 100%;
+  max-width: 280px;
   min-height: 160px;
   position: relative;
   overflow: visible;
-  border-radius: var(--radius-md) 0 0 var(--radius-md);
-  background: var(--cream-100);
+  background: transparent;
 }
 .marche-photocard-media img {
   width: 100%;
@@ -1558,7 +1559,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .btn-marche-go-list:hover { background: var(--btn-gold-hover); transform: translateY(-1px); }
 .marche-photocard.is-today { box-shadow: 0 0 0 3px var(--gold-500), var(--shadow-md); }
 @media (max-width: 560px) {
-  .marche-photocard-media { flex-basis: auto; width: 100%; height: 170px; border-radius: var(--radius-md) var(--radius-md) 0 0; }
+  .marche-photocard-media { flex-basis: auto; width: 100%; max-width: none; height: 170px; }
 }
 
 /* ---------- Où déguster nos huîtres : adresses partenaires ---------- */

@@ -2411,6 +2411,19 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .produit-row:last-child { border-bottom: none; }
 .produit-row-title { text-align: center; }
 .produit-row-title h3 { font-size: 1.5rem; color: var(--navy-900); }
+.produit-row-badge {
+  display: inline-block;
+  margin-bottom: var(--space-2xs);
+  padding: 0.3rem 1rem;
+  border: 1.5px solid var(--gold-600);
+  border-radius: var(--radius-pill);
+  background: var(--shell-100);
+  color: var(--gold-700, var(--gold-600));
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 @media (min-width: 769px) {
   .produit-row {
     grid-template-columns: 240px 1fr;

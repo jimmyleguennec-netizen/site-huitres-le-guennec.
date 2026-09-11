@@ -2474,6 +2474,16 @@ table.calibre-table tr:last-child td { border-bottom: none; }
     margin: 0;
     padding: 0;
     justify-content: center;
+    z-index: 1001;
+    pointer-events: none;
+  }
+  .site-header .header-brand-row .brand-center {
+    position: relative;
+    z-index: 1001;
+    display: inline-flex;
+    padding: 8px;
+    margin: -8px;
+    pointer-events: auto !important;
   }
   .site-header .header-nav-row {
     width: 100%;

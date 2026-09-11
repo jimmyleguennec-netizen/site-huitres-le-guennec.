@@ -2386,10 +2386,20 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   width: 240px;
   height: 240px;
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow: visible;
   background: var(--shell-100);
+  position: relative;
 }
-.produit-row-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.produit-row-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  display: block;
+  position: relative;
+  transform: scale(1.1);
+  transition: transform 0.4s var(--ease);
+}
+.produit-row-media.zoomable { overflow: visible; }
 .produit-row-media.is-icon {
   display: flex;
   align-items: center;

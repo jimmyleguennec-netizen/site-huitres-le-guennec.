@@ -864,6 +864,49 @@ section { position: relative; }
   display: block;
 }
 
+/* ---------- Page "Presse & Média" : reportage TVR (video + texte) ---------- */
+.tvr-feature {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+.tvr-feature-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--ink-900);
+}
+.tvr-feature-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.tvr-feature-logo {
+  height: 56px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+.tvr-feature-content { max-width: 46ch; }
+.tvr-feature-content p:not(.eyebrow) {
+  color: var(--ink-600, var(--ink-700));
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+@media (max-width: 860px) {
+  .tvr-feature { grid-template-columns: 1fr; }
+  .tvr-feature-content { max-width: none; }
+}
+
 /* ---------- Page "Presse & Média" : articles style gazette ---------- */
 .gazette-section { padding-block: var(--space-2xl); }
 .gazette-article {

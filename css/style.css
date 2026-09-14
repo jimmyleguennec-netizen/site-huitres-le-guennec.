@@ -2098,17 +2098,20 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .google-float-badge:hover { transform: translateY(-2px); opacity: 1; box-shadow: var(--shadow-lg); }
 .google-float-badge-icon { width: 30px; height: 30px; flex-shrink: 0; }
 .google-float-badge-icon svg { width: 100%; height: 100%; }
-.google-float-badge-text { display: flex; flex-direction: column; line-height: 1.2; }
-.google-float-badge-text strong { font-family: var(--font-body); font-size: 0.82rem; color: var(--navy-900); }
-.google-float-badge-text span { font-size: 0.72rem; color: var(--ink-400); font-weight: 600; }
+.google-float-badge-text { display: flex; flex-direction: column; line-height: 1.2; gap: 1px; }
+.google-float-badge-rating { display: flex; align-items: baseline; gap: 5px; }
+.google-float-badge-rating strong { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--navy-900); }
+.google-float-badge-stars { font-size: 0.7rem; letter-spacing: 1px; color: var(--gold-600); }
+.google-float-badge-sub { font-size: 0.68rem; color: var(--ink-400); font-weight: 600; }
 @media (max-width: 640px) {
   .google-float-badge { left: 14px; bottom: 14px; padding: 6px 12px 6px 6px; gap: 8px; }
   .google-float-badge-icon { width: 26px; height: 26px; }
-  .google-float-badge-text strong { font-size: 0.76rem; }
-  .google-float-badge-text span { font-size: 0.66rem; }
+  .google-float-badge-rating strong { font-size: 0.86rem; }
+  .google-float-badge-stars { font-size: 0.62rem; }
+  .google-float-badge-sub { font-size: 0.6rem; }
 }
 @media (max-width: 360px) {
-  .google-float-badge-text span { display: none; }
+  .google-float-badge-sub { display: none; }
 }
 
 /* ---------- Réseaux sociaux ---------- */

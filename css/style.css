@@ -887,19 +887,6 @@ section { position: relative; }
   height: 100%;
   border: 0;
 }
-.tvr-feature-timecode {
-  position: absolute;
-  bottom: var(--space-sm);
-  left: var(--space-sm);
-  background: rgba(18,48,63,0.85);
-  color: var(--white);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  padding: 0.35rem 0.7rem;
-  border-radius: var(--radius-pill);
-  pointer-events: none;
-}
 .tvr-feature-logo {
   height: 56px;
   width: auto;

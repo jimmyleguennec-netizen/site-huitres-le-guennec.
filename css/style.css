@@ -2165,7 +2165,14 @@ main > section:last-of-type {
 @media (min-width: 780px) {
   .footer-top { grid-template-columns: 1.3fr 1fr 1fr; }
 }
-.footer-brand img { height: 52px; margin-bottom: var(--space-sm); }
+.footer-brand img {
+  display: block;
+  width: auto;
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: var(--space-sm);
+}
 .footer-brand p { font-size: 0.92rem; max-width: 32ch; color: rgba(255,255,255,0.6); }
 .footer-rating { display: flex; align-items: center; gap: 6px; margin-top: var(--space-sm); font-size: 0.88rem; color: rgba(255,255,255,0.75); }
 .footer-rating strong { color: var(--gold-400, var(--gold-500)); }
@@ -2202,7 +2209,7 @@ main > section:last-of-type {
 @media (max-width: 768px) {
   .site-footer { padding-block: 24px 16px; }
   .footer-top { gap: 12px; padding-bottom: var(--space-md); margin-bottom: var(--space-md); }
-  .footer-brand img { height: 40px; margin-bottom: 8px; }
+  .footer-brand img { max-width: 150px; margin-inline: auto; margin-bottom: 8px; }
   .footer-brand p { font-size: 0.85rem; }
   .footer-rating { margin-top: 8px; font-size: 0.8rem; }
   .footer-col { margin-bottom: 12px; }

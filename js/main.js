@@ -156,7 +156,7 @@
     marcheMapInstance = initMap("marche-map", marches);
   }
   if (document.getElementById("contact-map")) {
-    initMap("contact-map", [{ nom: "Chantier Le Guennec", jour: "", horaire: "64 Hameau de Kersolard, 56950 Crac'h", lat: 47.600882594086414, lng: -3.0213585232685882, isChantier: true }]);
+    initMap("contact-map", [{ nom: "Chantier Le Guennec", jour: "", horaire: "64 Kersolard, 56950 Crac'h", lat: 47.600882594086414, lng: -3.0213585232685882, isChantier: true }]);
   }
 
   /* ---------- Cartes marché ↔ carte Leaflet (flyTo) ---------- */

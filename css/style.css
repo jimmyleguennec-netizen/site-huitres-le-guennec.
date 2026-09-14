@@ -1156,26 +1156,25 @@ section { position: relative; }
 .production-banner-text * { color: #FFFFFF !important; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); }
 .production-banner-text h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
 .production-banner-text p { margin-top: var(--space-sm); font-size: 1.02rem; }
-@media (max-width: 640px) {
-  .production-banner::after { display: none; }
+@media (max-width: 768px) {
+  .production-banner { min-height: 400px; }
+  .production-banner img { height: 400px; min-height: 400px; }
   .production-banner-text {
-    position: static;
-    left: auto;
-    top: auto;
-    transform: none;
-    max-width: 100%;
-    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 85%;
     margin: 0;
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 0;
-    background: rgba(15, 23, 42, 0.92);
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.85);
     height: auto;
     max-height: none;
-    padding: 1.1rem 1.4rem;
+    padding: 1rem 1.25rem;
   }
-  .production-banner-text h3 { font-size: 1.35rem; }
-  .production-banner-text p { font-size: 0.92rem; }
+  .production-banner-text h3 { font-size: 1.3rem; }
+  .production-banner-text p { font-size: 0.88rem; }
 }
 
 .site-cards {

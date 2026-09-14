@@ -1,0 +1,66 @@
+name: Update Google Reviews
+
+# Met a jour data/google-reviews.json avec la note et le nombre d'avis
+# Google reels, via l'API Google Places (Place Details).
+#
+# Pour activer cette automatisation :
+#   1. Creer une cle API Google Places (Google Cloud Console) restreinte
+#      a l'API "Places API" et, idealement, a ce depot / cette IP.
+#   2. Recuperer le Place ID de la fiche Google Business Profile
+#      (https://developers.google.com/maps/documentation/places/web-service/place-id).
+#   3. Dans GitHub : Settings > Secrets and variables > Actions, ajouter :
+#        - GOOGLE_PLACES_API_KEY
+#        - GOOGLE_PLACE_ID
+# Tant que ces secrets ne sont pas definis, ce workflow ne fait rien
+# (il se termine proprement sans erreur ni modification).
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # chaque lundi a 06h00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Recuperer la note depuis Google Places API
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+        run: |
+          set -e
+          if [ -z "$GOOGLE_PLACES_API_KEY" ] || [ -z "$GOOGLE_PLACE_ID" ]; then
+            echo "Secrets GOOGLE_PLACES_API_KEY / GOOGLE_PLACE_ID absents : etape ignoree, rien a mettre a jour."
+            exit 0
+          fi
+
+          RESPONSE=$(curl -sS "https://maps.googleapis.com/maps/api/place/details/json?place_id=${GOOGLE_PLACE_ID}&fields=rating,user_ratings_total,url&key=${GOOGLE_PLACES_API_KEY}")
+          STATUS=$(echo "$RESPONSE" | jq -r '.status')
+
+          if [ "$STATUS" != "OK" ]; then
+            echo "Reponse API invalide (status=$STATUS) : fichier non modifie."
+            exit 0
+          fi
+
+          echo "$RESPONSE" | jq '{
+            rating: .result.rating,
+            reviews: .result.user_ratings_total,
+            url: (.result.url // "https://www.google.com/search?q=Hu%C3%AEtres+et+Coquillages+Le+Guennec+Crac%27h+avis"),
+            updated: (now | strftime("%Y-%m-%d"))
+          }' > data/google-reviews.json
+
+      - name: Committer si le fichier a change
+        run: |
+          if git diff --quiet -- data/google-reviews.json; then
+            echo "Aucun changement de note/avis."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/google-reviews.json
+          git commit -m "chore: mise a jour automatique de la note Google"
+          git push

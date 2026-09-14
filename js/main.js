@@ -279,6 +279,28 @@
     }
     toggleGoogleBadge();
     window.addEventListener("scroll", toggleGoogleBadge, { passive: true });
+
+    /* Note et nombre d'avis charges depuis data/google-reviews.json.
+       Aucune valeur en dur ici : si le fichier est absent, invalide ou
+       ne contient pas encore de note reelle (rating/reviews = null), le
+       badge garde son etat neutre "Avis Google / Voir nos avis" deja
+       present en HTML. */
+    fetch("data/google-reviews.json", { cache: "no-store" })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (data) {
+        if (!data || typeof data.rating !== "number" || typeof data.reviews !== "number") return;
+        var titleEl = document.getElementById("google-badge-title");
+        var subEl = document.getElementById("google-badge-sub");
+        if (!titleEl || !subEl) return;
+        var rating = Math.max(0, Math.min(5, data.rating));
+        var ratingStr = rating.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+        var fullStars = Math.round(rating);
+        var starsStr = "★".repeat(fullStars) + "☆".repeat(5 - fullStars);
+        titleEl.innerHTML = ratingStr + ' <span class="google-float-badge-stars" aria-hidden="true">' + starsStr + "</span>";
+        subEl.textContent = data.reviews + " avis Google";
+        if (data.url) googleBadge.href = data.url;
+      })
+      .catch(function () { /* pas de connexion / JSON absent : etat neutre conserve */ });
   }
 
   /* ---------- Lightbox (galerie d'archives + coupures de presse) ---------- */

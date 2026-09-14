@@ -1157,11 +1157,19 @@ section { position: relative; }
 .production-banner-text h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
 .production-banner-text p { margin-top: var(--space-sm); font-size: 1.02rem; }
 @media (max-width: 640px) {
-  .production-banner { overflow: visible; }
-  .production-banner img { border-radius: var(--radius-lg); }
-  .production-banner::after { border-radius: var(--radius-lg); }
+  .production-banner::after { display: none; }
   .production-banner-text {
-    max-width: calc(100% - 2 * var(--space-md));
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0;
+    background: rgba(15, 23, 42, 0.92);
     height: auto;
     max-height: none;
     padding: 1.1rem 1.4rem;

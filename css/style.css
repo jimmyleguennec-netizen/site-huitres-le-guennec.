@@ -1714,6 +1714,8 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   50% { box-shadow: 0 0 0 6px rgba(198,165,87,0); }
 }
 @media (prefers-reduced-motion: reduce) { .today-flag { animation: none; } }
+.today-flag.is-open { background: #5FAE7A; color: var(--white); }
+.today-flag.is-closed { background: var(--ink-400); color: var(--white); animation: none; }
 .new-flag {
   display: inline-block;
   margin-left: var(--space-2xs);
@@ -2490,6 +2492,18 @@ main > section:last-of-type {
 .produit-row-desc { font-size: 0.9rem; color: var(--ink-600); margin-top: 3px; line-height: 1.5; }
 .produit-row-calibre { font-size: 0.82rem; color: var(--navy-800); font-weight: 600; margin-top: 5px; }
 .produit-row-season { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--gold-700, var(--gold-600)); margin-top: 5px; }
+.produit-row-origin {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--radius-pill);
+  margin-top: 6px;
+}
+.produit-row-origin--own { background: rgba(34, 81, 115, 0.1); color: var(--navy-700); }
+.produit-row-origin--partner { background: var(--shell-100); color: var(--ink-600); }
 .produit-row-medals { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; margin-top: 15px; }
 .medal-badge {
   display: flex;

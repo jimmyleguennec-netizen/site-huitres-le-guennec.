@@ -100,8 +100,8 @@
     { id: "cracH", nom: "Marché de Crac'h", jour: "Jeudi", horaire: "7h30 – 13h", lat: 47.6181, lng: -3.0012, nouveau: true, note: "Nouveauté juin 2026 — Place de l'Église" },
     { id: "ploermel", nom: "Marché de Ploërmel", jour: "Vendredi", horaire: "7h – 13h", lat: 47.9322, lng: -2.3975, note: "Place du Marché, 56800 Ploërmel" },
     { id: "rennes", nom: "Marché de Rennes — Place des Lices", jour: "Samedi", horaire: "5h – 13h30", lat: 48.1125, lng: -1.6836, note: "Place des Lices, 35000 Rennes" },
-    { id: "pluneret", nom: "Marché de Pluneret", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6742, lng: -2.9568, note: "Place de l'Église" },
-    { id: "saintave", nom: "Marché de Saint-Avé", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6883, lng: -2.7339, note: "Place de l'Église" }
+    { id: "pluneret", nom: "Marché de Pluneret", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6742, lng: -2.9568, note: "Place de la Mairie" },
+    { id: "saintave", nom: "Marché de Saint-Avé", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6883, lng: -2.7339, note: "Place de la Mairie" }
   ];
 
   function pinIcon(isNew, isChantier) {
@@ -263,25 +263,56 @@
   /* ---------- Marché du jour / à venir ---------- */
   var dayCards = document.querySelectorAll(".marche-photocard[data-day]");
   if (dayCards.length) {
-    var today = new Date().getDay();
-    var distances = Array.prototype.map.call(dayCards, function (card) {
+    var now = new Date();
+    var today = now.getDay();
+    var nowMinutes = now.getHours() * 60 + now.getMinutes();
+
+    function parseHoraire(str) {
+      var m = str && str.match(/(\d{1,2})h(\d{2})?\s*[–-]\s*(\d{1,2})h(\d{2})?/);
+      if (!m) return null;
+      return {
+        start: parseInt(m[1], 10) * 60 + (m[2] ? parseInt(m[2], 10) : 0),
+        end: parseInt(m[3], 10) * 60 + (m[4] ? parseInt(m[4], 10) : 0)
+      };
+    }
+
+    var cardsInfo = Array.prototype.map.call(dayCards, function (card) {
       var d = parseInt(card.getAttribute("data-day"), 10);
-      return (d - today + 7) % 7;
+      var market = marches.filter(function (m) { return m.id === card.getAttribute("data-market-id"); })[0];
+      var hours = market ? parseHoraire(market.horaire) : null;
+      var isToday = d === today;
+      var isOpenNow = !!(isToday && hours && nowMinutes >= hours.start && nowMinutes < hours.end);
+      var hasPassedToday = !!(isToday && hours && nowMinutes >= hours.end);
+      var daysUntilNext = (d - today + 7) % 7;
+      if (daysUntilNext === 0 && hasPassedToday) daysUntilNext = 7;
+      return { card: card, market: market, hours: hours, isToday: isToday, isOpenNow: isOpenNow, daysUntilNext: daysUntilNext };
     });
-    var minDistance = Math.min.apply(null, distances);
-    dayCards.forEach(function (card, i) {
-      var h4 = card.querySelector("h4");
-      if (distances[i] === 0) {
-        card.classList.add("is-today");
-        var todayFlag = document.createElement("span");
-        todayFlag.className = "today-flag";
-        todayFlag.textContent = "Aujourd'hui";
-        h4.appendChild(todayFlag);
-      } else if (minDistance > 0 && distances[i] === minDistance) {
+
+    var minDistance = Math.min.apply(null, cardsInfo.map(function (c) { return c.daysUntilNext; }));
+
+    cardsInfo.forEach(function (info) {
+      var h4 = info.card.querySelector("h4");
+
+      if (info.isOpenNow) {
+        info.card.classList.add("is-today");
+        var openFlag = document.createElement("span");
+        openFlag.className = "today-flag is-open";
+        openFlag.textContent = "Ouvert actuellement";
+        h4.appendChild(openFlag);
+      } else if (info.isToday && info.hours) {
+        info.card.classList.add("is-today");
+        var closedFlag = document.createElement("span");
+        closedFlag.className = "today-flag is-closed";
+        closedFlag.textContent = "Fermé actuellement";
+        h4.appendChild(closedFlag);
+      }
+
+      if (!info.isOpenNow && info.daysUntilNext === minDistance) {
         var nextFlag = document.createElement("span");
         nextFlag.className = "today-flag";
         nextFlag.style.animation = "none";
-        nextFlag.textContent = "Prochain marché";
+        var label = info.market ? info.market.jour + (info.market.horaire ? " " + info.market.horaire : "") : "";
+        nextFlag.textContent = "Prochain marché : " + label;
         h4.appendChild(nextFlag);
       }
     });

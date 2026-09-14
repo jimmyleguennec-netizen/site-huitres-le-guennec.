@@ -619,15 +619,19 @@ section { position: relative; }
   .histoire-heading { grid-area: heading; }
   .histoire-text-body, .histoire-teaser { grid-area: body; }
 }
-.histoire-media { position: relative; }
+.histoire-media { position: relative; text-align: center; }
 .histoire-media img {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  display: inline-block;
+}
+@media (min-width: 900px) {
+  .histoire-media img { max-height: 420px; }
 }
 .histoire-text-body p { color: var(--ink-600); margin-bottom: var(--space-sm); font-size: 1.05rem; }
 

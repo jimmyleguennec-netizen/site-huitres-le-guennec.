@@ -233,8 +233,8 @@
       });
     });
 
-    /* Loupe au survol (produits, marchés, doyenne) : réutilise la même lightbox */
-    document.querySelectorAll(".produit-row-media:not(.is-icon), .marche-photocard-media, .doyenne-carousel .step-carousel-slide").forEach(function (el) {
+    /* Loupe au survol (produits, marchés, doyenne, sites d'élevage) : réutilise la même lightbox */
+    document.querySelectorAll(".produit-row-media:not(.is-icon), .marche-photocard-media, .doyenne-carousel .step-carousel-slide, .site-card-media").forEach(function (el) {
       var img = el.querySelector("img");
       if (!img) return;
       el.classList.add("zoomable");

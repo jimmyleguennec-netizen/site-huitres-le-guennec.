@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=146">
+<link rel="stylesheet" href="css/style.css?v=147">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -153,7 +153,6 @@
         <div class="site-card">
           <div class="site-card-media">
             <img src="img/casier.jpg" alt="Parcs ostréicoles au large de Saint-Philibert, Baie de Quiberon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 12a7 7 0 0 1 14 0"/><path d="M12 12v9"/><path d="M8 21h8"/></svg>
           </div>
           <div class="site-card-body">
             <h4>Baie de Quiberon — Saint-Philibert</h4>
@@ -163,7 +162,6 @@
         <div class="site-card">
           <div class="site-card-media">
             <img src="img/parc-trinite.jpg" alt="Parc ostréicole à marée basse à La Trinité-sur-Mer, Baie de Quiberon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M12 22v-6"/><circle cx="12" cy="12" r="4"/><path d="M4.9 4.9l4.2 4.2"/><path d="M14.9 14.9l4.2 4.2"/><path d="M19.1 4.9l-4.2 4.2"/><path d="M9.1 14.9l-4.2 4.2"/></svg>
           </div>
           <div class="site-card-body">
             <h4>Baie de Quiberon — La Trinité-sur-Mer</h4>
@@ -173,7 +171,6 @@
         <div class="site-card">
           <div class="site-card-media">
             <img src="img/etape2-poche-arradon.jpg" alt="Parcs ostréicoles à marée basse à Arradon, Golfe du Morbihan">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M5 12a7 7 0 0 1 14 0"/><path d="M12 12v9"/><path d="M8 21h8"/></svg>
           </div>
           <div class="site-card-body">
             <h4>Golfe du Morbihan — Arradon</h4>
@@ -458,6 +455,17 @@
 
 </main>
 
+<!-- ============ LIGHTBOX (sites d'élevage) ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie" hidden>
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Fermer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <figure>
+    <img id="lightbox-img" src="" alt="">
+    <figcaption id="lightbox-caption"></figcaption>
+  </figure>
+</div>
+
 <!-- ============ PIED DE PAGE ============ -->
 <footer class="site-footer">
   <div class="container">
@@ -509,6 +517,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=146"></script>
+<script src="js/main.js?v=147"></script>
 </body>
 </html>

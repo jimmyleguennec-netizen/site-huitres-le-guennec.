@@ -22,9 +22,9 @@
       1: { text: "Chantier ouvert (08h30 – 18h00)", live: true },
       2: { text: "Chantier ouvert (08h30 – 18h00)", live: true },
       3: { text: "Chantier ouvert (08h30 – 18h00)", live: true },
-      4: { text: "Marché de Crac'h (7h – 13h)", live: true },
+      4: { text: "Marché de Crac'h (7h30 – 13h)", live: true },
       5: { text: "Marché de Ploërmel (7h – 13h)", live: true },
-      6: { text: "Marché de Rennes — Place des Lices (7h – 13h)", live: true }
+      6: { text: "Marché de Rennes — Place des Lices (5h – 13h30)", live: true }
     };
     var todayInfo = heroMarketMessages[new Date().getDay()];
     heroMarketText.textContent = "Aujourd'hui : " + todayInfo.text;
@@ -97,9 +97,9 @@
 
   /* ---------- Carte des marchés (Leaflet) ---------- */
   var marches = [
-    { id: "cracH", nom: "Marché de Crac'h", jour: "Jeudi", horaire: "7h – 13h", lat: 47.6181, lng: -3.0012, nouveau: true, note: "Nouveauté juin 2026 — Place de l'Église" },
+    { id: "cracH", nom: "Marché de Crac'h", jour: "Jeudi", horaire: "7h30 – 13h", lat: 47.6181, lng: -3.0012, nouveau: true, note: "Nouveauté juin 2026 — Place de l'Église" },
     { id: "ploermel", nom: "Marché de Ploërmel", jour: "Vendredi", horaire: "7h – 13h", lat: 47.9322, lng: -2.3975, note: "Place du Marché, 56800 Ploërmel" },
-    { id: "rennes", nom: "Marché de Rennes — Place des Lices", jour: "Samedi", horaire: "7h – 13h", lat: 48.1125, lng: -1.6836, note: "Place des Lices, 35000 Rennes" },
+    { id: "rennes", nom: "Marché de Rennes — Place des Lices", jour: "Samedi", horaire: "5h – 13h30", lat: 48.1125, lng: -1.6836, note: "Place des Lices, 35000 Rennes" },
     { id: "pluneret", nom: "Marché de Pluneret", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6742, lng: -2.9568, note: "Place de l'Église" },
     { id: "saintave", nom: "Marché de Saint-Avé", jour: "Dimanche", horaire: "7h – 13h", lat: 47.6883, lng: -2.7339, note: "Place de l'Église" }
   ];

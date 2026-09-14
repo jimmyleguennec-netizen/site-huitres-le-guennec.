@@ -7,22 +7,81 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---------- Heure de Paris (fuseau du commerce, quel que soit le visiteur) ---------- */
+  var JOURS_FR = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+  function parseHoraireStr(str) {
+    var m = str && str.match(/(\d{1,2})\s*h\s*(\d{2})?\s*[–-]\s*(\d{1,2})\s*h\s*(\d{2})?/);
+    if (!m) return null;
+    return {
+      start: parseInt(m[1], 10) * 60 + (m[2] ? parseInt(m[2], 10) : 0),
+      end: parseInt(m[3], 10) * 60 + (m[4] ? parseInt(m[4], 10) : 0)
+    };
+  }
+  function getParisNow() {
+    var parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Europe/Paris",
+      weekday: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    }).formatToParts(new Date());
+    var map = {};
+    parts.forEach(function (p) { map[p.type] = p.value; });
+    var weekdayMap = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    var hour = parseInt(map.hour, 10) % 24;
+    var minute = parseInt(map.minute, 10);
+    return { day: weekdayMap[map.weekday], minutes: hour * 60 + minute };
+  }
+
   /* ---------- Carte "Où nous trouver aujourd'hui ?" (Hero) ---------- */
   var heroMarketText = document.getElementById("hero-market-text");
   if (heroMarketText) {
     var heroMarketDot = document.getElementById("hero-market-dot");
-    var heroMarketMessages = {
-      0: { text: "Marchés de Pluneret & Saint-Avé (7 h – 13 h)", live: true },
-      1: { text: "Chantier ouvert (8 h 30 – 18 h)", live: true },
-      2: { text: "Chantier ouvert (8 h 30 – 18 h)", live: true },
-      3: { text: "Chantier ouvert (8 h 30 – 18 h)", live: true },
-      4: { text: "Marché de Crac'h (7 h 30 – 13 h)", live: true },
-      5: { text: "Marché de Ploërmel (7 h – 13 h)", live: true },
-      6: { text: "Marché de Rennes — Place des Lices (5 h – 13 h 30)", live: true }
-    };
-    var todayInfo = heroMarketMessages[new Date().getDay()];
-    heroMarketText.textContent = "Aujourd'hui : " + todayInfo.text;
-    if (heroMarketDot) heroMarketDot.classList.toggle("is-live", todayInfo.live);
+    /* Horaires strictement identiques a ceux affiches ailleurs sur le site
+       (chantier + marches). Priorite d'affichage quand plusieurs creneaux
+       coexistent le meme jour (ex. jeudi matin) : marche puis chantier. */
+    var heroCreneaux = [
+      { day: 1, horaire: "8 h 30 – 18 h", label: "Chantier ouvert (8 h 30 – 18 h)" },
+      { day: 2, horaire: "8 h 30 – 18 h", label: "Chantier ouvert (8 h 30 – 18 h)" },
+      { day: 3, horaire: "8 h 30 – 18 h", label: "Chantier ouvert (8 h 30 – 18 h)" },
+      { day: 4, horaire: "7 h 30 – 13 h", label: "Marché de Crac'h (7 h 30 – 13 h)" },
+      { day: 4, horaire: "8 h 30 – 12 h", label: "Chantier ouvert (8 h 30 – 12 h)" },
+      { day: 5, horaire: "7 h – 13 h", label: "Marché de Ploërmel (7 h – 13 h)" },
+      { day: 6, horaire: "5 h – 13 h 30", label: "Marché de Rennes — Place des Lices (5 h – 13 h 30)" },
+      { day: 0, horaire: "7 h – 13 h", label: "Marchés de Pluneret & Saint-Avé (7 h – 13 h)" }
+    ];
+    var parisNow = getParisNow();
+    var current = null;
+    for (var i = 0; i < heroCreneaux.length; i++) {
+      var c = heroCreneaux[i];
+      if (c.day !== parisNow.day) continue;
+      var h = parseHoraireStr(c.horaire);
+      if (h && parisNow.minutes >= h.start && parisNow.minutes < h.end) { current = c; break; }
+    }
+    if (current) {
+      heroMarketText.textContent = "Aujourd'hui : " + current.label;
+      if (heroMarketDot) heroMarketDot.classList.add("is-live");
+    } else {
+      /* Rien d'ouvert maintenant : on cherche le prochain creneau, y compris plus tard le meme jour. */
+      var next = null;
+      for (var offset = 0; offset < 8 && !next; offset++) {
+        var d = (parisNow.day + offset) % 7;
+        var todaysCreneaux = heroCreneaux.filter(function (c) { return c.day === d; });
+        todaysCreneaux.forEach(function (c) {
+          var h2 = parseHoraireStr(c.horaire);
+          if (!h2) return;
+          if (offset === 0 && h2.start <= parisNow.minutes) return;
+          if (!next) next = { c: c, day: d };
+        });
+      }
+      if (next) {
+        var dayLabel = next.day === parisNow.day ? "aujourd'hui" : JOURS_FR[next.day].toLowerCase();
+        heroMarketText.textContent = "Fermé actuellement — prochain : " + next.c.label + " (" + dayLabel + ")";
+      } else {
+        heroMarketText.textContent = "Fermé actuellement — consultez nos horaires ci-dessous";
+      }
+      if (heroMarketDot) heroMarketDot.classList.remove("is-live");
+    }
   }
 
   /* ---------- En-tête : fond au scroll ---------- */
@@ -176,18 +235,18 @@
     initMap("contact-map", [{ nom: "Chantier Le Guennec", jour: "", horaire: "64 Kersolard, 56950 Crac'h", lat: 47.600882594086414, lng: -3.0213585232685882, isChantier: true }]);
   }
 
-  /* ---------- Cartes marché ↔ carte Leaflet (flyTo) ---------- */
+  /* ---------- Cartes marché -> carte Leaflet (flyTo) ---------- */
+  /* Action explicite et accessible (bouton reel, clavier + tactile) plutot
+     qu'un clic sur toute la carte, qui contient deja un lien. */
   if (marcheMapInstance) {
-    document.querySelectorAll(".marche-photocard[data-market-id]").forEach(function (card) {
-      card.addEventListener("click", function (e) {
-        if (e.target.closest(".btn-marche-go-list")) return;
-        var id = card.getAttribute("data-market-id");
+    document.querySelectorAll(".btn-marche-map-focus[data-market-id]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-market-id");
         var marker = marcheMapInstance.markersById[id];
         if (!marker) return;
         marcheMapInstance.map.flyTo(marker.getLatLng(), 13, { duration: 0.9 });
         marker.openPopup();
       });
-      card.style.cursor = "pointer";
     });
   }
 
@@ -230,6 +289,34 @@
     var lightboxClose = document.getElementById("lightbox-close");
     var lastFocused = null;
 
+    function getFocusable(container) {
+      return Array.prototype.filter.call(
+        container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+        function (el) { return el.offsetParent !== null; }
+      );
+    }
+    function trapTabKey(e) {
+      if (e.key !== "Tab") return;
+      var focusable = getFocusable(lightbox);
+      if (!focusable.length) { e.preventDefault(); return; }
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+    function setBackgroundInert(state) {
+      Array.prototype.forEach.call(document.body.children, function (el) {
+        if (el === lightbox || el.tagName === "SCRIPT") return;
+        if (state) el.setAttribute("inert", "");
+        else el.removeAttribute("inert");
+      });
+    }
+
     function openLightbox(src, alt, caption) {
       lastFocused = document.activeElement;
       lightboxImg.src = src;
@@ -237,12 +324,16 @@
       lightboxCaption.textContent = caption || "";
       lightbox.hidden = false;
       document.body.style.overflow = "hidden";
+      setBackgroundInert(true);
+      lightbox.addEventListener("keydown", trapTabKey);
       lightboxClose.focus();
     }
     function closeLightbox() {
       lightbox.hidden = true;
       lightboxImg.src = "";
       document.body.style.overflow = "";
+      setBackgroundInert(false);
+      lightbox.removeEventListener("keydown", trapTabKey);
       if (lastFocused) lastFocused.focus();
     }
 
@@ -294,18 +385,10 @@
   /* ---------- Marché du jour / à venir ---------- */
   var dayCards = document.querySelectorAll(".marche-photocard[data-day]");
   if (dayCards.length) {
-    var now = new Date();
-    var today = now.getDay();
-    var nowMinutes = now.getHours() * 60 + now.getMinutes();
-
-    function parseHoraire(str) {
-      var m = str && str.match(/(\d{1,2})\s*h\s*(\d{2})?\s*[–-]\s*(\d{1,2})\s*h\s*(\d{2})?/);
-      if (!m) return null;
-      return {
-        start: parseInt(m[1], 10) * 60 + (m[2] ? parseInt(m[2], 10) : 0),
-        end: parseInt(m[3], 10) * 60 + (m[4] ? parseInt(m[4], 10) : 0)
-      };
-    }
+    var parisNowPdv = getParisNow();
+    var today = parisNowPdv.day;
+    var nowMinutes = parisNowPdv.minutes;
+    var parseHoraire = parseHoraireStr;
 
     var cardsInfo = Array.prototype.map.call(dayCards, function (card) {
       var d = parseInt(card.getAttribute("data-day"), 10);

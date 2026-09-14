@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=183">
+<link rel="stylesheet" href="css/style.css?v=184">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,9 +56,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
       </a>
     </div>
-    <a href="index.html" class="brand-center">
+    <a href="index.html" class="brand-center" aria-label="Accueil — Huîtres &amp; Coquillages Le Guennec">
       <img class="logo-white" src="img/logo-blanc.png" width="600" height="595" alt="" aria-hidden="true">
-      <img class="logo-color" src="img/logo.png" width="600" height="595" alt="Huîtres &amp; Coquillages Le Guennec">
+      <img class="logo-color" src="img/logo.png" width="600" height="595" alt="" aria-hidden="true">
     </a>
     <div class="header-actions">
       <a href="tel:+33661737423" class="btn btn-primary header-cta">
@@ -97,7 +97,10 @@
   <!-- ============ HERO IMMERSIF ============ -->
   <section class="presse-hero">
     <div class="presse-hero-media">
-      <img src="img/hero.jpg" width="2600" height="3466" alt="Vue de la mer et des parcs ostréicoles au coucher du soleil, Golfe du Morbihan" fetchpriority="high">
+      <picture>
+        <source type="image/webp" srcset="img/hero-640w.webp 640w, img/hero-960w.webp 960w, img/hero-1280w.webp 1280w, img/hero-1920w.webp 1920w, img/hero-2600w.webp 2600w" sizes="100vw">
+        <img src="img/hero.jpg" srcset="img/hero-640w.jpg 640w, img/hero-960w.jpg 960w, img/hero-1280w.jpg 1280w, img/hero-1920w.jpg 1920w, img/hero.jpg 2600w" sizes="100vw" width="2600" height="3466" alt="Vue de la mer et des parcs ostréicoles au coucher du soleil, Golfe du Morbihan" fetchpriority="high">
+      </picture>
     </div>
     <div class="container presse-hero-inner">
       <p class="eyebrow">Presse &amp; réseaux</p>
@@ -321,6 +324,6 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
 </button>
 
-<script src="js/main.js?v=183"></script>
+<script src="js/main.js?v=184"></script>
 </body>
 </html>

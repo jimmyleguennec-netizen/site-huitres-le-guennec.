@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=183">
+<link rel="stylesheet" href="css/style.css?v=184">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,9 +57,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
       </a>
     </div>
-    <a href="index.html" class="brand-center">
+    <a href="index.html" class="brand-center" aria-label="Accueil — Huîtres &amp; Coquillages Le Guennec">
       <img class="logo-white" src="img/logo-blanc.png" width="600" height="595" alt="" aria-hidden="true">
-      <img class="logo-color" src="img/logo.png" width="600" height="595" alt="Huîtres &amp; Coquillages Le Guennec">
+      <img class="logo-color" src="img/logo.png" width="600" height="595" alt="" aria-hidden="true">
     </a>
     <div class="header-actions">
       <a href="tel:+33661737423" class="btn btn-primary header-cta">
@@ -145,13 +145,13 @@
   <!-- ============ SECTION 2 : NOS MARCHÉS ============ -->
   <section class="section-pad bg-cream pdv-main">
     <div class="container">
-      <h2 class="calibrage-title" style="text-align:center;"> - Nos marchés - </h2>
-      <p style="text-align:center; color:var(--ink-600); max-width:60ch; margin:0 auto var(--space-2xl);">Cliquez sur un point de vente dans la liste pour le retrouver sur la carte.</p>
+      <h2 class="calibrage-title" style="text-align:center;">Nos marchés</h2>
+      <p style="text-align:center; color:var(--ink-600); max-width:60ch; margin:0 auto var(--space-2xl);">Sélectionnez un point de vente pour l&apos;afficher sur la carte.</p>
 
       <div class="pdv-layout reveal">
         <div class="marche-schedule">
           <div class="marche-day-group">
-            <h3 class="marche-day-heading">Le Jeudi - Morbihan</h3>
+            <h3 class="marche-day-heading">Jeudi — Morbihan</h3>
             <div class="marche-photocard is-new" data-day="4" data-market-id="cracH">
               <div class="marche-photocard-media">
                 <img src="img/marche-nuit.jpg" width="1000" height="735" loading="lazy" decoding="async" alt="Étal Huîtres et Coquillages Le Guennec sur le marché de Crac'h, place de l'Église">
@@ -159,13 +159,16 @@
               <div class="marche-photocard-content">
                 <h4>Marché de Crac&apos;h <span class="new-flag">Nouveau — Juin 2026</span></h4>
                 <p class="marche-schedule-line">Tous les jeudis de 7 h 30 à 13 h — Place de l&apos;Église</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=47.6181,-3.0012" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                <div class="marche-photocard-actions">
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=47.6181,-3.0012" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                  <button type="button" class="btn-marche-map-focus" data-market-id="cracH">Afficher sur la carte interactive</button>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="marche-day-group">
-            <h3 class="marche-day-heading">Le Vendredi - Morbihan</h3>
+            <h3 class="marche-day-heading">Vendredi — Morbihan</h3>
             <div class="marche-photocard" data-day="5" data-market-id="ploermel">
               <div class="marche-photocard-media">
                 <img src="img/marche-jour.jpg" width="2000" height="1500" loading="lazy" decoding="async" alt="Étal Huîtres et Coquillages Le Guennec sur la place du marché de Ploërmel, en journée">
@@ -173,13 +176,16 @@
               <div class="marche-photocard-content">
                 <h4>Marché de Ploërmel</h4>
                 <p class="marche-schedule-line">Tous les vendredis de 7 h à 13 h — Place du Marché</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=47.9322,-2.3975" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                <div class="marche-photocard-actions">
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=47.9322,-2.3975" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                  <button type="button" class="btn-marche-map-focus" data-market-id="ploermel">Afficher sur la carte interactive</button>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="marche-day-group">
-            <h3 class="marche-day-heading">Le Samedi - Ille-et-Vilaine</h3>
+            <h3 class="marche-day-heading">Samedi — Ille-et-Vilaine</h3>
             <div class="marche-photocard" data-day="6" data-market-id="rennes">
               <div class="marche-photocard-media">
                 <img src="img/marche-rennes.jpg" width="512" height="384" loading="lazy" decoding="async" alt="Étal Huîtres et Coquillages Le Guennec de nuit à Rennes, près du marché des Lices">
@@ -187,13 +193,16 @@
               <div class="marche-photocard-content">
                 <h4>Marché de Rennes — Place des Lices</h4>
                 <p class="marche-schedule-line">Tous les samedis de 5 h à 13 h 30 — Place des Lices</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=48.1125,-1.6836" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                <div class="marche-photocard-actions">
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=48.1125,-1.6836" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                  <button type="button" class="btn-marche-map-focus" data-market-id="rennes">Afficher sur la carte interactive</button>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="marche-day-group">
-            <h3 class="marche-day-heading">Le Dimanche - Morbihan</h3>
+            <h3 class="marche-day-heading">Dimanche — Morbihan</h3>
             <div class="marche-photocard" data-day="0" data-market-id="pluneret">
               <div class="marche-photocard-media">
                 <img src="img/marche-pluneret.jpg" width="1556" height="1011" loading="lazy" decoding="async" alt="Stand Huîtres et Coquillages Le Guennec sur le marché de Pluneret, devant la Mairie">
@@ -201,7 +210,10 @@
               <div class="marche-photocard-content">
                 <h4>Marché de Pluneret</h4>
                 <p class="marche-schedule-line">Tous les dimanches de 7 h à 13 h — Place de la Mairie</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=47.6742,-2.9568" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                <div class="marche-photocard-actions">
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=47.6742,-2.9568" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                  <button type="button" class="btn-marche-map-focus" data-market-id="pluneret">Afficher sur la carte interactive</button>
+                </div>
               </div>
             </div>
             <div class="marche-photocard" data-day="0" data-market-id="saintave">
@@ -211,7 +223,10 @@
               <div class="marche-photocard-content">
                 <h4>Marché de Saint-Avé</h4>
                 <p class="marche-schedule-line">Tous les dimanches de 7 h à 13 h — Place de la Mairie</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=47.6883,-2.7339" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                <div class="marche-photocard-actions">
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=47.6883,-2.7339" target="_blank" rel="noopener noreferrer" class="btn-marche-go-list">Voir sur la carte</a>
+                  <button type="button" class="btn-marche-map-focus" data-market-id="saintave">Afficher sur la carte interactive</button>
+                </div>
               </div>
             </div>
           </div>
@@ -237,7 +252,7 @@
             <div class="resto-card-fallback">MK</div>
           </div>
           <div class="resto-card-body">
-            <h4>Maison Kervarrec</h4>
+            <h3>Maison Kervarrec</h3>
             <p class="resto-type">Restaurant gastronomique</p>
             <p>Saint-Grégoire — Rennes — 1 impasse du Vieux Bourg, 35760 Saint-Grégoire</p>
           </div>
@@ -249,7 +264,7 @@
             <div class="resto-card-fallback">PA</div>
           </div>
           <div class="resto-card-body">
-            <h4>L&apos;Auberge du Pont d&apos;Acigné</h4>
+            <h3>L&apos;Auberge du Pont d&apos;Acigné</h3>
             <p class="resto-type">Restaurant gastronomique</p>
             <p>Noyal-sur-Vilaine — 8 Le Pont d&apos;Acigné, 35530 Noyal-sur-Vilaine</p>
           </div>
@@ -261,8 +276,8 @@
             <div class="resto-card-fallback">LR</div>
           </div>
           <div class="resto-card-body">
-            <h4>Les Routiers</h4>
-            <p class="resto-type">Bar Restaurant</p>
+            <h3>Les Routiers</h3>
+            <p class="resto-type">Bar-restaurant</p>
             <p>Ploërmel — 24 avenue Georges Pompidou, 56800 Ploërmel</p>
           </div>
         </article>
@@ -273,8 +288,8 @@
             <div class="resto-card-fallback">LB</div>
           </div>
           <div class="resto-card-body">
-            <h4>Le Blasenn</h4>
-            <p class="resto-type">Bistrot &amp; Cave à vin</p>
+            <h3>Le Blasenn</h3>
+            <p class="resto-type">Bistrot et cave à vin</p>
             <p>Crac&apos;h — 3 Place de l&apos;Église, 56950 Crac&apos;h</p>
           </div>
         </article>
@@ -349,6 +364,6 @@
 </button>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=183"></script>
+<script src="js/main.js?v=184"></script>
 </body>
 </html>

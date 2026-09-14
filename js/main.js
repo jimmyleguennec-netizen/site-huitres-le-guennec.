@@ -50,23 +50,46 @@
   var navToggle = document.getElementById("nav-toggle");
   var navClose = document.getElementById("nav-close");
   var navLinks = nav ? nav.querySelectorAll("a") : [];
+  var navFocusable = nav ? nav.querySelectorAll("a, button") : [];
 
   function openNav() {
     nav.classList.add("is-open");
     document.body.classList.add("nav-is-open");
     document.documentElement.classList.add("nav-is-open");
     navToggle.setAttribute("aria-expanded", "true");
+    if (navClose) navClose.focus();
   }
   function closeNav() {
     nav.classList.remove("is-open");
     document.body.classList.remove("nav-is-open");
     document.documentElement.classList.remove("nav-is-open");
     navToggle.setAttribute("aria-expanded", "false");
+    navToggle.focus();
   }
   if (navToggle) navToggle.addEventListener("click", openNav);
   if (navClose) navClose.addEventListener("click", closeNav);
   navLinks.forEach(function (link) {
     link.addEventListener("click", closeNav);
+  });
+
+  /* Echap pour fermer + piege du focus tant que le menu est ouvert */
+  document.addEventListener("keydown", function (e) {
+    if (!nav || !nav.classList.contains("is-open")) return;
+    if (e.key === "Escape") {
+      closeNav();
+      return;
+    }
+    if (e.key === "Tab" && navFocusable.length) {
+      var first = navFocusable[0];
+      var last = navFocusable[navFocusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
 
   /* ---------- Révélation au défilement ---------- */

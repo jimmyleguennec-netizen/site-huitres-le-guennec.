@@ -623,9 +623,11 @@ section { position: relative; }
 .histoire-media img {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  aspect-ratio: 4/5;
+  aspect-ratio: 4/3;
   object-fit: cover;
+  object-position: center;
   width: 100%;
+  height: auto;
 }
 .histoire-text-body p { color: var(--ink-600); margin-bottom: var(--space-sm); font-size: 1.05rem; }
 
@@ -865,22 +867,15 @@ section { position: relative; }
   display: block;
 }
 
-/* ---------- Page "Presse & Média" : reportage TVR (video dans un article gazette) ---------- */
-.tvr-feature-video {
-  position: relative;
+/* ---------- Page "Presse & Média" : reportage TVR (video locale dans un article gazette) ---------- */
+.tvr-local-video {
+  display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-sm);
-  overflow: hidden;
   box-shadow: var(--shadow-lg);
   background: var(--ink-900);
-}
-.tvr-feature-video iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+  object-fit: cover;
 }
 
 /* ---------- Page "Presse & Média" : articles style gazette ---------- */
@@ -889,7 +884,8 @@ section { position: relative; }
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   grid-template-areas: "heading media" "body media";
-  gap: var(--space-2xl);
+  column-gap: var(--space-2xl);
+  row-gap: var(--space-md);
   align-items: start;
   padding-block: var(--space-2xl);
 }
@@ -900,7 +896,7 @@ section { position: relative; }
 .gazette-heading { grid-area: heading; }
 .gazette-body { grid-area: body; }
 .gazette-media { grid-area: media; }
-.gazette-article + .gazette-article { border-top: 1px solid var(--line); }
+.gazette-article + .gazette-article { border-top: 2px solid var(--line); }
 .gazette-media {
   position: relative;
   align-self: start;
@@ -942,9 +938,7 @@ section { position: relative; }
   color: var(--navy-900);
   font-size: clamp(1.4rem, 2.6vw, 1.9rem);
   line-height: 1.2;
-  padding-bottom: var(--space-sm);
   margin-bottom: var(--space-md);
-  border-bottom: 2px solid var(--navy-900);
 }
 .gazette-headline span {
   display: block;
@@ -1019,7 +1013,8 @@ section { position: relative; }
 
 .gazette-article-feature {
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-2xl);
+  column-gap: var(--space-2xl);
+  row-gap: var(--space-md);
   padding-block: calc(var(--space-2xl) + var(--space-lg));
 }
 .gazette-article-feature .gazette-body { max-width: none; }

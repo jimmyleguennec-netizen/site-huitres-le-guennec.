@@ -1,22 +1,23 @@
 name: Update Google Reviews
 
 # Met a jour data/google-reviews.json avec la note et le nombre d'avis
-# Google reels, via l'API Google Places (Place Details).
+# Google reels, via l'API Google Places (New) - Place Details.
 #
 # Pour activer cette automatisation :
-#   1. Creer une cle API Google Places (Google Cloud Console) restreinte
-#      a l'API "Places API" et, idealement, a ce depot / cette IP.
+#   1. Dans Google Cloud Console, activer l'API "Places API (New)" sur
+#      un projet, puis creer une cle API restreinte a cette seule API.
 #   2. Recuperer le Place ID de la fiche Google Business Profile
 #      (https://developers.google.com/maps/documentation/places/web-service/place-id).
 #   3. Dans GitHub : Settings > Secrets and variables > Actions, ajouter :
 #        - GOOGLE_PLACES_API_KEY
 #        - GOOGLE_PLACE_ID
 # Tant que ces secrets ne sont pas definis, ce workflow ne fait rien
-# (il se termine proprement sans erreur ni modification).
+# (il se termine proprement sans erreur ni modification, et le badge du
+# site conserve son etat neutre "Avis Google / Voir nos avis").
 
 on:
   schedule:
-    - cron: "0 6 * * 1" # chaque lundi a 06h00 UTC
+    - cron: "0 6 * * 1" # chaque lundi a 06h00 UTC (1x/semaine)
   workflow_dispatch: {}
 
 jobs:
@@ -27,31 +28,48 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Recuperer la note depuis Google Places API
+      - name: Recuperer la note depuis Places API (New)
         env:
           GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
           GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
         run: |
           set -e
+
           if [ -z "$GOOGLE_PLACES_API_KEY" ] || [ -z "$GOOGLE_PLACE_ID" ]; then
             echo "Secrets GOOGLE_PLACES_API_KEY / GOOGLE_PLACE_ID absents : etape ignoree, rien a mettre a jour."
             exit 0
           fi
 
-          RESPONSE=$(curl -sS "https://maps.googleapis.com/maps/api/place/details/json?place_id=${GOOGLE_PLACE_ID}&fields=rating,user_ratings_total,url&key=${GOOGLE_PLACES_API_KEY}")
-          STATUS=$(echo "$RESPONSE" | jq -r '.status')
+          HTTP_STATUS=$(curl -sS -o response.json -w "%{http_code}" \
+            -H "X-Goog-Api-Key: ${GOOGLE_PLACES_API_KEY}" \
+            -H "X-Goog-FieldMask: rating,userRatingCount,googleMapsUri" \
+            "https://places.googleapis.com/v1/places/${GOOGLE_PLACE_ID}")
 
-          if [ "$STATUS" != "OK" ]; then
-            echo "Reponse API invalide (status=$STATUS) : fichier non modifie."
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "Reponse API invalide (HTTP $HTTP_STATUS) : fichier non modifie."
+            cat response.json
             exit 0
           fi
 
-          echo "$RESPONSE" | jq '{
-            rating: .result.rating,
-            reviews: .result.user_ratings_total,
-            url: (.result.url // "https://www.google.com/search?q=Hu%C3%AEtres+et+Coquillages+Le+Guennec+Crac%27h+avis"),
-            updated: (now | strftime("%Y-%m-%d"))
-          }' > data/google-reviews.json
+          RATING=$(jq -r '.rating // empty' response.json)
+          COUNT=$(jq -r '.userRatingCount // empty' response.json)
+
+          if [ -z "$RATING" ] || [ -z "$COUNT" ]; then
+            echo "Champs rating/userRatingCount absents de la reponse : fichier non modifie."
+            cat response.json
+            exit 0
+          fi
+
+          jq --arg fallback_url "https://www.google.com/search?q=Hu%C3%AEtres+et+Coquillages+Le+Guennec+Crac%27h+avis" \
+             --arg updated "$(date -u +%Y-%m-%d)" \
+             '{
+               rating: .rating,
+               reviews: .userRatingCount,
+               url: (.googleMapsUri // $fallback_url),
+               updated: $updated
+             }' response.json > data/google-reviews.json
+
+          rm -f response.json
 
       - name: Committer si le fichier a change
         run: |

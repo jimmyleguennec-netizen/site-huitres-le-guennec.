@@ -208,6 +208,20 @@
     });
   }
 
+  /* ---------- Badge flottant Avis Google ---------- */
+  var googleBadge = document.querySelector(".google-float-badge");
+  if (googleBadge) {
+    function toggleGoogleBadge() {
+      if (window.scrollY > 300) {
+        googleBadge.classList.add("is-visible");
+      } else {
+        googleBadge.classList.remove("is-visible");
+      }
+    }
+    toggleGoogleBadge();
+    window.addEventListener("scroll", toggleGoogleBadge, { passive: true });
+  }
+
   /* ---------- Lightbox (galerie d'archives + coupures de presse) ---------- */
   var lightbox = document.getElementById("lightbox");
   if (lightbox) {

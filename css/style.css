@@ -865,6 +865,7 @@ section { position: relative; }
 }
 
 /* ---------- Page "Presse & Média" : reportage TVR (video + texte) ---------- */
+.tvr-section { padding-block: var(--space-lg); }
 .tvr-feature {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -2092,7 +2093,7 @@ table.calibre-table tr:last-child td { border-bottom: none; }
   .social-proof-card { display: flex; align-items: center; gap: var(--space-xl); text-align: left; }
   .social-proof-card .rating-badge { flex-shrink: 0; margin-bottom: 0; }
   .social-proof-card .mini-testimonial { flex: 1; margin: 0; }
-  .social-proof-card .social-proof-actions { flex-shrink: 0; justify-content: flex-end; }
+  .social-proof-card .social-proof-actions { flex-shrink: 1; min-width: 0; justify-content: flex-end; }
 }
 .rating-badge {
   display: flex;
@@ -2237,7 +2238,7 @@ main > section:last-of-type {
 }
 .legal-block p { color: var(--ink-600); font-size: 0.96rem; line-height: 1.7; }
 .legal-block p + p { margin-top: var(--space-sm); }
-.legal-block a { color: var(--navy-800); font-weight: 600; }
+.legal-block a { color: var(--navy-800); font-weight: 600; overflow-wrap: break-word; word-break: break-word; }
 
 /* ---------- Coupure de presse cliquable ---------- */
 .presse-clipping-body {
@@ -2772,3 +2773,59 @@ main > section:last-of-type {
 .zoomable:hover::after, .zoomable:focus-visible::after { opacity: 1; }
 .zoomable:hover::after, .zoomable:focus-visible::after { transform: translate(-50%, -50%) scale(1); }
 .zoomable:focus-visible { outline: 3px solid var(--gold-600); outline-offset: 2px; }
+
+/* ==================================================================
+   CORRECTIONS RESPONSIVE MOBILE (passe finale) — <= 768px uniquement.
+   Ce bloc ne touche pas au rendu >= 1024px. Placé en fin de fichier
+   pour prendre le pas sur les regles precedentes de facon previsible.
+   ================================================================== */
+@media (max-width: 768px) {
+  /* 1. Echelle mobile globale : base 16px au lieu de 18px */
+  html { font-size: 100%; }
+
+  /* 2. Marges laterales des containers */
+  .container { padding-inline: 16px; }
+
+  /* 3. Hero page Presse */
+  .presse-hero { min-height: auto; }
+  .presse-hero-inner { padding-top: calc(84px + 32px); padding-bottom: 40px; }
+  .presse-hero h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .presse-hero-inner p { font-size: 0.95rem; line-height: 1.55; }
+
+  /* 4. Logos presse */
+  .press-logos-row { gap: 8px; margin-top: 24px; }
+  .press-logo-chip { height: 44px; padding: 6px 10px; }
+
+  /* 5. Bloc "Le Cabas de Juliana" : la colonne unique est deja en place,
+     on ajuste seulement l'espacement et la taille du logo */
+  .tvr-section { padding-block: 32px; }
+  .tvr-feature { gap: 24px; }
+  .tvr-feature-logo {
+    width: auto;
+    max-width: 120px;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  /* 6. Articles de presse (gazette) */
+  .gazette-section { padding-block: 48px; }
+  .gazette-article,
+  .gazette-article-feature {
+    padding-block: 40px;
+    gap: 24px;
+  }
+  .gazette-article,
+  .gazette-article-media-left {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading"
+      "media"
+      "body";
+  }
+
+  /* 7. Menu mobile : marges laterales reduites a 320px */
+  .main-nav { padding: 88px 24px 32px; }
+
+  /* 8. Espacements globaux des sections */
+  .section-pad { padding-block: 48px; }
+}

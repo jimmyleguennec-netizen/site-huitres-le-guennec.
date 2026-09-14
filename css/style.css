@@ -983,6 +983,12 @@ section { position: relative; }
   color: var(--ink-400);
 }
 .gazette-source-btn { margin-top: var(--space-sm); }
+.gazette-archive-note {
+  margin-top: var(--space-sm);
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-400);
+}
 .gazette-footnote {
   margin-top: var(--space-xl);
   padding-top: var(--space-xl);
@@ -2142,9 +2148,9 @@ main > section:last-of-type {
   justify-content: space-between;
   gap: var(--space-sm);
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.75);
 }
-.footer-legal-links a { color: rgba(255,255,255,0.55); text-decoration: underline; text-underline-offset: 2px; }
+.footer-legal-links a { color: rgba(255,255,255,0.75); text-decoration: underline; text-underline-offset: 2px; }
 .footer-legal-links a:hover { color: var(--white); }
 @media (max-width: 768px) {
   .site-footer { padding-block: 24px 16px; }

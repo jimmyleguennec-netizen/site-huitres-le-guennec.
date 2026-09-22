@@ -462,10 +462,17 @@ section { position: relative; }
   @media (prefers-reduced-motion: reduce) {
     .main-nav ul li { opacity: 1; transform: none; transition: none; }
   }
-  .main-nav ul { flex-direction: column; gap: var(--space-lg); text-align: left; align-items: flex-start; }
-  .main-nav a { color: var(--white); font-size: 1.15rem; padding-block: var(--space-xs); display: inline-block; }
+  .main-nav ul { flex-direction: column; gap: 0; text-align: left; align-items: stretch; }
+  .main-nav a {
+    color: var(--white);
+    font-size: 1.15rem;
+    padding-block: 0.65rem;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid rgba(198, 165, 87, 0.15);
+  }
   .main-nav a::after { display: none; }
-  .nav-close svg { color: var(--white); }
+  .nav-close svg { color: var(--white) !important; }
   .header-actions .btn-primary span { display: none; }
   .nav-toggle { display: inline-flex; z-index: 101; }
   body.nav-is-open .header-actions .nav-toggle:not(.nav-close) { visibility: hidden; }
@@ -2829,7 +2836,7 @@ main > section:last-of-type {
   /* ---- 2. Menu deplie : tiroir bleu nuit, liens alignes a gauche ----
      align-items/justify-content/padding pilotes par le breakpoint
      @media(max-width:1300px) qui gere reellement l'overlay ---- */
-  .main-nav ul { align-items: flex-start; text-align: left; width: 100%; }
+  .main-nav ul { align-items: stretch; text-align: left; width: 100%; }
   .main-nav a {
     color: var(--white);
     font-size: 1.1rem;
@@ -2841,7 +2848,7 @@ main > section:last-of-type {
     right: 20px;
     z-index: 100000;
   }
-  .nav-close svg { color: var(--white); }
+  .nav-close svg { color: var(--white) !important; }
   .nav-call-item {
     display: block;
     margin-top: var(--space-md);
@@ -2989,7 +2996,7 @@ main > section:last-of-type {
 }
 @media (max-width: 1300px) and (max-height: 650px) {
   /* 1. Menu mobile en paysage / petits ecrans : resserre les liens */
-  .main-nav ul { gap: 16px; }
+  .main-nav ul { gap: 0; }
   .main-nav a { padding-block: 6px; }
   .nav-call-item { margin-top: 12px; padding-top: 12px; }
 }

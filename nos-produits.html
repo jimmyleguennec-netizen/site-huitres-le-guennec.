@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=186">
+<link rel="stylesheet" href="css/style.css?v=187">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -73,6 +73,7 @@
 
   <div class="header-nav-row">
     <div class="container nav-row-inner">
+      <div class="nav-overlay" id="nav-overlay"></div>
       <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
         <button class="nav-toggle nav-close" id="nav-close" aria-label="Fermer le menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -122,7 +123,6 @@
                         <p class="produit-row-desc">Notre huître creuse la plus fine, à la chair délicate et iodée.</p>
             <p class="produit-row-calibre">Calibres disponibles : du n° 5 au n° 1</p>
             <p class="produit-row-season">Toute l&apos;année</p>
-            <span class="produit-row-origin produit-row-origin--own">Notre production</span>
             <div class="produit-row-medals">
               <div class="medal-badge">
                 <img src="img/medaille-or.png" width="240" height="240" loading="lazy" decoding="async" alt="Médaille d&apos;Or — Concours Général Agricole de Paris">
@@ -149,7 +149,6 @@
                         <p class="produit-row-desc">Élevée en casier australien, chair charnue et régulière.</p>
             <p class="produit-row-calibre">Calibres : du n° 4 au n° 1</p>
             <p class="produit-row-season">Disponible à partir de septembre/octobre, jusqu&apos;à épuisement des stocks, généralement en avril/mai.</p>
-            <span class="produit-row-origin produit-row-origin--own">Notre production</span>
             <div class="produit-row-medals">
               <div class="medal-badge">
                 <img src="img/medaille-or.png" width="240" height="240" loading="lazy" decoding="async" alt="Médaille d&apos;Or — Concours Général Agricole de Paris">
@@ -178,7 +177,6 @@
           </div>
 <div class="produit-row-body">
                         <p class="produit-row-desc">Élevée en poche à flotteurs, brassée naturellement au rythme des marées pour offrir une chair généreuse et une coquille renforcée.</p>
-            <span class="produit-row-origin produit-row-origin--own">Notre production</span>
           </div>
         </article>
 
@@ -190,7 +188,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Une variété rare et recherchée, au goût iodé et prononcé.</p>
             <p class="produit-row-season">Toute l&apos;année</p>
-            <span class="produit-row-origin produit-row-origin--partner">Sélection — Cancale</span>
           </div>
         </article>
 
@@ -207,7 +204,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Issues de notre propre production, pêchées à la main et au râteau sur nos parcs à marée basse.</p>
             <p class="produit-row-season">Toute l&apos;année</p>
-            <span class="produit-row-origin produit-row-origin--own">Notre production</span>
           </div>
         </article>
 
@@ -219,7 +215,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Issues de notre propre production, pêchées à la main et au râteau sur nos parcs à marée basse.</p>
             <p class="produit-row-season">Toute l&apos;année</p>
-            <span class="produit-row-origin produit-row-origin--own">Notre production</span>
           </div>
         </article>
 
@@ -231,7 +226,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Vendues vivantes, ces coquillages d&apos;exception dévoilent une chair ferme et iodée, délicieuse crue ou farcie au beurre d&apos;ail.</p>
             <p class="produit-row-season">septembre à avril</p>
-            <span class="produit-row-origin produit-row-origin--partner">Sélection</span>
           </div>
         </article>
 
@@ -243,7 +237,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Gros coquillage noble à la chair ferme et généreuse. Nos clams se dégustent aussi bien crus que cuisinés et farcis au beurre d&apos;ail.</p>
             <p class="produit-row-season">octobre à avril</p>
-            <span class="produit-row-origin produit-row-origin--partner">Sélection</span>
           </div>
         </article>
 
@@ -255,7 +248,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Moules de bouchot, chair dorée et goûteuse. Des moules d&apos;importation sont proposées de novembre à mars, pour prolonger la saison.</p>
             <p class="produit-row-season">juin à décembre</p>
-            <span class="produit-row-origin produit-row-origin--partner">Sélection / Arrivage</span>
           </div>
         </article>
 
@@ -267,7 +259,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Vendus vivants pour une fraîcheur absolue, parfaits pour vos plateaux de fruits de mer ou un apéro iodé.</p>
             <p class="produit-row-season">Toute l&apos;année</p>
-            <span class="produit-row-origin produit-row-origin--partner">Sélection</span>
           </div>
         </article>
 
@@ -284,7 +275,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Pêchées localement et vendues vivantes, reconnues pour la finesse et la douceur de leur chair. Également présentes en hiver, mais plus fragiles face au froid.</p>
             <p class="produit-row-season">Cœur de saison : mars à septembre</p>
-            <span class="produit-row-origin produit-row-origin--partner">Sélection</span>
           </div>
         </article>
 
@@ -296,7 +286,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Sélection de tourteaux pêchés en Bretagne et vendus vivants, un crabe généreux et charnu, parfait avec une pointe de mayonnaise maison.</p>
             <p class="produit-row-season">août à décembre</p>
-            <span class="produit-row-origin produit-row-origin--partner">Sélection</span>
           </div>
         </article>
 
@@ -308,7 +297,6 @@
 <div class="produit-row-body">
                         <p class="produit-row-desc">Le roi de nos côtes, vendu vivant et disponible sur commande pour vos grandes occasions. Volumes plus importants et meilleurs prix au printemps.</p>
             <p class="produit-row-season">mai à décembre</p>
-            <span class="produit-row-origin produit-row-origin--partner">Sélection</span>
           </div>
         </article>
 
@@ -377,6 +365,6 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
 </button>
 
-<script src="js/main.js?v=186"></script>
+<script src="js/main.js?v=187"></script>
 </body>
 </html>

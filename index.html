@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=186">
+<link rel="stylesheet" href="css/style.css?v=187">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -97,6 +97,7 @@
 
   <div class="header-nav-row">
     <div class="container nav-row-inner">
+      <div class="nav-overlay" id="nav-overlay"></div>
       <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
         <button class="nav-toggle nav-close" id="nav-close" aria-label="Fermer le menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -135,11 +136,11 @@
         <div class="hero-ctas reveal">
           <a href="points-de-vente.html" class="btn btn-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Trouver nos marchés
+            Nos Marchés &amp; Horaires
           </a>
-          <a href="tel:+33661737423" class="btn btn-ghost">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Nous contacter / Appeler
+          <a href="nos-produits.html" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Nos Huîtres &amp; Coquillages
           </a>
         </div>
       </div>
@@ -496,6 +497,48 @@
     </div>
   </section>
 
+  <!-- ============ ACCÈS RAPIDE ============ -->
+  <section class="section-pad bg-navy quick-access-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Accès rapide</p>
+        <h2>Nous trouver, en un clin d&apos;œil</h2>
+      </div>
+      <div class="quick-access-grid reveal">
+        <div class="quick-access-card">
+          <span class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+          </span>
+          <h3>Vente directe au chantier</h3>
+          <p>64 Kersolard, 56950 Crac&apos;h</p>
+          <ul class="quick-access-list">
+            <li>Lundi – Mercredi : 8 h 30 – 18 h</li>
+            <li>Jeudi : 8 h 30 – 12 h</li>
+          </ul>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=64+Kersolard%2C+56950+Crac%27h" target="_blank" rel="noopener noreferrer" class="btn btn-ghost quick-access-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Obtenir l&apos;itinéraire GPS
+          </a>
+        </div>
+        <div class="quick-access-card">
+          <span class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+          </span>
+          <h3>Retrouvez-nous ce week-end</h3>
+          <ul class="quick-access-list">
+            <li>Vendredi — Marché de Ploërmel</li>
+            <li>Samedi — Marché de Rennes, Place des Lices</li>
+            <li>Dimanche — Pluneret &amp; Saint-Avé</li>
+          </ul>
+          <a href="tel:+33661737423" class="btn btn-primary quick-access-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Appeler — 06 61 73 74 23
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- ============ LIGHTBOX (sites d'élevage) ============ -->
@@ -566,6 +609,6 @@
 </a>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="js/main.js?v=186"></script>
+<script src="js/main.js?v=187"></script>
 </body>
 </html>

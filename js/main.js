@@ -98,15 +98,17 @@
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* ---------- Menu mobile ---------- */
+  /* ---------- Menu mobile (tiroir + fond assombri) ---------- */
   var nav = document.getElementById("main-nav");
   var navToggle = document.getElementById("nav-toggle");
   var navClose = document.getElementById("nav-close");
+  var navOverlay = document.getElementById("nav-overlay");
   var navLinks = nav ? nav.querySelectorAll("a") : [];
   var navFocusable = nav ? nav.querySelectorAll("a, button") : [];
 
   function openNav() {
     nav.classList.add("is-open");
+    if (navOverlay) navOverlay.classList.add("is-open");
     document.body.classList.add("nav-is-open");
     document.documentElement.classList.add("nav-is-open");
     navToggle.setAttribute("aria-expanded", "true");
@@ -114,6 +116,7 @@
   }
   function closeNav() {
     nav.classList.remove("is-open");
+    if (navOverlay) navOverlay.classList.remove("is-open");
     document.body.classList.remove("nav-is-open");
     document.documentElement.classList.remove("nav-is-open");
     navToggle.setAttribute("aria-expanded", "false");
@@ -121,6 +124,7 @@
   }
   if (navToggle) navToggle.addEventListener("click", openNav);
   if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
   navLinks.forEach(function (link) {
     link.addEventListener("click", closeNav);
   });

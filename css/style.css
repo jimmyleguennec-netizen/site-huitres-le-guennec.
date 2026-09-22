@@ -206,6 +206,7 @@ section { position: relative; }
   z-index: 100;
   transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
+#archives { scroll-margin-top: 110px; }
 .site-header.is-scrolled {
   background: rgba(251, 248, 241, 0.92);
   backdrop-filter: blur(10px);
@@ -353,7 +354,8 @@ section { position: relative; }
     min-height: 100dvh;
     height: 100dvh;
     overflow-y: auto;
-    background-color: #ffffff !important;
+    overflow-x: hidden;
+    background-color: var(--navy-900) !important;
     display: flex !important;
     align-items: flex-start;
     justify-content: flex-start;
@@ -366,6 +368,19 @@ section { position: relative; }
     transform: translateX(100%);
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
   }
+  .main-nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/logo-huitres-coeur.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 95% auto;
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .main-nav > * { position: relative; z-index: 1; }
   .main-nav.is-open {
     pointer-events: auto;
     visibility: visible;
@@ -395,8 +410,9 @@ section { position: relative; }
     .main-nav ul li { opacity: 1; transform: none; transition: none; }
   }
   .main-nav ul { flex-direction: column; gap: var(--space-lg); text-align: left; align-items: flex-start; }
-  .main-nav a { color: var(--navy-900); font-size: 1.15rem; padding-block: var(--space-xs); display: inline-block; }
+  .main-nav a { color: var(--white); font-size: 1.15rem; padding-block: var(--space-xs); display: inline-block; }
   .main-nav a::after { display: none; }
+  .nav-close svg { color: var(--white); }
   .header-actions .btn-primary span { display: none; }
   .nav-toggle { display: inline-flex; z-index: 101; }
   body.nav-is-open .header-actions .nav-toggle:not(.nav-close) { visibility: hidden; }
@@ -2688,12 +2704,12 @@ main > section:last-of-type {
   /* ---- 1bis. Hero de page (pages intérieures) : padding réduit ---- */
   .page-hero { padding-block: calc(84px + var(--space-md)) var(--space-lg); }
 
-  /* ---- 2. Menu déplié : fond blanc épuré, liens alignés à gauche ----
+  /* ---- 2. Menu deplie : tiroir bleu nuit, liens alignes a gauche ----
      align-items/justify-content/padding pilotes par le breakpoint
      @media(max-width:1300px) qui gere reellement l'overlay ---- */
   .main-nav ul { align-items: flex-start; text-align: left; width: 100%; }
   .main-nav a {
-    color: var(--navy-900);
+    color: var(--white);
     font-size: 1.1rem;
     font-weight: 500;
   }
@@ -2703,12 +2719,12 @@ main > section:last-of-type {
     right: 20px;
     z-index: 100000;
   }
-  .nav-close svg { color: var(--navy-900); }
+  .nav-close svg { color: var(--white); }
   .nav-call-item {
     display: block;
     margin-top: var(--space-md);
     padding-top: var(--space-md);
-    border-top: 1px solid var(--line-soft);
+    border-top: 1px solid rgba(255,255,255,0.15);
     width: 100%;
   }
   .nav-call-item a {

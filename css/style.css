@@ -296,6 +296,59 @@ section { position: relative; }
 }
 .header-actions .btn-primary { padding: 0.7rem 1.4rem; font-size: 0.88rem; }
 
+/* ---------- Menu d'appel (bouton "Appeler / Commander") ---------- */
+.call-menu { position: relative; }
+.call-menu-toggle { cursor: pointer; }
+.call-menu-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 150;
+  width: max-content;
+  min-width: 240px;
+  max-width: min(300px, calc(100vw - 24px));
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-sm);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.call-menu-panel.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.call-menu-group + .call-menu-group {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--line-soft);
+}
+.call-menu-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--navy-700);
+  padding-inline: 0.6rem;
+  margin-bottom: 2px;
+}
+.call-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.55rem 0.6rem;
+  border-radius: var(--radius-md, 10px);
+  color: var(--navy-900);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.call-menu-link:hover, .call-menu-link:focus-visible { background: var(--shell-100); color: var(--gold-700); }
+
 .header-social {
   display: flex;
   align-items: center;
@@ -466,6 +519,8 @@ section { position: relative; }
 }
 .hero-text-block {
   max-width: 620px;
+  margin-inline: auto;
+  text-align: center;
 }
 .hero .eyebrow {
   color: var(--gold-300);
@@ -487,9 +542,15 @@ section { position: relative; }
   margin-top: var(--space-lg);
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-sm);
 }
 .hero-ctas .btn { padding-inline: 1.3rem; font-size: 0.9rem; white-space: normal; }
+@media (min-width: 1180px) {
+  /* Réserve la place de la carte flottante "Où nous trouver aujourd'hui ?" pour que
+     le bloc de texte reste centré dans l'espace disponible sans la chevaucher. */
+  .hero-inner { padding-right: 460px; }
+}
 .scroll-cue {
   position: absolute;
   bottom: var(--space-lg);

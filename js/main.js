@@ -129,6 +129,47 @@
     link.addEventListener("click", closeNav);
   });
 
+  /* ---------- Menu d'appel (bouton "Appeler / Commander") ---------- */
+  var callMenu = document.getElementById("call-menu");
+  var callMenuToggle = document.getElementById("call-menu-toggle");
+  var callMenuPanel = document.getElementById("call-menu-panel");
+  function openCallMenu() {
+    callMenuPanel.classList.add("is-open");
+    callMenuPanel.setAttribute("aria-hidden", "false");
+    callMenuToggle.setAttribute("aria-expanded", "true");
+  }
+  function closeCallMenu(focusToggle) {
+    callMenuPanel.classList.remove("is-open");
+    callMenuPanel.setAttribute("aria-hidden", "true");
+    callMenuToggle.setAttribute("aria-expanded", "false");
+    if (focusToggle) callMenuToggle.focus();
+  }
+  if (callMenu && callMenuToggle && callMenuPanel) {
+    callMenuToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (callMenuPanel.classList.contains("is-open")) {
+        closeCallMenu(false);
+      } else {
+        openCallMenu();
+        if (nav && nav.classList.contains("is-open")) closeNav();
+      }
+    });
+    document.addEventListener("click", function (e) {
+      if (callMenuPanel.classList.contains("is-open") && !callMenu.contains(e.target)) {
+        closeCallMenu(false);
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && callMenuPanel.classList.contains("is-open")) {
+        closeCallMenu(true);
+      }
+    });
+    if (navToggle) navToggle.addEventListener("click", function () { closeCallMenu(false); });
+    callMenuPanel.querySelectorAll(".call-menu-link").forEach(function (link) {
+      link.addEventListener("click", function () { closeCallMenu(false); });
+    });
+  }
+
   /* Echap pour fermer + piege du focus tant que le menu est ouvert */
   document.addEventListener("keydown", function (e) {
     if (!nav || !nav.classList.contains("is-open")) return;

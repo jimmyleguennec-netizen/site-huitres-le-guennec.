@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://huitres-leguennec.com/sitemap.xml
+Sitemap: https://jimmyleguennec-netizen.github.io/site-huitres-le-guennec./sitemap.xml

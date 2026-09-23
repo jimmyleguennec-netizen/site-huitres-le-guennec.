@@ -541,20 +541,9 @@ section { position: relative; }
 }
 .hero-ctas .btn { padding-inline: 1.3rem; font-size: 0.9rem; white-space: normal; }
 @media (min-width: 1180px) {
-  /* Mise en page à deux colonnes : texte à gauche, carte "Où nous trouver" à droite,
-     toutes deux dans le flux du conteneur (plus de superposition ni de débordement). */
-  .hero-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-2xl);
-  }
-  .hero-text-block {
-    text-align: left;
-    margin-inline: 0;
-    max-width: 560px;
-  }
-  .hero-ctas { justify-content: flex-start; }
+  /* Réserve la place de la carte flottante "Où nous trouver aujourd'hui ?" pour que
+     le bloc de texte reste centré dans l'espace disponible sans la chevaucher. */
+  .hero-inner { padding-right: 460px; }
 }
 .scroll-cue {
   position: absolute;
@@ -583,11 +572,17 @@ section { position: relative; }
   .scroll-cue { display: none; }
 }
 
-/* ---------- Carte "Où nous trouver aujourd'hui ?" (Hero) ---------- */
+/* ---------- Carte flottante "Où nous trouver aujourd'hui ?" (Hero) ---------- */
 .hero-market-card {
   display: none;
-  position: relative;
+  position: absolute;
+  top: 300px;
+  bottom: var(--space-xl);
+  right: var(--space-2xl);
+  margin-block: auto;
+  margin-right: 20px;
   z-index: 2;
+  width: 340px;
   background: rgba(13, 24, 38, 0.88);
   border: 1px solid rgba(198,165,87,0.45);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
@@ -612,11 +607,7 @@ section { position: relative; }
   pointer-events: none;
 }
 @media (min-width: 1180px) {
-  .hero-market-card {
-    display: block;
-    width: 340px;
-    flex-shrink: 0;
-  }
+  .hero-market-card { display: block; }
 }
 .hero-market-status {
   display: flex;
@@ -1855,28 +1846,6 @@ table.calibre-table tr:last-child td { border-bottom: none; }
 .resto-card-body h3 { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--gold-300); }
 .resto-card-body p { font-size: 0.86rem; color: var(--shell-100); opacity: 0.85; margin-top: 3px; line-height: 1.5; }
 .resto-card-body .resto-type { color: var(--gold-400, var(--gold-500)); font-weight: 600; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.06em; margin-top: 6px; opacity: 1; }
-
-/* ---------- Zones de vente (SEO local) ---------- */
-.pdv-zones-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-lg);
-}
-.pdv-zone-card {
-  padding: var(--space-lg);
-  background: var(--cream-050, var(--white));
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-md);
-}
-.pdv-zone-card h3 { font-size: 1.05rem; line-height: 1.35; margin-bottom: var(--space-2xs); color: var(--navy-800, var(--navy-900)); }
-.pdv-zone-card p { font-size: 0.92rem; color: var(--ink-600); line-height: 1.55; }
-.pdv-zones-summary {
-  max-width: 70ch;
-  margin: var(--space-xl) auto 0;
-  text-align: center;
-  color: var(--ink-600);
-  line-height: 1.65;
-}
 
 .resto-partner-banner {
   position: relative;

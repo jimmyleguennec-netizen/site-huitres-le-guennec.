@@ -541,9 +541,20 @@ section { position: relative; }
 }
 .hero-ctas .btn { padding-inline: 1.3rem; font-size: 0.9rem; white-space: normal; }
 @media (min-width: 1180px) {
-  /* Réserve la place de la carte flottante "Où nous trouver aujourd'hui ?" pour que
-     le bloc de texte reste centré dans l'espace disponible sans la chevaucher. */
-  .hero-inner { padding-right: 460px; }
+  /* Mise en page à deux colonnes : texte à gauche, carte "Où nous trouver" à droite,
+     toutes deux dans le flux du conteneur (plus de superposition ni de débordement). */
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2xl);
+  }
+  .hero-text-block {
+    text-align: left;
+    margin-inline: 0;
+    max-width: 560px;
+  }
+  .hero-ctas { justify-content: flex-start; }
 }
 .scroll-cue {
   position: absolute;
@@ -572,16 +583,11 @@ section { position: relative; }
   .scroll-cue { display: none; }
 }
 
-/* ---------- Carte flottante "Où nous trouver aujourd'hui ?" (Hero) ---------- */
+/* ---------- Carte "Où nous trouver aujourd'hui ?" (Hero) ---------- */
 .hero-market-card {
   display: none;
-  position: absolute;
-  top: 300px;
-  bottom: var(--space-xl);
-  right: var(--space-2xl);
-  margin-block: auto;
+  position: relative;
   z-index: 2;
-  width: 340px;
   background: rgba(13, 24, 38, 0.88);
   border: 1px solid rgba(198,165,87,0.45);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
@@ -606,7 +612,11 @@ section { position: relative; }
   pointer-events: none;
 }
 @media (min-width: 1180px) {
-  .hero-market-card { display: block; }
+  .hero-market-card {
+    display: block;
+    width: 340px;
+    flex-shrink: 0;
+  }
 }
 .hero-market-status {
   display: flex;

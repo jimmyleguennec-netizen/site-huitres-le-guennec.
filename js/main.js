@@ -37,48 +37,39 @@
   var heroMarketText = document.getElementById("hero-market-text");
   if (heroMarketText) {
     var heroMarketDot = document.getElementById("hero-market-dot");
-    /* Horaires strictement identiques a ceux affiches ailleurs sur le site
-       (chantier + marches). Priorite d'affichage quand plusieurs creneaux
-       coexistent le meme jour (ex. jeudi matin) : marche puis chantier. */
+    /* Grille hebdomadaire : un seul créneau par jour. */
     var heroCreneaux = [
-      { day: 1, horaire: "8 h 30 – 18 h", label: "Chantier ouvert (8 h 30 – 18 h)" },
-      { day: 2, horaire: "8 h 30 – 18 h", label: "Chantier ouvert (8 h 30 – 18 h)" },
-      { day: 3, horaire: "8 h 30 – 18 h", label: "Chantier ouvert (8 h 30 – 18 h)" },
-      { day: 4, horaire: "7 h 30 – 13 h", label: "Marché de Crac'h (7 h 30 – 13 h)" },
-      { day: 4, horaire: "8 h 30 – 12 h", label: "Chantier ouvert (8 h 30 – 12 h)" },
-      { day: 5, horaire: "7 h – 13 h", label: "Marché de Ploërmel (7 h – 13 h)" },
-      { day: 6, horaire: "5 h – 13 h 30", label: "Marché de Rennes — Place des Lices (5 h – 13 h 30)" },
-      { day: 0, horaire: "7 h – 13 h", label: "Marchés de Pluneret & Saint-Avé (7 h – 13 h)" }
+      { day: 1, lieu: "Chantier", start: "8h30", end: "18h" },
+      { day: 2, lieu: "Chantier", start: "8h30", end: "18h" },
+      { day: 3, lieu: "Chantier", start: "8h30", end: "18h" },
+      { day: 4, lieu: "Marché de Crac'h", start: "8h30", end: "13h" },
+      { day: 5, lieu: "Marché de Ploërmel", start: "8h30", end: "13h" },
+      { day: 6, lieu: "Marché de Rennes", start: "8h30", end: "13h" },
+      { day: 0, lieu: "Marchés de Pluneret & Saint-Avé", start: "8h30", end: "13h" }
     ];
-    var parisNow = getParisNow();
-    var current = null;
-    for (var i = 0; i < heroCreneaux.length; i++) {
-      var c = heroCreneaux[i];
-      if (c.day !== parisNow.day) continue;
-      var h = parseHoraireStr(c.horaire);
-      if (h && parisNow.minutes >= h.start && parisNow.minutes < h.end) { current = c; break; }
+    function heureToMinutes(str) {
+      var m = str.match(/(\d{1,2})h(\d{2})?/);
+      return parseInt(m[1], 10) * 60 + (m[2] ? parseInt(m[2], 10) : 0);
     }
-    if (current) {
-      heroMarketText.textContent = "Aujourd'hui : " + current.label;
+    var parisNow = getParisNow();
+    var today = heroCreneaux.filter(function (c) { return c.day === parisNow.day; })[0];
+    var isOpen = today && parisNow.minutes >= heureToMinutes(today.start) && parisNow.minutes < heureToMinutes(today.end);
+    if (isOpen) {
+      heroMarketText.textContent = "Aujourd'hui : " + today.lieu + " (ouvert jusqu'à " + today.end + ")";
       if (heroMarketDot) heroMarketDot.classList.add("is-live");
     } else {
-      /* Rien d'ouvert maintenant : on cherche le prochain creneau, y compris plus tard le meme jour. */
       var next = null;
-      for (var offset = 0; offset < 8 && !next; offset++) {
+      for (var offset = 0; offset < 7 && !next; offset++) {
         var d = (parisNow.day + offset) % 7;
-        var todaysCreneaux = heroCreneaux.filter(function (c) { return c.day === d; });
-        todaysCreneaux.forEach(function (c) {
-          var h2 = parseHoraireStr(c.horaire);
-          if (!h2) return;
-          if (offset === 0 && h2.start <= parisNow.minutes) return;
-          if (!next) next = { c: c, day: d };
-        });
+        var c = heroCreneaux.filter(function (item) { return item.day === d; })[0];
+        if (!c) continue;
+        if (offset === 0 && heureToMinutes(c.start) <= parisNow.minutes) continue;
+        next = { c: c, day: d };
       }
       if (next) {
-        var dayLabel = next.day === parisNow.day ? "aujourd'hui" : JOURS_FR[next.day].toLowerCase();
-        heroMarketText.textContent = "Fermé actuellement — prochain : " + next.c.label + " (" + dayLabel + ")";
+        heroMarketText.textContent = "Fermé — Prochaine ouverture : " + next.c.lieu + " (" + JOURS_FR[next.day] + " de " + next.c.start + " à " + next.c.end + ")";
       } else {
-        heroMarketText.textContent = "Fermé actuellement — consultez nos horaires ci-dessous";
+        heroMarketText.textContent = "Fermé — consultez nos horaires ci-dessous";
       }
       if (heroMarketDot) heroMarketDot.classList.remove("is-live");
     }

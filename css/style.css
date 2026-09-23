@@ -207,6 +207,7 @@ section { position: relative; }
   transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 #archives { scroll-margin-top: 110px; }
+#archives .section-head h2 { padding-top: var(--space-md); }
 .site-header.is-scrolled {
   background: rgba(251, 248, 241, 0.92);
   backdrop-filter: blur(10px);
@@ -466,10 +467,10 @@ section { position: relative; }
   .main-nav a {
     color: var(--white);
     font-size: 1.15rem;
-    padding-block: 0.65rem;
+    padding-block: 0.45rem;
     display: block;
     width: 100%;
-    border-bottom: 1px solid rgba(198, 165, 87, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   .main-nav a::after { display: none; }
   .nav-close svg { color: var(--white) !important; }

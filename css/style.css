@@ -323,20 +323,6 @@ section { position: relative; }
   transform: translateY(0);
   pointer-events: auto;
 }
-.call-menu-group + .call-menu-group {
-  margin-top: var(--space-sm);
-  padding-top: var(--space-sm);
-  border-top: 1px solid var(--line-soft);
-}
-.call-menu-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--navy-700);
-  padding-inline: 0.6rem;
-  margin-bottom: 2px;
-}
 .call-menu-link {
   display: flex;
   align-items: center;

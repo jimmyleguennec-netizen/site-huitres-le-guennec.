@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jimmyleguennec-netizen.github.io/site-huitres-le-guennec./index.html</loc>
+    <loc>https://huitres-leguennec.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jimmyleguennec-netizen.github.io/site-huitres-le-guennec./nos-produits.html</loc>
+    <loc>https://huitres-leguennec.com/nos-produits</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jimmyleguennec-netizen.github.io/site-huitres-le-guennec./points-de-vente.html</loc>
+    <loc>https://huitres-leguennec.com/points-de-vente</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jimmyleguennec-netizen.github.io/site-huitres-le-guennec./histoire.html</loc>
+    <loc>https://huitres-leguennec.com/histoire</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jimmyleguennec-netizen.github.io/site-huitres-le-guennec./presse.html</loc>
+    <loc>https://huitres-leguennec.com/presse</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://jimmyleguennec-netizen.github.io/site-huitres-le-guennec./mentions-legales.html</loc>
+    <loc>https://huitres-leguennec.com/mentions-legales</loc>
     <priority>0.3</priority>
   </url>
 </urlset>

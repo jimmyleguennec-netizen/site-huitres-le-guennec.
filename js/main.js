@@ -324,7 +324,8 @@
        present en HTML. */
     /* API Google Places (New) : cle restreinte au domaine huitres-leguennec.com.
        Resultat garde 24 h dans localStorage ; repli sur data/google-reviews.json. */
-    var G_API_KEY = "AIzaSyAr_JXYpzjIwmGNJQKReppMFvIJCXicCY";
+    var G_API_KEY = "AIzaSyBXrBVT5YOoRvzvZEMcCTr6Q9Zc4U2Diks";
+    var PLACE_ID = "ChIJIz6FBgATEEgRqZ0kA19k9WM";
     var G_REVIEW_URL = "https://g.page/r/CamdJANfZPVjEAE/review";
     var G_QUERY = "Huîtres et coquillages Le Guennec Crac'h";
     var REVIEWS_CACHE_KEY = "gReviewsCache";
@@ -334,9 +335,9 @@
     var REVIEWS_RETRY = 60 * 60 * 1000;
     function lsGet(k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } }
     function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
-    function getPlaceId() {
+    function getPlaceId(forceSearch) {
       var stored = lsGet(PLACE_ID_KEY);
-      if (stored) return Promise.resolve(stored);
+      if (!forceSearch) return Promise.resolve(stored || PLACE_ID);
       return fetch("https://places.googleapis.com/v1/places:searchText", {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-Goog-Api-Key": G_API_KEY, "X-Goog-FieldMask": "places.id" },
@@ -349,11 +350,19 @@
           return id;
         });
     }
+    function placeDetails(id) {
+      return fetch("https://places.googleapis.com/v1/places/" + encodeURIComponent(id), {
+        headers: { "X-Goog-Api-Key": G_API_KEY, "X-Goog-FieldMask": "rating,userRatingCount" }
+      });
+    }
     function fetchFromPlaces() {
-      return getPlaceId().then(function (id) {
-        return fetch("https://places.googleapis.com/v1/places/" + encodeURIComponent(id), {
-          headers: { "X-Goog-Api-Key": G_API_KEY, "X-Goog-FieldMask": "rating,userRatingCount" }
-        });
+      return getPlaceId().then(placeDetails).then(function (r) {
+        if (r.status === 404) {
+          /* Place ID perime : on le retrouve par recherche textuelle */
+          try { localStorage.removeItem(PLACE_ID_KEY); } catch (e) { /* ignore */ }
+          return getPlaceId(true).then(placeDetails);
+        }
+        return r;
       }).then(function (r) { if (!r.ok) throw new Error("places details " + r.status); return r.json(); })
         .then(function (d) {
           if (typeof d.rating !== "number" || typeof d.userRatingCount !== "number") throw new Error("reponse incomplete");

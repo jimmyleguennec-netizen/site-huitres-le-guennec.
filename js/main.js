@@ -322,8 +322,23 @@
        ne contient pas encore de note reelle (rating/reviews = null), le
        badge garde son etat neutre "Avis Google / Voir nos avis" deja
        present en HTML. */
-    fetch("data/google-reviews.json", { cache: "no-store" })
-      .then(function (res) { return res.ok ? res.json() : null; })
+    var REVIEWS_CACHE_KEY = "gReviewsCache";
+    var REVIEWS_TTL = 24 * 60 * 60 * 1000;
+    function loadReviews() {
+      try {
+        var cached = JSON.parse(localStorage.getItem(REVIEWS_CACHE_KEY) || "null");
+        if (cached && cached.data && Date.now() - cached.time < REVIEWS_TTL) return Promise.resolve(cached.data);
+      } catch (e) { /* localStorage indisponible : on interroge le JSON */ }
+      return fetch("data/google-reviews.json", { cache: "no-store" })
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .then(function (data) {
+          if (data && typeof data.rating === "number" && typeof data.reviews === "number") {
+            try { localStorage.setItem(REVIEWS_CACHE_KEY, JSON.stringify({ time: Date.now(), data: data })); } catch (e) { /* ignore */ }
+          }
+          return data;
+        });
+    }
+    loadReviews()
       .then(function (data) {
         if (!data || typeof data.rating !== "number" || typeof data.reviews !== "number") return;
         var titleEl = document.getElementById("google-badge-title");

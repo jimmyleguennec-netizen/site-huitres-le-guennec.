@@ -322,21 +322,62 @@
        ne contient pas encore de note reelle (rating/reviews = null), le
        badge garde son etat neutre "Avis Google / Voir nos avis" deja
        present en HTML. */
+    /* API Google Places (New) : cle restreinte au domaine huitres-leguennec.com.
+       Resultat garde 24 h dans localStorage ; repli sur data/google-reviews.json. */
+    var G_API_KEY = "AIzaSyAr_JXYpzjIwmGNJQKReppMFvIJCXicCY";
+    var G_REVIEW_URL = "https://g.page/r/CamdJANfZPVjEAE/review";
+    var G_QUERY = "Huîtres et coquillages Le Guennec Crac'h";
     var REVIEWS_CACHE_KEY = "gReviewsCache";
+    var PLACE_ID_KEY = "gPlaceId";
+    var REVIEWS_FAIL_KEY = "gReviewsFail";
     var REVIEWS_TTL = 24 * 60 * 60 * 1000;
-    function loadReviews() {
-      try {
-        var cached = JSON.parse(localStorage.getItem(REVIEWS_CACHE_KEY) || "null");
-        if (cached && cached.data && Date.now() - cached.time < REVIEWS_TTL) return Promise.resolve(cached.data);
-      } catch (e) { /* localStorage indisponible : on interroge le JSON */ }
-      return fetch("data/google-reviews.json", { cache: "no-store" })
-        .then(function (res) { return res.ok ? res.json() : null; })
-        .then(function (data) {
-          if (data && typeof data.rating === "number" && typeof data.reviews === "number") {
-            try { localStorage.setItem(REVIEWS_CACHE_KEY, JSON.stringify({ time: Date.now(), data: data })); } catch (e) { /* ignore */ }
-          }
-          return data;
+    var REVIEWS_RETRY = 60 * 60 * 1000;
+    function lsGet(k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } }
+    function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
+    function getPlaceId() {
+      var stored = lsGet(PLACE_ID_KEY);
+      if (stored) return Promise.resolve(stored);
+      return fetch("https://places.googleapis.com/v1/places:searchText", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Goog-Api-Key": G_API_KEY, "X-Goog-FieldMask": "places.id" },
+        body: JSON.stringify({ textQuery: G_QUERY, languageCode: "fr" })
+      }).then(function (r) { if (!r.ok) throw new Error("places search " + r.status); return r.json(); })
+        .then(function (d) {
+          var id = d.places && d.places[0] && d.places[0].id;
+          if (!id) throw new Error("place introuvable");
+          lsSet(PLACE_ID_KEY, id);
+          return id;
         });
+    }
+    function fetchFromPlaces() {
+      return getPlaceId().then(function (id) {
+        return fetch("https://places.googleapis.com/v1/places/" + encodeURIComponent(id), {
+          headers: { "X-Goog-Api-Key": G_API_KEY, "X-Goog-FieldMask": "rating,userRatingCount" }
+        });
+      }).then(function (r) { if (!r.ok) throw new Error("places details " + r.status); return r.json(); })
+        .then(function (d) {
+          if (typeof d.rating !== "number" || typeof d.userRatingCount !== "number") throw new Error("reponse incomplete");
+          return { rating: d.rating, reviews: d.userRatingCount };
+        });
+    }
+    function fetchFromJson() {
+      return fetch("data/google-reviews.json", { cache: "no-store" })
+        .then(function (res) { return res.ok ? res.json() : null; });
+    }
+    function loadReviews() {
+      var cached = lsGet(REVIEWS_CACHE_KEY);
+      if (cached && cached.data && Date.now() - cached.time < REVIEWS_TTL) return Promise.resolve(cached.data);
+      var failedAt = lsGet(REVIEWS_FAIL_KEY);
+      var apiPromise = (failedAt && Date.now() - failedAt < REVIEWS_RETRY)
+        ? Promise.reject(new Error("api en pause"))
+        : fetchFromPlaces();
+      return apiPromise.then(function (data) {
+        lsSet(REVIEWS_CACHE_KEY, { time: Date.now(), data: data });
+        return data;
+      }).catch(function () {
+        lsSet(REVIEWS_FAIL_KEY, Date.now());
+        return fetchFromJson();
+      });
     }
     loadReviews()
       .then(function (data) {
@@ -345,12 +386,11 @@
         var subEl = document.getElementById("google-badge-sub");
         if (!titleEl || !subEl) return;
         var rating = Math.max(0, Math.min(5, data.rating));
-        var ratingStr = rating.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-        var fullStars = Math.round(rating);
-        var starsStr = "★".repeat(fullStars) + "☆".repeat(5 - fullStars);
-        titleEl.innerHTML = ratingStr + ' <span class="google-float-badge-stars" aria-hidden="true">' + starsStr + "</span>";
-        subEl.textContent = data.reviews + " avis Google";
-        if (data.url) googleBadge.href = data.url;
+        var ratingStr = rating.toFixed(1);
+        var count = data.reviews >= 10 ? (Math.floor(data.reviews / 10) * 10) + "+" : String(data.reviews);
+        titleEl.textContent = "★ " + ratingStr;
+        subEl.textContent = "(" + count + " avis)";
+        googleBadge.href = G_REVIEW_URL;
       })
       .catch(function () { /* pas de connexion / JSON absent : etat neutre conserve */ });
   }

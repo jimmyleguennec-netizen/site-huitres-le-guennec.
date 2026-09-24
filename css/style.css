@@ -2965,3 +2965,16 @@ main > section:last-of-type {
   .marche-photocard-media img { transform: none; }
   .marche-photocard-content { padding: 20px; }
 }
+
+/* Bandeau "Où nous trouver" : calé à droite du Hero sur ordinateur, sous le sous-titre sur mobile */
+@media (min-width: 1180px) {
+  .hero-inner { padding-right: 460px; }
+  .hero-market-wrap {
+    position: absolute;
+    right: var(--space-lg);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+  }
+  .hero-market-pill { border-radius: 26px; padding: 0.9rem 1.2rem; width: 100%; }
+}

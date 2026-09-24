@@ -2987,3 +2987,9 @@ main > section:last-of-type {
   .hero-market-wrap .hero-ctas { justify-content: flex-end; margin-top: var(--space-md); flex-wrap: nowrap; }
   .hero-market-wrap .hero-ctas .btn { padding-inline: 1rem; font-size: 0.85rem; white-space: nowrap; }
 }
+
+/* Desktop : les deux colonnes du Hero (texte à gauche, statut + boutons à droite) partagent la même ligne médiane */
+@media (min-width: 1180px) {
+  .hero { align-items: center; }
+  .hero-inner { padding-block: 7rem; }
+}

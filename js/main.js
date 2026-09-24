@@ -328,9 +328,10 @@
     var PLACE_ID = "ChIJIz6FBgATEEgRqZ0kA19k9WM";
     var G_REVIEW_URL = "https://g.page/r/CamdJANfZPVjEAE/review";
     var G_QUERY = "Huîtres et coquillages Le Guennec Crac'h";
-    var REVIEWS_CACHE_KEY = "gReviewsCache";
-    var PLACE_ID_KEY = "gPlaceId";
-    var REVIEWS_FAIL_KEY = "gReviewsFail";
+    var REVIEWS_CACHE_KEY = "google_reviews_v2";
+    var PLACE_ID_KEY = "google_reviews_v2_place";
+    var REVIEWS_FAIL_KEY = "google_reviews_v2_fail";
+    try { ["gReviewsCache", "gPlaceId", "gReviewsFail"].forEach(function (k) { localStorage.removeItem(k); }); } catch (e) { /* ignore */ }
     var REVIEWS_TTL = 24 * 60 * 60 * 1000;
     var REVIEWS_RETRY = 60 * 60 * 1000;
     function lsGet(k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } }

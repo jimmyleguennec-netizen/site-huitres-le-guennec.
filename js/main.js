@@ -66,10 +66,11 @@
         if (offset === 0 && heureToMinutes(c.start) <= parisNow.minutes) continue;
         next = { c: c, day: d };
       }
-      if (next) {
-        heroMarketText.textContent = "Fermé — Prochaine ouverture : " + next.c.lieu + " (" + JOURS_FR[next.day] + " de " + next.c.start + " à " + next.c.end + ")";
-      } else {
-        heroMarketText.textContent = "Fermé — consultez nos horaires ci-dessous";
+      heroMarketText.textContent = "Aujourd'hui : Fermé";
+      var heroMarketNext = document.getElementById("hero-market-next");
+      if (heroMarketNext && next) {
+        heroMarketNext.textContent = "Prochaine ouverture : " + next.c.lieu + " (" + JOURS_FR[next.day] + " de " + next.c.start + " à " + next.c.end + ")";
+        heroMarketNext.hidden = false;
       }
       if (heroMarketDot) heroMarketDot.classList.remove("is-live");
     }

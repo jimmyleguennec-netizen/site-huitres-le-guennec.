@@ -2978,3 +2978,12 @@ main > section:last-of-type {
   }
   .hero-market-pill { border-radius: 26px; padding: 0.9rem 1.2rem; width: 100%; }
 }
+
+/* Bloc Hero droit : pilule + boutons d'action en dessous, alignés à droite */
+.hero-market-title, .hero-market-link { display: none; }
+@media (min-width: 1180px) {
+  .hero-market-wrap { width: 360px; display: flex; flex-direction: column; align-items: flex-end; }
+  .hero-market-wrap .hero-market-pill { margin: 0; }
+  .hero-market-wrap .hero-ctas { justify-content: flex-end; margin-top: var(--space-md); flex-wrap: nowrap; }
+  .hero-market-wrap .hero-ctas .btn { padding-inline: 1rem; font-size: 0.85rem; white-space: nowrap; }
+}

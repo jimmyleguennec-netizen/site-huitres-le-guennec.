@@ -2991,5 +2991,5 @@ main > section:last-of-type {
 /* Desktop : les deux colonnes du Hero (texte à gauche, statut + boutons à droite) partagent la même ligne médiane */
 @media (min-width: 1180px) {
   .hero { align-items: center; }
-  .hero-inner { padding-block: 7rem; }
+  .hero-inner { padding-block: 9.5rem 4.5rem; }
 }
